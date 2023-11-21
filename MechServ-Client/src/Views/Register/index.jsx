@@ -20,36 +20,47 @@ const Register = () => {
           <input
             type="text"
             className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            placeholder="Nombre y Apellido"
+            placeholder="Nombre de usuario"
           />
           <input
             type="number"
             className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
             placeholder="Número de teléfono"
           />
+          {/* <input
+            type="file"
+            class="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+            placeholder="Resume"
+          /> */}
           <input
             type="email"
+            id="email"
             className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
             placeholder="Email"
           />
           <input
-            type="date"
-            class="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            placeholder="Date of Birth"
-          />
-
-          {/* <input
-            type="text"
+            type="email"
+            id="confirm-mail"
             className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            placeholder="Job Title"
-          /> */}
-
-          <input
-            className="cursor-pointer"
-            type="reset"
-            value="Resetear Valores"
+            placeholder="Confirma Email"
           />
-
+          <input
+            type="password"
+            id="password"
+            className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+            placeholder="Contraseña"
+          />
+          <input
+            type="password"
+            id="repeat-password"
+            className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+            placeholder="Repetir Contraseña"
+          />
+          <input
+            className="bg-gray-100 text-[#202123] hover:text-indigo-500 font-semibold cursor-pointer border- rounded-md p-2 mb-4"
+            type="reset"
+            value="Limpiar Valores"
+          />
           <button
             type="submit"
             className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150"
