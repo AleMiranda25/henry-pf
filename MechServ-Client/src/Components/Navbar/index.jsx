@@ -35,7 +35,7 @@ const Navbar = () => {
 
       <ul className="flex flex-row items-center gap-4">
         <li class="searchBar float-right">
-          {location.pathname === "/" && <Searchbar />}
+          {location.pathname === "/home" && <Searchbar />}
         </li>
         <li>
           <a
