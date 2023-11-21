@@ -1,14 +1,21 @@
 //Funcionalidad
-
-//Styles
-
+import { landingBG } from "../../assets/Backgrounds/backgrounds";
+import { useNavigate } from "react-router";
 //Components
+import { Navbar } from "../../Components";
 
 //? #####################################################
 
 const LandingPage = () => {
+  const navigate = useNavigate();
   return (
-    <div className="w-full max-w-full px-3 mx-0 mt-0 md:flex-0 shrink-0">
+    <div
+      className="bg-cover bg-center bg-no-repeat w-full max-w-full px-3 mx-0 mt-0 md:flex-0 shrink-0"
+      style={{
+        backgroundImage: `url(${landingBG})`,
+      }}
+    >
+      <Navbar />
       <div className="flex flex-col items-center justify-center h-screen">
         <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
@@ -33,7 +40,11 @@ const LandingPage = () => {
                 <input type="checkbox" id="remember-me" className="mr-2" />
                 Recuerdame
               </label>
-              <a href="#" class="text-sm text-blue-500 hover:underline mb-0.5">
+              <a
+                href="#"
+                className="text-sm text-blue-500 hover:underline mb-0.5"
+                onClick={() => navigate("/resetPassword")}
+              >
                 ¿Olvidaste la contraseña?
               </a>
               <p className="text-gray-900 mt-4">
@@ -42,6 +53,7 @@ const LandingPage = () => {
                 <a
                   href="#"
                   className="text-sm text-blue-500 -200 hover:underline mt-4"
+                  onClick={() => navigate("/register")}
                 >
                   Registrarme
                 </a>
