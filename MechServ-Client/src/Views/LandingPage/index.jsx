@@ -7,7 +7,7 @@ import validation from "./validation";
 
 //? #####################################################
 
-const LandingPage = () => {
+const LandingPage = ({ login }) => {
   const [userData, setUserData] = useState({
     userEmail: "",
     userPassword: "",
@@ -25,6 +25,12 @@ const LandingPage = () => {
     console.log(userData);
     setErrors(validation({ ...userData, [e.target.name]: e.target.value }));
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    login(userData);
+  };
+
   const navigate = useNavigate();
   return (
     <div
@@ -38,7 +44,7 @@ const LandingPage = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Iniciar sesión
           </h2>
-          <form className="flex flex-col">
+          <form className="flex flex-col" onSubmit={handleSubmit}>
             <input
               type="email"
               value={userData.userEmail}
@@ -46,13 +52,14 @@ const LandingPage = () => {
               onChange={handleChange}
               className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-2 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
               placeholder="Email"
+              // onSelect={}
             />
             {errors.e1 ? (
-              <p className=" text-[red] py-2 mb-2">{errors.e1}</p>
+              <p className=" text-[red] pt-0 pb-2 mb-2">{errors.e1}</p>
             ) : errors.e2 ? (
-              <p className=" text-[red] py-2 mb-2">{errors.e2}</p>
+              <p className=" text-[red] pt-0 pb-2 mb-2">{errors.e2}</p>
             ) : (
-              <p className=" text-[red] py-2 mb-2">{errors.e3}</p>
+              <p className=" text-[red] pt-0 pb-2 mb-2">{errors.e3}</p>
             )}
             <input
               type="password"
