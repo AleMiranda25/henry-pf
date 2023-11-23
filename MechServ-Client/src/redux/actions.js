@@ -18,9 +18,7 @@ import {
 export const getUser = (id) => {
   return async function (dispatch) {
     try {
-      const res = await axios.get(
-        `https://mechserv-pf.onrender.com/users/${id}`
-      );
+      const res = await axios.get(`/users/${id}`);
       dispatch({
         type: GET_USER,
         payload: res.data,
@@ -34,7 +32,7 @@ export const getUser = (id) => {
 export const getAllUsers = () => {
   return async function (dispatch) {
     try {
-      const res = await axios.get("https://mechserv-pf.onrender.com/users");
+      const res = await axios.get("/users");
       dispatch({
         type: GET_ALL_USERS,
         payload: res.data,
@@ -48,7 +46,7 @@ export const getAllUsers = () => {
 export const addNewUser = (userData) => {
   return async function (dispatch) {
     try {
-      const res = await axios.post("/api/users", userData);
+      const res = await axios.post("/users", userData);
       dispatch({
         type: ADD_NEW_USER,
         payload: res.data,
@@ -62,7 +60,7 @@ export const addNewUser = (userData) => {
 export const updateUser = (userId, updatedUserInfo) => {
   return async function (dispatch) {
     try {
-      const res = await axios.put(`/api/users/${userId}`, updatedUserInfo);
+      const res = await axios.put(`/users/${userId}`, updatedUserInfo);
       dispatch({
         type: UPDATE_USER,
         payload: res.data,
@@ -76,7 +74,7 @@ export const updateUser = (userId, updatedUserInfo) => {
 export const deleteUser = (userId) => {
   return async function (dispatch) {
     try {
-      const res = await axios.delete(`/api/users/${userId}`);
+      const res = await axios.delete(`/users/${userId}`);
       dispatch({
         type: DELETE_USER,
         payload: res.data,
@@ -105,7 +103,7 @@ export const changePassword = (userId, password) => {
   return async function (dispatch) {
     try {
       const res = await axios.put(
-        `/api/users/${userId}/password
+        `/users/${userId}/password
                 `,
         password
       );
