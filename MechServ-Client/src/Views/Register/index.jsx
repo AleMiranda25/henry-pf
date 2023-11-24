@@ -27,11 +27,6 @@ const Register = () => {
             className="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
             placeholder="Número de teléfono"
           />
-          {/* <input
-            type="file"
-            class="bg-gray-100 text-gray-800 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            placeholder="Resume"
-          /> */}
           <input
             type="email"
             id="email"

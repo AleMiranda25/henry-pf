@@ -88,7 +88,7 @@ export const deleteUser = (userId) => {
 // export const getUserByEmail = (email) => {
 //   return async function (dispatch) {
 //     try {
-//       const res = await axios.get(`/api/users/${email}`);
+//       const res = await axios.get(`/users/${email}`);
 //       dispatch({
 //         type: GET_USER_BY_EMAIL,
 //         payload: res.data,

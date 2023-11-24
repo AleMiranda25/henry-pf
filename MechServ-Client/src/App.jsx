@@ -24,8 +24,25 @@ function App() {
     if (userData.userPassword === password && userData.userEmail === email) {
       setAccess(true);
       navigate("/home");
+    } else {
+      alert("Email o Password incorrecto");
     }
   };
+
+  //* PARA EL LOGIN
+
+  //   async function login(userData) {
+  //     try {
+  //        const { userEmail, userPassword } = userData;
+  //        const URL = '/login';
+  //        const { data } = await axios(URL + `?email=${email}&password=${password}`)
+  //        const { access } = data;
+  //        setAccess(data);
+  //        access && navigate('/home');
+  //     } catch (error) {
+  //        console.log(error)
+  //     }
+  //  }
 
   return (
     <>

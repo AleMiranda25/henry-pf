@@ -27,7 +27,7 @@ const Navbar = () => {
         }
       >
         <i className="fa fa-wrench fa-2x text-[whitesmoke]" />
-        <span className="text-[25px] text-[whitesmoke] font-bold">
+        <span className="font-[Oswald] text-[30px] font-normal leading-[68px] tracking-normal text-left text-[whitesmoke]">
           {" "}
           MechServ
         </span>
@@ -46,6 +46,13 @@ const Navbar = () => {
           </a>
         </li>
         <li>
+          {/* <button className="btn btn-outline btn-primary">Primary</button> */}
+          <button class="bg-indigo-950 text-indigo-400 border border-indigo-400 border-b-4 font-medium overflow-hidden relative px-4 py-1 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group">
+            <span class="bg-indigo-400 shadow-indigo-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+            Ingresar
+          </button>
+        </li>
+        {/* <li>
           <div class="relative flex items-center">
             <a class="mr-4 text-[whitesmoke] hover:text-[#5770F4]" href="#">
               <span class="[&>svg]:w-5">
@@ -60,7 +67,7 @@ const Navbar = () => {
               </span>
             </a>
           </div>
-        </li>
+        </li> */}
       </ul>
       <a className="icon hidden" onClick={myFunction}>
         <i className="fa fa-bars" />

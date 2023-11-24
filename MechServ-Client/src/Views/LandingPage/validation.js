@@ -14,7 +14,7 @@ const validation = (data) => {
   //* PASSWORD VALIDATIONS
   if (data.userPassword != "") {
     if (!/\d+/.test(data.userPassword)) {
-      errors.p1 = "Ingresa al menos un numero";
+      errors.p1 = "Ingresa al menos un número";
     }
     if (!/[A-Z]+/.test(data.userPassword)) {
       errors.p2 = "Ingresa al menos una mayuscula";

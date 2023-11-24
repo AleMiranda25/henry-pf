@@ -52,7 +52,6 @@ const LandingPage = ({ login }) => {
               onChange={handleChange}
               className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-2 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
               placeholder="Email"
-              // onSelect={}
             />
             {errors.e1 ? (
               <p className=" text-[red] pt-0 pb-2 mb-2">{errors.e1}</p>
@@ -67,7 +66,7 @@ const LandingPage = ({ login }) => {
               name="userPassword"
               onChange={handleChange}
               className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-2 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-              placeholder="Password"
+              placeholder="Contraseña"
             />
             {errors.p1 ? (
               <p className=" text-[red] py-2 mb-2">{errors.p1}</p>
