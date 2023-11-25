@@ -3,10 +3,8 @@ import { useNavigate, useLocation } from "react-router";
 import { useEffect, useState } from "react";
 
 //Componentes
-import Searchbar from "../Searchbar";
-import { MechServIcon } from "../../assets/Icons/icons";
 
-const Navbar = () => {
+const Form = () => {
   const navigate = useNavigate();
   const location = useLocation();
 

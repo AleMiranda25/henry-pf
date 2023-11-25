@@ -16,6 +16,7 @@ const Login = ({ login }) => {
 
   const [errors, setErrors] = useState({
     userEmail: "",
+    userPassword: "",
   });
 
   const handleChange = (e) => {
@@ -52,38 +53,39 @@ const Login = ({ login }) => {
               value={userData.userEmail}
               name="userEmail"
               onChange={handleChange}
-              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-2 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
               placeholder="Email"
             />
-            {errors.e1 ? (
-              <p className=" text-[red] pt-0 pb-2 mb-2">{errors.e1}</p>
-            ) : errors.e2 ? (
-              <p className=" text-[red] pt-0 pb-2 mb-2">{errors.e2}</p>
-            ) : (
-              <p className=" text-[red] pt-0 pb-2 mb-2">{errors.e3}</p>
-            )}
+
+            <div className="text-[red] text-[13px] mb-1">
+              <p>{errors.e1 ? errors.e1 : errors.e2}</p>
+            </div>
+
             <input
               type="password"
               value={userData.userPassword}
               name="userPassword"
               onChange={handleChange}
-              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-2 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mt-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
               placeholder="Contraseña"
             />
-            {errors.p1 ? (
-              <p className=" text-[red] py-2 mb-2">{errors.p1}</p>
-            ) : errors.p2 ? (
-              <p className=" text-[red] py-2 mb-2">{errors.p2}</p>
-            ) : errors.p3 ? (
-              <p className=" text-[red] py-2 mb-2">{errors.p3}</p>
-            ) : errors.p4 ? (
-              <p className=" text-[red] py-2 mb-2">{errors.p4}</p>
-            ) : errors.p5 ? (
-              <p className=" text-[red] py-2 mb-2">{errors.p5}</p>
-            ) : (
-              <p className=" text-[red] py-2 mb-2">{errors.p6}</p>
-            )}
-            <div className="flex items-center justify-between flex-wrap">
+            <div className="text-[red] text-[13px] mb-1">
+              {errors.p1 ? (
+                <p>{errors.p1}</p>
+              ) : errors.p2 ? (
+                <p>{errors.p2}</p>
+              ) : errors.p3 ? (
+                <p>{errors.p3}</p>
+              ) : errors.p4 ? (
+                <p>{errors.p4}</p>
+              ) : errors.p5 ? (
+                <p>{errors.p5}</p>
+              ) : (
+                <p>{errors.p6}</p>
+              )}
+            </div>
+
+            <div className="flex items-center justify-between flex-wrap pt-4">
               <label
                 htmlFor="remember-me"
                 className="text-sm text-gray-900 cursor-pointer"
