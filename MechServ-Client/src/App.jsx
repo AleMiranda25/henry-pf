@@ -4,7 +4,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 // Components
-import { LandingPage, Register, ResetPassword, Home } from "./Views";
+import { Login, Register, ResetPassword, Home } from "./Views";
 
 //* URL POR DEFECTO
 axios.defaults.baseURL = "https://mechserv-pf.onrender.com";
@@ -16,14 +16,13 @@ function App() {
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
 
-  useEffect(() => {
-    !access && navigate("/");
-  }, [access]);
+  // useEffect(() => {
+  //   !access && navigate("/");
+  // }, [access]);
 
   const login = (userData) => {
     if (userData.userPassword === password && userData.userEmail === email) {
       setAccess(true);
-      navigate("/home");
     } else {
       alert("Email o Password incorrecto");
     }
@@ -47,12 +46,13 @@ function App() {
   return (
     <>
       <Routes>
+        //* HOME
+        <Route exact path="/" Component={Home} />
         //* LOGIN
-        <Route exact path="/" element={<LandingPage login={login} />} />
+        <Route path="/login" element={<Login login={login} />} />
         <Route path="/register" Component={Register} />
         <Route path="/resetPassword" Component={ResetPassword} />
-        //* HOME
-        <Route path="/home" Component={Home} />
+        //* DETAIL
       </Routes>
     </>
   );

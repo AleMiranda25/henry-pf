@@ -1,7 +1,7 @@
 //Funcionalidad
-import { Navbar } from "../../Components";
 
 //Components
+import { Navbar } from "../../Components";
 
 //? #####################################################
 const Home = () => {

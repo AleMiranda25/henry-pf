@@ -3,11 +3,12 @@ import { useState } from "react";
 import { landingBG } from "../../assets/Backgrounds/backgrounds";
 import { useNavigate } from "react-router";
 import validation from "./validation";
+import { Navbar } from "../../Components";
 //Components
 
 //? #####################################################
 
-const LandingPage = ({ login }) => {
+const Login = ({ login }) => {
   const [userData, setUserData] = useState({
     userEmail: "",
     userPassword: "",
@@ -39,6 +40,7 @@ const LandingPage = ({ login }) => {
         backgroundImage: `url(${landingBG})`,
       }}
     >
+      <Navbar />
       <div className="flex flex-col items-center justify-center h-screen">
         <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
@@ -121,4 +123,4 @@ const LandingPage = ({ login }) => {
   );
 };
 
-export default LandingPage;
+export default Login;
