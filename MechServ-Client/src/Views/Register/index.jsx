@@ -1,5 +1,5 @@
 //Funcionalidad
-import { Navbar } from "../../Components";
+import { Footer, Navbar } from "../../Components";
 import { landingBG } from "../../assets/Backgrounds/backgrounds";
 
 //Components
@@ -9,7 +9,7 @@ import { landingBG } from "../../assets/Backgrounds/backgrounds";
 const Register = () => {
   return (
     <div
-      className="grid place-items-center gap-y-[70px] bg-cover bg-center bg-no-repeat max-h-full max-w-full px-3"
+      className="grid place-items-center gap-y-[70px] h-max bg-cover bg-center bg-no-repeat max-w-full"
       style={{
         backgroundImage: `url(${landingBG})`,
       }}
@@ -17,7 +17,7 @@ const Register = () => {
       <div>
         <Navbar />
       </div>
-      <div className="w-full max-w-[400px] bg-white rounded-lg shadow-md p-6">
+      <div className="w-full max-w-[400px] bg-white rounded-lg shadow-md p-6 my-10 mb-24">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">Registro</h2>
 
         <form className="flex flex-col">
@@ -68,6 +68,7 @@ const Register = () => {
           </button>
         </form>
       </div>
+      <Footer />
     </div>
   );
 };

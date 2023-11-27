@@ -1,5 +1,4 @@
-//Functionality
-
+//Funcionalidad
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -22,8 +21,6 @@ function App() {
   const login = (userData) => {
     if (userData.userPassword === password && userData.userEmail === email) {
       setAccess(true);
-    } else {
-      alert("Email o Password incorrecto");
     }
   };
 
@@ -43,12 +40,17 @@ function App() {
   //  }
 
   return (
-    <>
+    <div>
       <Routes>
         //* HOME
-        <Route exact path="/" Component={Home} />
+        <Route
+          exact
+          path="/"
+          // element={<Home login={login} />}
+          Component={Home}
+        />
         //* LOGIN
-        <Route path="/login" element={<Login login={login} />} />
+        <Route path="/login" Component={Login} />
         <Route path="/register" Component={Register} />
         <Route path="/resetPassword" Component={ResetPassword} />
         //* SERVICE DETAIL
@@ -58,7 +60,7 @@ function App() {
         //* SHOP CART
         {/* <Route path="/shopCart" Component={ShopCart} /> */}
       </Routes>
-    </>
+    </div>
   );
 }
 

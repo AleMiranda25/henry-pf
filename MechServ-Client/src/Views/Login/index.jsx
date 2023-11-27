@@ -3,7 +3,7 @@ import { useState } from "react";
 import { landingBG } from "../../assets/Backgrounds/backgrounds";
 import { useNavigate } from "react-router";
 import validation from "./validation";
-import { Navbar } from "../../Components";
+import { Footer, Navbar } from "../../Components";
 //Components
 
 //? #####################################################
@@ -121,6 +121,7 @@ const Login = ({ login }) => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import {
   GET_USER,
   GET_ALL_USERS,
@@ -11,9 +12,15 @@ import {
   ADD_NEW_SERVICE,
   UPDATE_SERVICE,
   DELETE_SERVICE,
+  GET_CATEGORY,
+  GET_ALL_CATEGORIES,
+  ADD_NEW_CATEGORY,
+  UPDATE_CATEGORY,
+  DELETE_CATEGORY,
 } from "./actions-types";
 
-//* USERS ACTIONS
+//* USERS ACTIONS --------------------------------------------------------------------------
+
 //? OBTENER USUARIO
 export const getUser = (id) => {
   return async function (dispatch) {
@@ -98,6 +105,7 @@ export const deleteUser = (userId) => {
 //     }
 //   };
 // };
+
 //? CAMBIAR PASSOWRD
 export const changePassword = (userId, password) => {
   return async function (dispatch) {
@@ -109,6 +117,155 @@ export const changePassword = (userId, password) => {
       );
       dispatch({
         type: CHANGE_PASSWORD,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+//* SERVICES ACTIONS --------------------------------------------------------------------------
+
+//? OBTENER SERVICIO
+export const getService = (id) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`/services/${id}`);
+      dispatch({
+        type: GET_SERVICE,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+//? OBTENER TODOS LOS SERVICIOS
+export const getAllServices = () => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get("/services");
+      dispatch({
+        type: GET_ALL_SERVICES,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+//? AGREGAR NUEVO SERVICIO
+export const addNewService = (serviceData) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.post("/services", serviceData);
+      dispatch({
+        type: ADD_NEW_SERVICE,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+//? ACTUALIZAR SERVICIO
+export const updateService = (serviceId, updatedServiceInfo) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.put(`/services/${serviceId}`, updatedServiceInfo);
+      dispatch({
+        type: UPDATE_SERVICE,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+//? ELIMINAR SERVICIO
+export const deleteService = (serviceId) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.delete(`/services/${serviceId}`);
+      dispatch({
+        type: DELETE_SERVICE,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+//* CATEGORIES ACTIONS --------------------------------------------------------------------------
+
+//? OBTENER CATEGORIA
+export const getCategory = (id) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`/categories/${id}`);
+      dispatch({
+        type: GET_CATEGORY,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+//? OBTENER TODAS LAS CATEGORIAS
+export const getAllCategories = () => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`/categories`);
+      dispatch({
+        type: GET_ALL_CATEGORIES,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+//? AGREGAR NUEVO SERVICIO
+export const addNewCategory = (categoryData) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.post(`/categories`, categoryData);
+      dispatch({
+        type: ADD_NEW_CATEGORY,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+//? ACTUALIZAR CATEGORIA
+export const updateCategory = (categoryId, updatedCategoryInfo) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.put(
+        `/categories/${categoryId}`,
+        updatedCategoryInfo
+      );
+      dispatch({
+        type: UPDATE_CATEGORY,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+//? ELIMINAR CATEGORIA
+export const deleteCategory = (categoryId) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.delete(`/categories/${categoryId}`);
+      dispatch({
+        type: DELETE_CATEGORY,
         payload: res.data,
       });
     } catch (err) {

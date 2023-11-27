@@ -1,5 +1,5 @@
 //Funcionalidad
-import { Navbar } from "../../Components";
+import { Footer, Navbar } from "../../Components";
 import { landingBG } from "../../assets/Backgrounds/backgrounds";
 //Components
 
@@ -39,6 +39,7 @@ const ResetPassword = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
