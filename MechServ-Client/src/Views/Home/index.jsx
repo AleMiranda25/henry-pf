@@ -1,13 +1,15 @@
 //Funcionalidad
 
 //Components
-import { Navbar } from "../../Components";
+import { Footer, Navbar } from "../../Components";
 
 //? #####################################################
 const Home = () => {
   return (
     <div>
-      <Navbar />;
+      <Navbar />
+      <div></div>
+      <Footer />
     </div>
   );
 };

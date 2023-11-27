@@ -5,8 +5,12 @@ import App from "./App.jsx";
 import { Provider } from "react-redux";
 import store from "./redux/store.js";
 import { BrowserRouter } from "react-router-dom";
+import axios from "axios";
 // Styles
 import "./index.css";
+
+//* URL POR DEFECTO
+axios.defaults.baseURL = "https://mechserv-pf.onrender.com";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>

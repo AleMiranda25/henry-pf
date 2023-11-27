@@ -1,13 +1,12 @@
 //Functionality
-import axios from "axios";
+
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 // Components
 import { Login, Register, ResetPassword, Home } from "./Views";
 
-//* URL POR DEFECTO
-axios.defaults.baseURL = "https://mechserv-pf.onrender.com";
+//* #####################################################
 
 //* DATOS EJEMPLO
 const email = "ejemplo@gmail.com";
@@ -52,7 +51,12 @@ function App() {
         <Route path="/login" element={<Login login={login} />} />
         <Route path="/register" Component={Register} />
         <Route path="/resetPassword" Component={ResetPassword} />
-        //* DETAIL
+        //* SERVICE DETAIL
+        {/* <Route path="/serviceDetail" Component={ServiceDetail} /> */}
+        //* USER PROFILE
+        {/* <Route path="/userProfile" Component={UserProfile} /> */}
+        //* SHOP CART
+        {/* <Route path="/shopCart" Component={ShopCart} /> */}
       </Routes>
     </>
   );

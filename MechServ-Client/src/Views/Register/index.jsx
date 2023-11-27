@@ -9,12 +9,14 @@ import { landingBG } from "../../assets/Backgrounds/backgrounds";
 const Register = () => {
   return (
     <div
-      className="grid place-items-center gap-x-[70px] bg-cover bg-center bg-no-repeat h-screen max-w-full px-3"
+      className="grid place-items-center gap-y-[70px] bg-cover bg-center bg-no-repeat max-h-full max-w-full px-3"
       style={{
         backgroundImage: `url(${landingBG})`,
       }}
     >
-      <Navbar />
+      <div>
+        <Navbar />
+      </div>
       <div className="w-full max-w-[400px] bg-white rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">Registro</h2>
 

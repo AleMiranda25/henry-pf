@@ -4,7 +4,7 @@
 
 const Searchbar = () => {
   return (
-    <div className="relative pr-4 pl-1 hidden md:block">
+    <div className="relative pr-2 pl-1 hidden md:flex">
       <div className="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none">
         <svg
           className="w-4 h-4 text-gray-500 dark:text-gray-400"
@@ -26,7 +26,7 @@ const Searchbar = () => {
       <input
         type="text"
         id="search-navbar"
-        className="block w-full p-2 ps-9 text-sm text-gray-900 border border-gray-300 rounded-3xl bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-[#202123] dark:border-[whitesmoke] dark:placeholder-gray-400 dark:text-[#202123] dark:focus:ring-blue-500 dark:focus:bg-[whitesmoke] dark:focus:border-blue-500"
+        className="block w-full md:w-auto p-2 ps-9 text-sm text-gray-900 border border-gray-300 rounded-3xl bg-gray-50 dark:bg-[#202123] dark:border-[whitesmoke] dark:placeholder-gray-400 dark:text-[#202123] dark:focus:bg-[whitesmoke]"
         placeholder="Buscar..."
       />
     </div>
