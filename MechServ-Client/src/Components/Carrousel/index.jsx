@@ -12,13 +12,25 @@ const Carrousel = () => {
           return (
             <div>
               <div id={category} key={index} className="carousel-item w-full">
-                <a className=" grid place-items-center w-40 h-40 font-[Oswald] hover:text-[#5770F4] rounded-full text-[30px] font-bold bg-[#202123] text-[whitesmoke] opacity-95 hover:opacity-80 cursor-pointer">
+                <a
+                  href={`/services?category=${category}`}
+                  className=" grid place-items-center w-40 h-40 font-[Oswald] hover:text-[#5770F4] rounded-full text-[30px] font-bold bg-[#202123] text-[whitesmoke] opacity-95 hover:opacity-80 cursor-pointer"
+                >
                   {category}
                 </a>
               </div>
             </div>
           );
         })}
+        <div
+          id="allServices"
+          key={categories.length - 1}
+          className="carousel-item w-full"
+        >
+          <a className=" grid place-items-center text-center w-40 h-40 font-[Oswald] hover:text-[#5770F4] rounded-full text-[30px] font-bold bg-[#202123] text-[whitesmoke] opacity-95 hover:opacity-80 cursor-pointer">
+            Todos los Servicos
+          </a>
+        </div>
       </div>
     </div>
   );

@@ -16,14 +16,14 @@ const Home = () => {
   }, []);
   return (
     <div
-      className="flex flex-col bg-cover bg-center bg-no-repeat h-screen max-w-full md:flex-0 shrink-0 bg-blend-overlay"
+      className="flex flex-col bg-cover bg-center bg-no-repeat h-screen max-w-full md:flex-0 shrink-0"
       style={{
         backgroundImage: `url(${bgHome})`,
       }}
     >
       <Navbar />
-      <div className="flex flex-col justify-around gap-20">
-        <div className=" text-[whitesmoke] opacity-95  mt-24">
+      <div className="flex flex-col justify-around gap-20 ">
+        <div className=" text-[whitesmoke] mt-24">
           {
             //* TITULO
           }

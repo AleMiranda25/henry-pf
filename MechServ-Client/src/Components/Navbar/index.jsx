@@ -92,7 +92,7 @@ const Navbar = () => {
       <div className="navbar-end">
         {
           //* SEARCHBAR
-          location.pathname === "/" && <Searchbar />
+          location.pathname === "/services" && <Searchbar />
         }
         {
           //* CARRITO DE COMPRA
