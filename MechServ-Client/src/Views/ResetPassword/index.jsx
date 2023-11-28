@@ -1,4 +1,5 @@
 //Funcionalidad
+import { Footer, Navbar } from "../../Components";
 import { landingBG } from "../../assets/Backgrounds/backgrounds";
 //Components
 
@@ -12,6 +13,7 @@ const ResetPassword = () => {
         backgroundImage: `url(${landingBG})`,
       }}
     >
+      <Navbar />
       <div className="flex flex-col items-center justify-center h-screen">
         <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
@@ -37,6 +39,7 @@ const ResetPassword = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

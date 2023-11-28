@@ -1,12 +1,38 @@
 //Funcionalidad
+import { useState } from "react";
 import { landingBG } from "../../assets/Backgrounds/backgrounds";
 import { useNavigate } from "react-router";
+import validation from "./validation";
+import { Footer, Navbar } from "../../Components";
 //Components
-import { Navbar } from "../../Components";
 
 //? #####################################################
 
-const LandingPage = () => {
+const Login = ({ login }) => {
+  const [userData, setUserData] = useState({
+    userEmail: "",
+    userPassword: "",
+  });
+
+  const [errors, setErrors] = useState({
+    userEmail: "",
+    userPassword: "",
+  });
+
+  const handleChange = (e) => {
+    setUserData({
+      ...userData,
+      [e.target.name]: e.target.value,
+    });
+    console.log(userData);
+    setErrors(validation({ ...userData, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    login(userData);
+  };
+
   const navigate = useNavigate();
   return (
     <div
@@ -15,23 +41,51 @@ const LandingPage = () => {
         backgroundImage: `url(${landingBG})`,
       }}
     >
+      <Navbar />
       <div className="flex flex-col items-center justify-center h-screen">
         <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Iniciar sesión
           </h2>
-          <form className="flex flex-col">
+          <form className="flex flex-col" onSubmit={handleSubmit}>
             <input
               type="email"
-              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              value={userData.userEmail}
+              name="userEmail"
+              onChange={handleChange}
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
               placeholder="Email"
             />
+
+            <div className="text-[red] text-[13px] mb-1">
+              <p>{errors.e1 ? errors.e1 : errors.e2}</p>
+            </div>
+
             <input
               type="password"
-              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-              placeholder="Password"
+              value={userData.userPassword}
+              name="userPassword"
+              onChange={handleChange}
+              className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mt-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+              placeholder="Contraseña"
             />
-            <div className="flex items-center justify-between flex-wrap">
+            <div className="text-[red] text-[13px] mb-1">
+              {errors.p1 ? (
+                <p>{errors.p1}</p>
+              ) : errors.p2 ? (
+                <p>{errors.p2}</p>
+              ) : errors.p3 ? (
+                <p>{errors.p3}</p>
+              ) : errors.p4 ? (
+                <p>{errors.p4}</p>
+              ) : errors.p5 ? (
+                <p>{errors.p5}</p>
+              ) : (
+                <p>{errors.p6}</p>
+              )}
+            </div>
+
+            <div className="flex items-center justify-between flex-wrap pt-4">
               <label
                 htmlFor="remember-me"
                 className="text-sm text-gray-900 cursor-pointer"
@@ -67,8 +121,9 @@ const LandingPage = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
 
-export default LandingPage;
+export default Login;
