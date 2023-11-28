@@ -3,7 +3,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 // Components
-import { Login, Register, ResetPassword, Home, Services } from "./Views";
+import { Login, Register, ResetPassword, Home, Services, About } from "./Views";
 
 //* #####################################################
 
@@ -59,6 +59,8 @@ function App() {
         {/* <Route path="/userProfile" Component={UserProfile} /> */}
         //* SHOP CART
         {/* <Route path="/shopCart" Component={ShopCart} /> */}
+        //* ABOUT PF TEAM
+        <Route exact path="/about" Component={About} />
       </Routes>
     </div>
   );

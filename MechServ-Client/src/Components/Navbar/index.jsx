@@ -10,9 +10,9 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <div className="navbar bg-[#202123] text-[whitesmoke] mx-auto px-2 fixed top-[0] left-[0] w-full">
+    <div className="navbar bg-[#202123] text-[whitesmoke] mx-auto px-2 fixed top-[0] left-[0] w-full z-10">
       <div className="navbar-start">
-        {(location.pathname === "/" || location.pathname === "/user") && (
+        {(location.pathname === "/" || location.pathname === "/services") && (
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -36,7 +36,10 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#202123] rounded-box w-52"
             >
               <li>
-                <a className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle">
+                <a
+                  onClick={() => navigate("/services")}
+                  className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle"
+                >
                   <i className="fa fa-wrench" /> Servicios
                 </a>
               </li>
@@ -48,7 +51,7 @@ const Navbar = () => {
               <li>
                 {
                   //* SEARCHBAR
-                  location.pathname === "/" && (
+                  location.pathname === "/services" && (
                     <div className="form-control">
                       <input
                         type="text"
