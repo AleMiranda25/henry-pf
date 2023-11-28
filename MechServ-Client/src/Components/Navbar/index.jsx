@@ -73,14 +73,19 @@ const Navbar = () => {
         </a>
       </div>
 
-      {(location.pathname === "/" || location.pathname === "/user") && (
+      {(location.pathname === "/" || location.pathname === "/services") && (
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li>
-              <a className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle">
-                <i className="fa fa-wrench" /> Servicios
-              </a>
-            </li>
+            {location.pathname !== "/services" && (
+              <li>
+                <a
+                  onClick={() => navigate("/services")}
+                  className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle"
+                >
+                  <i className="fa fa-wrench" /> Servicios
+                </a>
+              </li>
+            )}
             <li>
               <a className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle">
                 <i className="fa fa-plus" /> Agendar Cita
@@ -96,7 +101,8 @@ const Navbar = () => {
         }
         {
           //* CARRITO DE COMPRA
-          (location.pathname === "/" || location.pathname === "/user") && (
+          (location.pathname === "/services" ||
+            location.pathname === "/profile") && (
             <div className="dropdown dropdown-end pr-2 hidden lg:flex">
               <label tabIndex={0} className="btn btn-ghost btn-circle">
                 <div className="indicator">
@@ -136,7 +142,8 @@ const Navbar = () => {
         }
         {
           //* BOTON LOGIN
-          location.pathname === "/" && (
+
+          (location.pathname === "/" || location.pathname === "/services") && (
             <button
               className="font-[Oswald] hover:brightness-110 hover:animate-pulse font-bold py-2 px-4 rounded-full bg-[#5770F4] shadow-lg shadow-[#5770F4]/50 text-white"
               onClick={() => navigate("/login")}

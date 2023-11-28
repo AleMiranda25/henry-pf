@@ -3,7 +3,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 // Components
-import { Login, Register, ResetPassword, Home } from "./Views";
+import { Login, Register, ResetPassword, Home, Services } from "./Views";
 
 //* #####################################################
 
@@ -53,8 +53,8 @@ function App() {
         <Route path="/login" Component={Login} />
         <Route path="/register" Component={Register} />
         <Route path="/resetPassword" Component={ResetPassword} />
-        //* SERVICE DETAIL
-        {/* <Route path="/serviceDetail" Component={ServiceDetail} /> */}
+        //* SERVICES
+        <Route path="/services" Component={Services} />
         //* USER PROFILE
         {/* <Route path="/userProfile" Component={UserProfile} /> */}
         //* SHOP CART
