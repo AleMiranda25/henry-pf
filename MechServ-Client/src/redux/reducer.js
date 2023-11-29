@@ -15,14 +15,15 @@ import {
   ADD_NEW_CATEGORY,
   UPDATE_CATEGORY,
   DELETE_CATEGORY,
+  SET_ACCESS,
 } from "./actions-types";
 
 const initialState = {
-  users: [],
   services: [],
   categories: [],
   userId: null,
   serviceId: null,
+  access: false,
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -117,6 +118,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
         categories: state.categories.filter(
           (category) => category._id !== payload
         ),
+      };
+    //* ACCESS ---------------------------------------------------------
+    case SET_ACCESS:
+      return {
+        ...state,
+        access: payload,
       };
     //* CASO DEFAULT
     default:

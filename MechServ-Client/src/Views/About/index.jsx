@@ -1,5 +1,6 @@
 //Funcionalidad
 import { landingBG } from "../../assets/Backgrounds/backgrounds";
+import { LinkedInLogo } from "../../assets/Icons/icons";
 
 //Components
 import { Navbar } from "../../Components";
@@ -14,51 +15,58 @@ const About = () => {
       }}
     >
       <Navbar />
-      <div>
-        <div className=" text-[whitesmoke] mt-24 flex flex-col justify-around gap-20">
-          {
-            //* TITULO
-          }
-          <h1 className="font-[Oswald] text-center font-bold text-5xl">
-            HENRY PF - MECHSERV TEAM
-          </h1>
-          <div className="grid place-self-center font-[Oswald] text-left font-bold text-3xl">
-            <h3>
-              -{" "}
-              <a className=" cursor-pointer hover:text-[#5770F4]">
-                DELDUCA, Clemente Alberto
-              </a>
-            </h3>
-            <h3>
-              -{" "}
-              <a className=" cursor-pointer hover:text-[#5770F4]">
-                GUICHA, William Alberto
-              </a>
-            </h3>
-            <h3>
-              -{" "}
-              <a
-                className=" cursor-pointer hover:text-[#5770F4]"
-                href="https://www.linkedin.com/in/alemiranda2511/"
-                target="_blank"
-              >
-                MIRANDA, Jorge Alejandro
-              </a>
-            </h3>
-            <h3>
-              -{" "}
-              <a className=" cursor-pointer hover:text-[#5770F4]">
-                RUDIERO, Federico Martin
-              </a>
-            </h3>
-            <h3>
-              -{" "}
-              <a className=" cursor-pointer hover:text-[#5770F4]">
-                {" "}
-                VALDÉZ, Nicolas
-              </a>
-            </h3>
-          </div>
+      <div className=" text-[whitesmoke] mt-24 flex flex-col justify-evenly gap-16">
+        {
+          //* TITULO
+        }
+        <h1 className="font-[Oswald] text-center font-bold text-5xl">
+          HENRY PF - MECHSERV TEAM
+        </h1>
+        <img className="h-[100px]" src={LinkedInLogo} />
+        <div className="grid place-self-center font-[Oswald] text-left font-bold text-3xl">
+          <h3>
+            -{" "}
+            <a className=" cursor-pointer hover:text-[#5770F4]">
+              DELDUCA, Clemente Alberto
+            </a>
+          </h3>
+          <h3>
+            -{" "}
+            <a
+              className=" cursor-pointer hover:text-[#5770F4]"
+              href="https://www.linkedin.com/in/wguicha/"
+              target="_blank"
+            >
+              GUICHA, William Alberto
+            </a>
+          </h3>
+          <h3>
+            -{" "}
+            <a
+              className=" cursor-pointer hover:text-[#5770F4]"
+              href="https://www.linkedin.com/in/alemiranda2511/"
+              target="_blank"
+            >
+              MIRANDA, Jorge Alejandro
+            </a>
+          </h3>
+          <h3>
+            -{" "}
+            <a
+              className=" cursor-pointer hover:text-[#5770F4]"
+              href="https://www.linkedin.com/in/federico-rudiero-722243162/"
+              target="_blank"
+            >
+              RUDIERO, Federico Martin
+            </a>
+          </h3>
+          <h3>
+            -{" "}
+            <a className=" cursor-pointer hover:text-[#5770F4]">
+              {" "}
+              VALDÉZ, Nicolas
+            </a>
+          </h3>
         </div>
       </div>
     </div>

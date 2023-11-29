@@ -17,15 +17,16 @@ import {
   ADD_NEW_CATEGORY,
   UPDATE_CATEGORY,
   DELETE_CATEGORY,
+  SET_ACCESS,
 } from "./actions-types";
 
 //* USERS ACTIONS --------------------------------------------------------------------------
 
 //? OBTENER USUARIO
-export const getUser = (id) => {
+export const getUser = (email) => {
   return async function (dispatch) {
     try {
-      const res = await axios.get(`/users/${id}`);
+      const res = await axios.get(`/users/${email}`);
       dispatch({
         type: GET_USER,
         payload: res.data,
@@ -259,6 +260,7 @@ export const updateCategory = (categoryId, updatedCategoryInfo) => {
     }
   };
 };
+
 //? ELIMINAR CATEGORIA
 export const deleteCategory = (categoryId) => {
   return async function (dispatch) {
@@ -267,6 +269,22 @@ export const deleteCategory = (categoryId) => {
       dispatch({
         type: DELETE_CATEGORY,
         payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+//* ACCESS ACTIONS--------------------------------------------------------------------------
+
+//? ESTABLECER ACCESO
+export const setAccess = (authenticated) => {
+  return async function (dispatch) {
+    try {
+      dispatch({
+        type: SET_ACCESS,
+        payload: authenticated,
       });
     } catch (err) {
       console.log(err);

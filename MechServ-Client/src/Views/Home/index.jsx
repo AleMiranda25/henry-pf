@@ -14,6 +14,7 @@ const Home = () => {
     dispatch(getAllCategories());
     dispatch(getAllServices());
   }, []);
+
   return (
     <div
       className="flex flex-col justify-evenly bg-cover bg-center bg-no-repeat h-screen w-screen"

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 
 //Componentes
 
-const Form = () => {
+const Footer = () => {
   const navigate = useNavigate();
 
   return (
@@ -27,4 +27,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default Footer;
