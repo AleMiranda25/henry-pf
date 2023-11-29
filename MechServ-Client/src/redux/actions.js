@@ -23,10 +23,10 @@ import {
 //* USERS ACTIONS --------------------------------------------------------------------------
 
 //? OBTENER USUARIO
-export const getUser = (email) => {
+export const getUser = (id) => {
   return async function (dispatch) {
     try {
-      const res = await axios.get(`/users/${email}`);
+      const res = await axios.get(`/users/${id}`);
       dispatch({
         type: GET_USER,
         payload: res.data,
