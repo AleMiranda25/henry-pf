@@ -32,6 +32,7 @@ const Profile = () => {
         />
         <div className="font-[Oswald] grid place-content-center text-[20px]">
           <p>Nombre: {user.given_name}</p>
+          <p>Apellido: {user.family_name}</p>
           <p>Email: {user.email}</p>
         </div>
       </div>
