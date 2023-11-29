@@ -1,35 +1,72 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+//Funcionalidad
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
+// Components
+import {
+  Login,
+  Register,
+  ResetPassword,
+  Home,
+  Services,
+  About,
+  Profile,
+} from "./Views";
+
+//* #####################################################
+
+//* DATOS EJEMPLO
+// const email = "ejemplo@gmail.com";
+// const password = "1Password@";
 function App() {
-  const [count, setCount] = useState(0)
+  const navigate = useNavigate();
+  // const [access, setAccess] = useState(false);
+
+  // useEffect(() => {
+  //   !access && navigate("/");
+  // }, [access]);
+
+  // const login = (userData) => {
+  //   if (userData.userPassword === password && userData.userEmail === email) {
+  //     setAccess(true);
+  //   }
+  // };
+
+  //* PARA EL LOGIN
+
+  //   async function login(userData) {
+  //     try {
+  //        const { userEmail, userPassword } = userData;
+  //        const URL = '/login';
+  //        const { data } = await axios(URL + `?email=${email}&password=${password}`)
+  //        const { access } = data;
+  //        setAccess(data);
+  //        access && navigate('/home');
+  //     } catch (error) {
+  //        console.log(error)
+  //     }
+  //  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <Routes>
+        //* HOME
+        <Route exact path="/" Component={Home} />
+        //* LOGIN
+        {/* <Route path="/login" element={<Login login={login} />} />
+        <Route path="/register" Component={Register} />
+        <Route path="/resetPassword" Component={ResetPassword} /> */}
+        //* SERVICES
+        <Route path="/services" Component={Services} />
+        //* USER PROFILE
+        <Route path="/profile" Component={Profile} />
+        //* SHOP CART
+        {/* <Route path="/cart" Component={ShopCart} /> */}
+        //* ABOUT PF TEAM
+        <Route exact path="/about" Component={About} />
+      </Routes>
+    </div>
+  );
 }
 
-export default App
+export default App;
