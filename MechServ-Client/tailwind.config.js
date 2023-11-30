@@ -1,12 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/Components/Card/Card.jsx", 
-            "./src/Components/CardContainer/CardContainer.jsx",
-          "./src/Components/Filter/Filter.jsx",
-            "./src/Components/Sorting/Sorting.jsx",
-            "./src/Views/Home/Home.jsx"],
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
   },
-  plugins: [],
-}
+  daisyui: {
+    themes: ["light", "dark"],
+  },
+  plugins: [require("daisyui"),
+            require('@fortawesome/fontawesome-free')],
+};

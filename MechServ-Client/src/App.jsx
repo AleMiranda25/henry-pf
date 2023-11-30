@@ -1,34 +1,70 @@
-//Functionality
-import { Routes, Route } from "react-router-dom";
-import { LandingPage, Register, ResetPassword } from "./Views";
-// Styles
-import "./App.css";
-// Components
-import { Route, Routes } from 'react-router-dom';
-import Home from './Views/Home/Home.jsx';
-import 'tailwindcss/tailwind.css'
-import '@fortawesome/fontawesome-free/css/all.css';
+//Funcionalidad
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
+// Components
+import { Login, Register, ResetPassword, Home, Services, Detail } from "./Views";
+
+import '@fortawesome/fontawesome-free/css/all.css'
+
+//* #####################################################
+
+//* DATOS EJEMPLO
+const email = "ejemplo@gmail.com";
+const password = "1Password@";
 function App() {
+  const navigate = useNavigate();
+  const [access, setAccess] = useState(false);
+
+  // useEffect(() => {
+  //   !access && navigate("/");
+  // }, [access]);
+
+  const login = (userData) => {
+    if (userData.userPassword === password && userData.userEmail === email) {
+      setAccess(true);
+    }
+  };
+
+  //* PARA EL LOGIN
+
+  //   async function login(userData) {
+  //     try {
+  //        const { userEmail, userPassword } = userData;
+  //        const URL = '/login';
+  //        const { data } = await axios(URL + `?email=${email}&password=${password}`)
+  //        const { access } = data;
+  //        setAccess(data);
+  //        access && navigate('/home');
+  //     } catch (error) {
+  //        console.log(error)
+  //     }
+  //  }
 
   return (
-    <>
+    <div>
       <Routes>
-        <Route exact path="/" Component={LandingPage} />
+        //* HOME
+        <Route
+          exact
+          path="/"
+          // element={<Home login={login} />}
+          Component={Home}
+        />
+        //* LOGIN
+        <Route path="/login" Component={Login} />
         <Route path="/register" Component={Register} />
         <Route path="/resetPassword" Component={ResetPassword} />
-        {/* <Route exact path="/home" Component={}/> */}
+        //* SERVICES
+        <Route path="/services/:category" Component={Services} />
+        <Route path="/detail/:id" Component={Detail}/>
+        //* USER PROFILE
+        {/* <Route path="/userProfile" Component={UserProfile} /> */}
+        //* SHOP CART
+        {/* <Route path="/shopCart" Component={ShopCart} /> */}
       </Routes>
-    </>
+    </div>
   );
-      <div>
-        <Routes>
-          <Route exact path="/home" element={<Home/>}/>
-        {/* <Route exact path="/" component={Landing} /> */}
-        {/* <Route exact path="/form" component={Form}/> */}
-        </Routes>
-      </div>
-  )
 }
 
 export default App;

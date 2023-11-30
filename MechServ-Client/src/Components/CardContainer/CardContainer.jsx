@@ -3,13 +3,15 @@ import React from "react";
 
 const CardContainer = ( {services} ) => {
     return (
-        <div className='h-full w-full flex flex-wrap justify-around'>
+        <div className='h-full flex flex-wrap justify-around'>
             {services?.map((servicio) => {
                 return (
-                    <Card 
-                        key={servicio.id}
-                        name={servicio.name}
-                    />
+                    <div key={servicio.idServicio} className={"w-1/4 p-4"}>                        
+                        <Card 
+                            id={servicio.idServicio}
+                            name={servicio.name}
+                            />
+                    </div>
                 );
             })}
         </div>

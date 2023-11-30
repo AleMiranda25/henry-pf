@@ -2,23 +2,22 @@ import React from "react";
 
 const SortingOptions = ({sortOrder, sortDirection, onSortChange}) => {
 
-    
     return (
-        <div class="font-bold">
+        <div className="font-bold bg-[#202123] flex flex-row w-auto justify-around">
 
-        <div class="flex flex-col justify-around p-2 items-center" >
+        <div>
             <label>Ordenar de forma: </label>
-            <select class="rounded-md bg-blue-600 p-1 shadow-md font-bold text-white cursor-pointer" value={sortOrder} onChange={(e) => onSortChange("order", e.target.value)}>
-                <option class="font-bold" value="name">Alfabética</option>
-                <option class="font-bold" value="price">Por precio</option>
+            <select className="font-bold bg-[#202123]" value={sortOrder} onChange={(e) => onSortChange("order", e.target.value)}>
+                <option className="font-bold" value="name">Alfabética</option>
+                <option className="font-bold" value="price">Por precio</option>
             </select>
         </div>
 
-        <div class="flex flex-col justify-around p-2 items-center">
+        <div >
             <label>Dirección:</label>
-            <select class="rounded-md bg-blue-600 p-1 shadow-md font-bold text-white cursor-pointer" value={sortDirection} onChange={(e) => onSortChange("direction", e.target.value)}>
-                <option class="font-bold" value="asc">Ascendente</option>
-                <option class="font-bold" value="desc">Descendente</option>
+            <select className="font-bold bg-[#202123]" value={sortDirection} onChange={(e) => onSortChange("direction", e.target.value)}>
+                <option className="font-bold" value="asc">Ascendente</option>
+                <option className="font-bold" value="desc">Descendente</option>
             </select>
         </div>
         </div>
