@@ -29,7 +29,7 @@ const Pagination = ({
         <li>
           <a
             onClick={() => currentPage > 1 && paginateAction(1)}
-            className="hover:[box-shadow:1px_1px_1px_1px_#5770F4] py-1 px-3 m-1 sm:md:lg:m-2 hover:text-[#5770F4] border-[solid] border-[whitesmoke] border-[1px] bg-[#202123] backdrop-filter backdrop-blur-[5px] rounded-lg cursor-pointer no-underline bg-opacity-80"
+            className="hover:[box-shadow:1px_1px_1px_1px_#5770F4] py-1 px-3 m-1 sm:md:lg:m-2 hover:text-[#5770F4] border-[solid] border-[whitesmoke] border-[1px] bg-[#202123] backdrop-filter backdrop-blur-[5px] rounded-lg cursor-pointer no-underline bg-opacity-90"
           >
             &laquo;
           </a>
@@ -37,23 +37,23 @@ const Pagination = ({
         <li>
           <a
             onClick={() => currentPage > 1 && paginateAction(currentPage - 1)}
-            className="hover:[box-shadow:1px_1px_1px_1px_#5770F4] py-1 px-3 m-1 sm:md:lg:m-2 hover:text-[#5770F4] border-[solid] border-[whitesmoke] border-[1px] bg-[#202123] backdrop-filter backdrop-blur-[5px] rounded-lg cursor-pointer no-underline"
+            className="hover:[box-shadow:1px_1px_1px_1px_#5770F4] py-1 px-3 m-1 sm:md:lg:m-2 hover:text-[#5770F4] border-[solid] border-[whitesmoke] border-[1px] bg-[#202123] backdrop-filter backdrop-blur-[5px] rounded-lg cursor-pointer no-underline bg-opacity-90"
           >
             &lt;
           </a>
         </li>
-        <a className="py-1 px-3 m-2 border-[solid] border-[whitesmoke] border-[1px] bg-[#202123] backdrop-filter backdrop-blur-[5px] rounded-[7px] text-center cursor-pointer">{`${currentPage} / ${totalPages}`}</a>
+        <a className="py-1 px-3 m-2 border-[solid] border-[whitesmoke] border-[1px] bg-[#202123] backdrop-filter backdrop-blur-[5px] rounded-[7px] text-center cursor-pointer bg-opacity-90">{`${currentPage} / ${totalPages}`}</a>
         <a
           onClick={() =>
             currentPage < totalPages && paginateAction(currentPage + 1)
           }
-          className="hover:[box-shadow:1px_1px_1px_1px_#5770F4] py-1 px-3 m-1 sm:md:lg:m-2 hover:text-[#5770F4] border-[solid] border-[whitesmoke] border-[1px] bg-[#202123] backdrop-filter backdrop-blur-[5px] rounded-lg cursor-pointer no-underline"
+          className="hover:[box-shadow:1px_1px_1px_1px_#5770F4] py-1 px-3 m-1 sm:md:lg:m-2 hover:text-[#5770F4] border-[solid] border-[whitesmoke] border-[1px] bg-[#202123] backdrop-filter backdrop-blur-[5px] rounded-lg cursor-pointer no-underline bg-opacity-90"
         >
           &gt;
         </a>
         <a
           onClick={() => currentPage < totalPages && paginateAction(25)}
-          className="hover:[box-shadow:1px_1px_1px_1px_#5770F4] py-1 px-3 m-1 sm:md:lg:m-2 hover:text-[#5770F4]  border-[solid] border-[whitesmoke] border-[1px] bg-[#202123] backdrop-filter backdrop-blur-[5px] rounded-lg cursor-pointer no-underline"
+          className="hover:[box-shadow:1px_1px_1px_1px_#5770F4] py-1 px-3 m-1 sm:md:lg:m-2 hover:text-[#5770F4]  border-[solid] border-[whitesmoke] border-[1px] bg-[#202123] backdrop-filter backdrop-blur-[5px] rounded-lg cursor-pointer no-underline bg-opacity-90"
         >
           &raquo;
         </a>
