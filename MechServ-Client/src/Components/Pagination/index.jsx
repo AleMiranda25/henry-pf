@@ -29,7 +29,7 @@ const Pagination = ({
         <li>
           <a
             onClick={() => currentPage > 1 && paginateAction(1)}
-            className="hover:[box-shadow:1px_1px_1px_1px_#5770F4] py-1 px-3 m-1 sm:md:lg:m-2 hover:text-[#5770F4] border-[solid] border-[whitesmoke] border-[1px] bg-[#202123] backdrop-filter backdrop-blur-[5px] rounded-lg cursor-pointer no-underline"
+            className="hover:[box-shadow:1px_1px_1px_1px_#5770F4] py-1 px-3 m-1 sm:md:lg:m-2 hover:text-[#5770F4] border-[solid] border-[whitesmoke] border-[1px] bg-[#202123] backdrop-filter backdrop-blur-[5px] rounded-lg cursor-pointer no-underline bg-opacity-80"
           >
             &laquo;
           </a>

@@ -8,7 +8,7 @@ const ProfileButton = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="dropdown dropdown-end right-2">
+    <div className="dropdown dropdown-end ml-3">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
           <img alt={user?.name} src={user?.picture} />
