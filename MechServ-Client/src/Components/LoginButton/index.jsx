@@ -7,7 +7,7 @@ const LoginButton = () => {
   return (
     <>
       <button
-        className="font-[Oswald] hover:brightness-110 hover:animate-pulse font-bold py-2 px-4 rounded-full bg-[#5770F4] shadow-lg shadow-[#5770F4]/50 text-white"
+        className="font-[Oswald] hover:brightness-110 hover:animate-pulse font-bold py-2 px-4 rounded-full bg-[#5770F4] shadow-lg shadow-[#5770F4]/50 text-white right-2"
         onClick={loginWithRedirect}
       >
         Ingresar

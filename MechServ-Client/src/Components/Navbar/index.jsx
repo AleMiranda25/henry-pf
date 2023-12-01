@@ -12,7 +12,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { isAuthenticated } = useAuth0();
-  console.log(isAuthenticated);
 
   return (
     <div className="navbar bg-[#202123] text-[whitesmoke] mx-auto px-2 fixed top-[0] left-[0] w-full z-10">
@@ -49,7 +48,10 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle">
+                <a
+                  onClick={() => navigate("/agendar")}
+                  className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle"
+                >
                   <i className="fa fa-plus" /> Agendar Cita
                 </a>
               </li>
@@ -95,7 +97,10 @@ const Navbar = () => {
               </li>
             )}
             <li>
-              <a className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle">
+              <a
+                onClick={() => navigate("/agendar")}
+                className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle"
+              >
                 <i className="fa fa-plus" /> Agendar Cita
               </a>
             </li>

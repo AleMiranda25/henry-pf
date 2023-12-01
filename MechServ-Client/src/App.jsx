@@ -11,6 +11,7 @@ import {
   Services,
   About,
   Profile,
+  Agendar,
 } from "./Views";
 
 //* #####################################################
@@ -64,6 +65,8 @@ function App() {
         {/* <Route path="/cart" Component={ShopCart} /> */}
         //* ABOUT PF TEAM
         <Route exact path="/about" Component={About} />
+        //* AGENDAR
+        <Route path="/agendar" Component={Agendar} />
       </Routes>
     </div>
   );

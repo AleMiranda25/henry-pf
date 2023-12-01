@@ -5,7 +5,7 @@ import { bgHome } from "../../assets/Backgrounds/backgrounds";
 import { getAllCategories, getAllServices } from "../../redux/actions";
 
 //Components
-import { Carrousel, Footer, Navbar } from "../../Components";
+import { CategoriesContainer, Footer, Navbar } from "../../Components";
 
 //? #####################################################
 const Home = () => {
@@ -37,7 +37,7 @@ const Home = () => {
           <h2 className="font-[Oswald] text-center text-white font-bold text-[30px] mt-10 mb-5">
             Categorias
           </h2>
-          <Carrousel />
+          <CategoriesContainer />
         </div>
       </div>
       <Footer />

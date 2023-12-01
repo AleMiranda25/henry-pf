@@ -26,7 +26,11 @@ const About = () => {
         <div className="grid place-self-center font-[Oswald] text-left font-bold text-3xl">
           <h3>
             -{" "}
-            <a className=" cursor-pointer hover:text-[#5770F4]">
+            <a
+              className=" cursor-pointer hover:text-[#5770F4]"
+              href="https://www.linkedin.com/in/clemente-delduca-6691181a7/"
+              target="_blank"
+            >
               DELDUCA, Clemente Alberto
             </a>
           </h3>
