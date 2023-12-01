@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { bgHome } from "../../assets/Backgrounds/backgrounds";
-import { getAllCategories, getAllServices } from "../../redux/actions";
+import { getAllCategories } from "../../redux/actions";
 
 //Components
 import { Carrousel, Footer, Navbar } from "../../Components";
@@ -12,12 +12,11 @@ const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCategories());
-    dispatch(getAllServices());
-  }, []);
 
+  }, []);
   return (
     <div
-      className="flex flex-col justify-evenly bg-cover bg-center bg-no-repeat h-screen w-screen"
+      className="flex flex-col bg-cover bg-center bg-no-repeat h-screen max-w-full md:flex-0 shrink-0"
       style={{
         backgroundImage: `url(${bgHome})`,
       }}
@@ -34,8 +33,9 @@ const Home = () => {
           {
             //* CARRUSEL
           }
-          <h2 className="font-[Oswald] text-center text-white font-bold text-[30px] mt-10 mb-5">
-            Categorias
+          <h2 className="font-[Oswald] text-center text-white font-bold astext-[30px] mt-10 mb-5">
+            Categorías
+
           </h2>
           <Carrousel />
         </div>
@@ -46,3 +46,4 @@ const Home = () => {
 };
 
 export default Home;
+
