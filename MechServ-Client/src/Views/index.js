@@ -3,6 +3,7 @@ import Register from "./Register";
 import ResetPassword from "./ResetPassword";
 import Home from "./Home";
 import Services from "./Services";
+import Detail from "./Detail/Detail";
 import About from "./About";
 import Profile from "./Profile";
 import Agendar from "./Agendar";

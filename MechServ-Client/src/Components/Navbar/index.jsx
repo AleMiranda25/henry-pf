@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <div className="navbar bg-[#202123] text-[whitesmoke] mx-auto px-2 fixed top-[0] left-[0] w-full z-10">
       <div className="navbar-start">
-        {(location.pathname === "/" || location.pathname === "/services") && (
+        {(location.pathname === "/" || location.pathname.includes("/services") || location.pathname === "/user") && (
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -82,8 +82,8 @@ const Navbar = () => {
           MechServ
         </a>
       </div>
+      {(location.pathname === "/" || location.pathname.includes("/services")) && (
 
-      {(location.pathname === "/" || location.pathname === "/services") && (
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             {location.pathname !== "/services" && (
@@ -155,8 +155,7 @@ const Navbar = () => {
         }
         {
           //* BOTON LOGIN
-
-          (location.pathname === "/" || location.pathname === "/services") &&
+          (location.pathname === "/" || location.pathname.includes("/services")) &&
             (isAuthenticated ? (
               //* PARA PERFIL DE USUARIO
               <ProfileButton />
