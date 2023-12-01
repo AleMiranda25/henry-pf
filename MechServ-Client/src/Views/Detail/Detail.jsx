@@ -14,6 +14,8 @@ const Detail = () => {
         dispatch(getService(id));
     }, [dispatch, id])    
 
+    console.log(services);
+
 return (
     <div
       className="flex flex-col justify-center align-middle items-center bg-cover bg-center bg-no-repeat h-screen max-w-full md:flex-0 shrink-0 overflow-auto"
