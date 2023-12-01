@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { bgHome } from "../../assets/Backgrounds/backgrounds";
-import { getAllCategories } from "../../redux/actions";
+import { getAllCategories, getAllServices } from "../../redux/actions";
 
 //Components
 import { CategoriesContainer, Footer, Navbar } from "../../Components";
@@ -12,10 +12,12 @@ const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCategories());
+    dispatch(getAllServices());
   }, []);
+
   return (
     <div
-      className="flex flex-col bg-cover bg-center bg-no-repeat h-screen max-w-full md:flex-0 shrink-0"
+      className="flex flex-col justify-evenly bg-cover bg-center bg-no-repeat h-screen w-screen"
       style={{
         backgroundImage: `url(${bgHome})`,
       }}
