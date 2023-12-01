@@ -12,7 +12,7 @@ const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCategories());
-    // dispatch(getAllServices());
+
   }, []);
   return (
     <div
@@ -22,21 +22,20 @@ const Home = () => {
       }}
     >
       <Navbar />
-      <div className="flex flex-col justify-around gap-20 ">
-        <div className=" text-[whitesmoke] mt-24">
-          {
-            //* TITULO
-          }
-          <h1 className="font-[Oswald] text-center font-bold text-5xl">
-            ¡Bienvenidos a nuestro sitio web!
-          </h1>
-        </div>
+      <div className="flex flex-col justify-around sm:md:lg:gap-16 bg-black bg-opacity-30 rounded-md backdrop-blur-sm py-32">
+        {
+          //* TITULO
+        }
+        <h1 className="font-[Oswald] text-[whitesmoke] text-center font-bold text-[40px] sm:md:lg:text-5xl">
+          ¡Tu auto lo necesita!
+        </h1>
         <div className="grid place-items-center">
           {
             //* CARRUSEL
           }
           <h2 className="font-[Oswald] text-center text-white font-bold astext-[30px] mt-10 mb-5">
             Categorías
+
           </h2>
           <Carrousel />
         </div>
@@ -47,3 +46,4 @@ const Home = () => {
 };
 
 export default Home;
+

@@ -24,7 +24,6 @@ const Services = () => {
   }, [dispatch, sortOrder, sortDirection, categoria]);
 
   const Paging = () => {
-    console.log(services);
     const page = services.slice(offset*8, offset*8+8)
     return page;
   }
@@ -39,7 +38,7 @@ const Services = () => {
   
   return (
     <div
-      className="flex flex-col bg-cover bg-center bg-no-repeat h-screen max-w-full md:flex-0 shrink-0 overflow-auto"
+      className="flex flex-col bg-cover bg-center bg-no-repeat h-screen max-w-full md:flex-0 shrink-0 overflow-auto" 
       style={{
         backgroundImage: `url(${bgHome})`,
       }}

@@ -9,6 +9,8 @@ import { Footer, Navbar } from "../../Components";
 //? #####################################################
 
 const Login = ({ login }) => {
+  const navigate = useNavigate();
+
   const [userData, setUserData] = useState({
     userEmail: "",
     userPassword: "",
@@ -30,10 +32,11 @@ const Login = ({ login }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(login);
     login(userData);
+    navigate("/");
   };
 
-  const navigate = useNavigate();
   return (
     <div
       className="bg-cover bg-center bg-no-repeat w-full max-w-full px-3 mx-0 mt-0 md:flex-0 shrink-0"

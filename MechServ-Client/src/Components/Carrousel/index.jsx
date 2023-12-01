@@ -27,6 +27,7 @@ const Carrousel = () => {
           className="carousel-item w-full"
         >
           <a href={"/services/All"} className=" grid place-items-center text-center w-40 h-40 font-[Oswald] hover:text-[#5770F4] rounded-badge text-[30px] font-bold bg-[#202123] text-[whitesmoke] opacity-95 hover:opacity-80 cursor-pointer">
+
             Todos los Servicos
           </a>
         </div>
@@ -36,3 +37,4 @@ const Carrousel = () => {
 };
 
 export default Carrousel;
+

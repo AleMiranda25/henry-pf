@@ -10,3 +10,4 @@ export default {
   plugins: [require("daisyui"),
             require('@fortawesome/fontawesome-free')],
 };
+
