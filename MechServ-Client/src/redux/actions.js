@@ -17,7 +17,6 @@ import {
   ADD_NEW_CATEGORY,
   UPDATE_CATEGORY,
   DELETE_CATEGORY,
-  SET_ACCESS,
 } from "./actions-types";
 
 //* USERS ACTIONS --------------------------------------------------------------------------
@@ -143,10 +142,13 @@ export const getService = (id) => {
   };
 };
 //? OBTENER TODOS LOS SERVICIOS
-export const getAllServices = () => {
+export const getAllServices = (order, direction, category) => {
   return async function (dispatch) {
     try {
-      const res = await axios.get("/services");
+      let url = `/services/search?orderBy=${order}&orderType=${direction}`
+      if (category!=="All") url += `&category=${category}`
+      console.log(url,category);
+      const res = await axios.get(url);
       dispatch({
         type: GET_ALL_SERVICES,
         payload: res.data,
@@ -260,7 +262,6 @@ export const updateCategory = (categoryId, updatedCategoryInfo) => {
     }
   };
 };
-
 //? ELIMINAR CATEGORIA
 export const deleteCategory = (categoryId) => {
   return async function (dispatch) {
@@ -269,22 +270,6 @@ export const deleteCategory = (categoryId) => {
       dispatch({
         type: DELETE_CATEGORY,
         payload: res.data,
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-};
-
-//* ACCESS ACTIONS--------------------------------------------------------------------------
-
-//? ESTABLECER ACCESO
-export const setAccess = (authenticated) => {
-  return async function (dispatch) {
-    try {
-      dispatch({
-        type: SET_ACCESS,
-        payload: authenticated,
       });
     } catch (err) {
       console.log(err);
