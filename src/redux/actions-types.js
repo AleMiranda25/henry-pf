@@ -34,4 +34,4 @@ export const ADD_NEW_CATEGORY = "ADD_NEW_CATEGORY";
 export const UPDATE_CATEGORY = "UPDATE_CATEGORY";
 export const DELETE_CATEGORY = "DELETE_CATEGORY";
 //* ORDERS
-export const GET_ORDERS= "GET_ORDERs";
+export const GET_ORDERS= "GET_ORDERS";
