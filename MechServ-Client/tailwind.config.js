@@ -7,7 +7,8 @@ export default {
   daisyui: {
     themes: ["light", "dark"],
   },
-  plugins: [require("daisyui"),
-            require('@fortawesome/fontawesome-free')],
+  plugins: [
+    require("daisyui"),
+    // require('@fortawesome/fontawesome-free')
+  ],
 };
-
