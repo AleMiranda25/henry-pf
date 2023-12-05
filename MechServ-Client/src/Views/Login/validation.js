@@ -36,3 +36,4 @@ const validation = (data) => {
   return errors;
 };
 export default validation;
+

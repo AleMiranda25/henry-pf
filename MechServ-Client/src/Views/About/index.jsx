@@ -26,11 +26,7 @@ const About = () => {
         <div className="grid place-self-center font-[Oswald] text-left font-bold text-3xl">
           <h3>
             -{" "}
-            <a
-              className=" cursor-pointer hover:text-[#5770F4]"
-              href="https://www.linkedin.com/in/clemente-delduca-6691181a7/"
-              target="_blank"
-            >
+            <a className=" cursor-pointer hover:text-[#5770F4]">
               DELDUCA, Clemente Alberto
             </a>
           </h3>
@@ -66,9 +62,11 @@ const About = () => {
           </h3>
           <h3>
             -{" "}
-            <a className=" cursor-pointer hover:text-[#5770F4]">
-              {" "}
-              VALDÉZ, Nicolas
+            <a className=" cursor-pointer hover:text-[#5770F4]"
+            href="https://www.linkedin.com/in/nicol%C3%A1s-valdez-16585b232/"
+            target="_blank"
+            >
+              VALDEZ, Nicolás
             </a>
           </h3>
         </div>

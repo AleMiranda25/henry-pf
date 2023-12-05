@@ -12,11 +12,12 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { isAuthenticated } = useAuth0();
+  console.log(isAuthenticated);
 
   return (
     <div className="navbar bg-[#202123] text-[whitesmoke] mx-auto px-2 fixed top-[0] left-[0] w-full z-10">
       <div className="navbar-start">
-        {(location.pathname === "/" || location.pathname === "/services") && (
+        {(location.pathname === "/" || location.pathname.includes("/services") || location.pathname === "/user") && (
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -47,14 +48,11 @@ const Navbar = () => {
                   <i className="fa fa-wrench" /> Servicios
                 </a>
               </li>
-              {/* <li>
-                <a
-                  onClick={() => navigate("/agendar")}
-                  className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle"
-                >
+              <li>
+                <a className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle">
                   <i className="fa fa-plus" /> Agendar Cita
                 </a>
-              </li> */}
+              </li>
               <li>
                 {
                   //* SEARCHBAR
@@ -82,8 +80,8 @@ const Navbar = () => {
           MechServ
         </a>
       </div>
+      {(location.pathname === "/" || location.pathname.includes("/services")) && (
 
-      {(location.pathname === "/" || location.pathname === "/services") && (
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             {location.pathname !== "/services" && (
@@ -96,14 +94,11 @@ const Navbar = () => {
                 </a>
               </li>
             )}
-            {/* <li>
-              <a
-                onClick={() => navigate("/agendar")}
-                className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle"
-              >
+            <li>
+              <a className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle">
                 <i className="fa fa-plus" /> Agendar Cita
               </a>
-            </li> */}
+            </li>
           </ul>
         </div>
       )}
@@ -155,8 +150,7 @@ const Navbar = () => {
         }
         {
           //* BOTON LOGIN
-
-          (location.pathname === "/" || location.pathname === "/services") &&
+          (location.pathname === "/" || location.pathname.includes("/services")) &&
             (isAuthenticated ? (
               //* PARA PERFIL DE USUARIO
               <ProfileButton />
