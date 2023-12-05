@@ -8,8 +8,8 @@ import { Footer, Navbar } from "../../Components";
 
 const Profile = () => {
   const { user, logout } = useAuth0();
+  const { email, name, picture, given_name, family_name } = user;
   // const navigate = useNavigate();
-
   return (
     <div
       className="flex flex-col justify-around gap-20 bg-cover bg-center bg-no-repeat h-screen max-w-full md:flex-0 shrink-0"
@@ -22,18 +22,12 @@ const Profile = () => {
         {
           //* TITULO
         }
-        <h1 className="font-[Oswald] text-center font-bold text-5xl">
-          {user.name}
-        </h1>
-        <img
-          className=" place-self-center w-1/2"
-          src={user.picture}
-          alt={user.name}
-        />
+        <h1 className="font-[Oswald] text-center font-bold text-5xl">{name}</h1>
+        <img className=" place-self-center w-1/2" src={picture} alt={name} />
         <div className="font-[Oswald] grid place-content-center text-[20px]">
-          <p>Nombre: {user.given_name}</p>
-          <p>Apellido: {user.family_name}</p>
-          <p>Email: {user.email}</p>
+          <p>Nombre: {given_name}</p>
+          <p>Apellido: {family_name}</p>
+          <p>Email: {email}</p>
         </div>
       </div>
       <Footer />

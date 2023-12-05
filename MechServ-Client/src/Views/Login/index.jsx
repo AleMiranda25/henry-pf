@@ -26,13 +26,13 @@ const Login = ({ login }) => {
       ...userData,
       [e.target.name]: e.target.value,
     });
-    console.log(userData);
+    // console.log(userData);
     setErrors(validation({ ...userData, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(login);
+    // console.log(login);
     login(userData);
     navigate("/");
   };
