@@ -1,6 +1,7 @@
 //Funcionalidad
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import '@fortawesome/fontawesome-free/css/all.css'
 
 // Components
 import {
@@ -9,9 +10,9 @@ import {
   ResetPassword,
   Home,
   Services,
+  Detail,
   About,
   Profile,
-  Agendar,
 } from "./Views";
 
 //* #####################################################
@@ -26,7 +27,6 @@ function App() {
   // useEffect(() => {
   //   !access && navigate("/");
   // }, [access]);
-
   // const login = (userData) => {
   //   if (userData.userPassword === password && userData.userEmail === email) {
   //     setAccess(true);
@@ -51,22 +51,21 @@ function App() {
   return (
     <div>
       <Routes>
-        //* HOME
+        {//* HOME
         <Route exact path="/" Component={Home} />
         //* LOGIN
-        {/* <Route path="/login" element={<Login login={login} />} />
+        /* <Route path="/login" element={<Login login={login} />} />
         <Route path="/register" Component={Register} />
         <Route path="/resetPassword" Component={ResetPassword} /> */}
-        //* SERVICES
-        <Route path="/services" Component={Services} />
-        //* USER PROFILE
-        <Route path="/profile" Component={Profile} />
-        //* SHOP CART
-        {/* <Route path="/cart" Component={ShopCart} /> */}
+        {//* SERVICES
+        <Route path="/services/:category" Component={Services} />}
+        <Route path="/detail/:id" Component={Detail}/>
+        {//* USER PROFILE
+        <Route path="/profile" Component={Profile} />}
+        {//* SHOP CART
+        /* <Route path="/cart" Component={ShopCart} /> */
         //* ABOUT PF TEAM
-        <Route exact path="/about" Component={About} />
-        //* AGENDAR
-        <Route path="/agendar" Component={Agendar} />
+        <Route exact path="/about" Component={About} />}
       </Routes>
     </div>
   );
