@@ -145,9 +145,9 @@ export const getService = (id) => {
 export const getAllServices = (order, direction, category) => {
   return async function (dispatch) {
     try {
-      let url = `/services/search?orderBy=${order}&orderType=${direction}`
-      if (category!=="All") url += `&category=${category}`
-      console.log(url,category);
+      let url = `/services/search?orderBy=${order}&orderType=${direction}`;
+      if (category !== "All") url += `&category=${category}`;
+      // console.log(url,category);
       const res = await axios.get(url);
       dispatch({
         type: GET_ALL_SERVICES,
