@@ -2,17 +2,16 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { bgHome } from "../../assets/Backgrounds/backgrounds";
-import { getAllCategories, getAllServices } from "../../redux/actions";
+import { getAllCategories } from "../../redux/actions";
 
 //Components
-import { CategoriesContainer, Footer, Navbar } from "../../Components";
+import { CategoriesContainer, Footer, Navbar } from "../../Components/index";
 
 //? #####################################################
 const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCategories());
-    dispatch(getAllServices());
   }, []);
 
   return (

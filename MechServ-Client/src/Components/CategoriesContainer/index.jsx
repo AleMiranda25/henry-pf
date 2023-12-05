@@ -35,7 +35,7 @@ const CategoriesContainer = () => {
                   <a
                     className=" grid place-items-center rounded-lg sm:md:lg:rounded-badge w-10 h-10 sm:w-16 md:lg:w-32 sm:h-16 md:lg:h-32 font-[Oswald] hover:text-[#5770F4] font-bold bg-[#202123] text-[whitesmoke] opacity-95 hover:opacity-80 cursor-pointer"
                     onClick={() => {
-                      navigate(`/services?category=${category}`);
+                      navigate(`/services/${category}`);
                     }}
                   >
                     {category}

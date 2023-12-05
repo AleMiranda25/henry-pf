@@ -26,7 +26,7 @@ function App() {
         }
         {
           //* SERVICES
-          // <Route path="/services/:category" Component={Services} />
+          <Route path="/services/:category" Component={Services} />
         }
         <Route path="/detail/:id" Component={Detail} />
         {
