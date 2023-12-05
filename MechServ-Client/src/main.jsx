@@ -8,6 +8,7 @@ import store from "./redux/store.js";
 import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
 import { domain, clientId } from "../auth0Config.json";
+
 // Styles
 import "./index.css";
 

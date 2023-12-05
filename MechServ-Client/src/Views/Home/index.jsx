@@ -35,6 +35,7 @@ const Home = () => {
           <h2 className="font-[Oswald] text-center text-white font-bold astext-[30px] mt-10 mb-5">
             Categorías
           </h2>
+          {/* <Carrousel /> */}
         </div>
       </div>
       <Footer />
