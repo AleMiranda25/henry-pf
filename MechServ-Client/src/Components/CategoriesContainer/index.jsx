@@ -28,7 +28,7 @@ const CategoriesContainer = () => {
     <div>
       {categories.length !== 0 ? (
         <div>
-          <div className="flex flex-row justify-evenly text-[10px] sm:md:lg:text-[30px] gap-3 m-2 sm:md:lg:m-5 mb-5">
+          <div className="flex flex-row justify-evenly text-[10px] sm:md:lg:text-[30px] gap-3 m-2 sm:md:lg:m-5">
             {currentCategories.map((category, index) => {
               return (
                 <div key={index}>
