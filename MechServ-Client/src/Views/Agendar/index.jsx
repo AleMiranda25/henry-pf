@@ -5,7 +5,7 @@ import { bgHome } from "../../assets/Backgrounds/backgrounds";
 import { Footer, Navbar } from "../../Components";
 
 //? #####################################################
-const Services = () => {
+const Agendar = () => {
   return (
     <div
       className="flex flex-col bg-cover bg-center bg-no-repeat h-screen max-w-full md:flex-0 shrink-0"
@@ -20,7 +20,7 @@ const Services = () => {
             //* TITULO
           }
           <h1 className="font-[Oswald] text-center font-bold text-5xl">
-            SERVICIOS
+            AGENDÁ TUS SERVICIOS
           </h1>
         </div>
       </div>
@@ -29,4 +29,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Agendar;

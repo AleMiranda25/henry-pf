@@ -2,42 +2,42 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { bgHome } from "../../assets/Backgrounds/backgrounds";
-import { getAllCategories } from "../../redux/actions";
+import { getAllCategories, getAllServices } from "../../redux/actions";
 
 //Components
-import { Carrousel, Footer, Navbar } from "../../Components";
+import { CategoriesContainer, Footer, Navbar } from "../../Components";
 
 //? #####################################################
 const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCategories());
-
+    dispatch(getAllServices());
   }, []);
+
   return (
     <div
-      className="flex flex-col bg-cover bg-center bg-no-repeat h-screen max-w-full md:flex-0 shrink-0"
+      className="flex flex-col justify-evenly bg-cover bg-center bg-no-repeat h-screen w-screen"
       style={{
         backgroundImage: `url(${bgHome})`,
       }}
     >
       <Navbar />
-      <div className="flex flex-col justify-around sm:md:lg:gap-16 bg-black bg-opacity-30 rounded-md backdrop-blur-sm py-32">
+      <div className="flex flex-col justify-evenly bg-black bg-opacity-30 rounded-md backdrop-blur-sm min-h-full">
         {
           //* TITULO
         }
-        <h1 className="font-[Oswald] text-[whitesmoke] text-center font-bold text-[40px] sm:md:lg:text-5xl">
+        <h1 className="font-[Oswald] text-[whitesmoke] text-center font-bold text-[40px] sm:md:lg:text-5xl mt-10">
           ¡Tu auto lo necesita!
         </h1>
         <div className="grid place-items-center">
           {
             //* CARRUSEL
           }
-          <h2 className="font-[Oswald] text-center text-white font-bold astext-[30px] mt-10 mb-5">
-            Categorías
-
+          <h2 className="font-[Oswald] text-center text-white font-bold text-[30px] mb-5">
+            Categorias
           </h2>
-          <Carrousel />
+          <CategoriesContainer />
         </div>
       </div>
       <Footer />
@@ -46,4 +46,3 @@ const Home = () => {
 };
 
 export default Home;
-
