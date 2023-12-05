@@ -7,7 +7,7 @@ import Pagination from "../Pagination";
 
 const CategoriesContainer = () => {
   const categories = useSelector((state) => state.categories);
-  console.log(categories);
+  // console.log(categories);
   const [currentPage, setCurrentPage] = useState(1);
   const categoriesPerPage = 5;
 
