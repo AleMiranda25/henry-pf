@@ -206,7 +206,7 @@ export const deleteService = (serviceId) => {
 export const searchServiceByName = (name) => {
   return async function (dispatch) {
     try {
-      const res = await axios.get(`/services/?search=${name}`);
+      const res = await axios.get(`/services/?keyWord=${name}`);
       dispatch({
         type: SEARCH_BY_SERVICE_NAME,
         payload: res.data,
