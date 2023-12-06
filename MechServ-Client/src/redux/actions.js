@@ -17,6 +17,7 @@ import {
   ADD_NEW_CATEGORY,
   UPDATE_CATEGORY,
   DELETE_CATEGORY,
+  SEARCH_BY_SERVICE_NAME,
 } from "./actions-types";
 
 //* USERS ACTIONS --------------------------------------------------------------------------
@@ -145,9 +146,9 @@ export const getService = (id) => {
 export const getAllServices = (order, direction, category) => {
   return async function (dispatch) {
     try {
-      let url = `/services/search?orderBy=${order}&orderType=${direction}`
-      if (category!=="All") url += `&category=${category}`
-      console.log(url,category);
+      let url = `/services/search?orderBy=${order}&orderType=${direction}`;
+      if (category !== "All") url += `&category=${category}`;
+      console.log(url, category);
       const res = await axios.get(url);
       dispatch({
         type: GET_ALL_SERVICES,
@@ -201,6 +202,20 @@ export const deleteService = (serviceId) => {
   };
 };
 
+//? BUSCAR POR NOMBRE DE SERVICIO
+
+export const searchByServiceName = (name) => {
+  return async function (dispatch) {
+    try {
+      let nameData = await axios.get(`/services/?name=${name}`);
+      let serviceNameInfo = nameData.data;
+      dispatch({ type: SEARCH_BY_SERVICE_NAME, payload: serviceNameInfo });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
 //* CATEGORIES ACTIONS --------------------------------------------------------------------------
 
 //? OBTENER CATEGORIA
@@ -231,7 +246,7 @@ export const getAllCategories = () => {
     }
   };
 };
-//? AGREGAR NUEVO SERVICIO
+//? AGREGAR NUEVA CATEGORIA
 export const addNewCategory = (categoryData) => {
   return async function (dispatch) {
     try {

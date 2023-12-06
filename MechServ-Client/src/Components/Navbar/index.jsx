@@ -2,15 +2,27 @@
 import { MechServIcon } from "../../assets/Icons/icons";
 import { useNavigate, useLocation } from "react-router";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 //Componentes
 import Searchbar from "../Searchbar";
 import LoginButton from "../LoginButton";
 import ProfileButton from "../ProfileButton";
+import { searchByServiceName } from "../../redux/actions";
 
 const Navbar = () => {
   //* Variables
   const navigate = useNavigate();
   const location = useLocation();
+
+  const dispatch = useDispatch();
+  const [name, setName] = useState("");
+  //const [error, setError] = useState(null); // agregamos un estado para el mensaje de error
+  const handleChange = (e) => {
+    setName(e.target.value);
+    dispatch(searchByServiceName(name));
+  };
+
   const { isAuthenticated } = useAuth0();
   // console.log(isAuthenticated);
 
@@ -66,6 +78,7 @@ const Navbar = () => {
                         type="text"
                         placeholder="Search"
                         className="input input-bordered w-[95%] mx-0 rounded-3xl text-[#202123] h-10"
+                        onChange={handleChange}
                       />
                     </div>
                   )
