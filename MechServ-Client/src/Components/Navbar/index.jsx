@@ -8,7 +8,7 @@ import { useState } from "react";
 import Searchbar from "../Searchbar";
 import LoginButton from "../LoginButton";
 import ProfileButton from "../ProfileButton";
-import { searchByServiceName } from "../../redux/actions";
+import { searchServiceByName } from "../../redux/actions";
 
 const Navbar = () => {
   //* Variables
@@ -20,7 +20,7 @@ const Navbar = () => {
   //const [error, setError] = useState(null); // agregamos un estado para el mensaje de error
   const handleChange = (e) => {
     setName(e.target.value);
-    dispatch(searchByServiceName(name));
+    dispatch(searchServiceByName(name));
   };
 
   const { isAuthenticated } = useAuth0();

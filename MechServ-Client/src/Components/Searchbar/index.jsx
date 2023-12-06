@@ -1,7 +1,7 @@
 //Funcionalidad
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { searchByServiceName } from "../../redux/actions";
+import { searchServiceByName } from "../../redux/actions";
 
 //Componentes
 
@@ -11,7 +11,7 @@ const Searchbar = () => {
   //const [error, setError] = useState(null); // agregamos un estado para el mensaje de error
   const handleChange = (e) => {
     setName(e.target.value);
-    dispatch(searchByServiceName(name));
+    dispatch(searchServiceByName(name));
   };
   console.log(name);
 
