@@ -52,7 +52,7 @@ const CategoriesContainer = () => {
           />
         </div>
       ) : (
-        <span className="loading loading-spinner loading-lg"></span>
+        <span className=" text-indigo-500 loading loading-spinner loading-lg"></span>
       )}
     </div>
   );

@@ -37,43 +37,45 @@ const Services = () => {
 
   return (
     <div
-      className="flex flex-col bg-cover bg-center bg-no-repeat h-screen max-w-full md:flex-0 shrink-0 overflow-auto"
+      className="flex flex-col bg-cover bg-center bg-no-repeat h-screen max-w-full overflow-auto"
       style={{
         backgroundImage: `url(${bgHome})`,
       }}
     >
       <Navbar />
-      <div className="flex flex-col justify-around gap-20 ">
-        <div className=" text-[whitesmoke] mt-24 mb-20">
-          {
-            //* TITULO
-          }
-          <h1 className="font-[Oswald] text-center font-bold text-5xl mb-5">
-            SERVICIOS
-          </h1>
-          <SortingOptions
-            sortOrder={sortOrder}
-            sortDirection={sortDirection}
-            onSortChange={handleSortChange}
-          />
-          <div>
-            <div className="flex flex-row justify-between">
-              <div className="hover:text-[#5770F4] relative rounded-badge text-[30px] font-bold bg-[#202123] text-[whitesmoke] opacity-95 hover:opacity-80 cursor-pointer m-4">
-                {offset > 0 && (
-                  <button onClick={() => setOffset(offset - 1)}>
-                    <i className="hover:text-[#5770F4] h-auto w-12 rounded-badge fa fa-solid fa-chevron-left fa-xl text-[whitesmoke] opacity-95 hover:opacity-80 cursor-pointer"></i>
-                  </button>
-                )}
+      <div className="bg-black bg-opacity-30 rounded-md backdrop-blur-sm min-h-auto">
+        <div className="flex flex-col justify-around gap-20 ">
+          <div className=" text-[whitesmoke] mt-24 mb-20">
+            {
+              //* TITULO
+            }
+            <h1 className="font-[Oswald] text-center font-bold text-5xl mb-5">
+              SERVICIOS
+            </h1>
+            <SortingOptions
+              sortOrder={sortOrder}
+              sortDirection={sortDirection}
+              onSortChange={handleSortChange}
+            />
+            <div>
+              <div className="flex flex-row justify-between">
+                <div className="hover:text-[#5770F4] relative rounded-badge text-[30px] font-bold bg-[#202123] text-[whitesmoke] opacity-95 hover:opacity-80 cursor-pointer m-4">
+                  {offset > 0 && (
+                    <button onClick={() => setOffset(offset - 1)}>
+                      <i className="hover:text-[#5770F4] h-auto w-12 rounded-badge fa fa-solid fa-chevron-left fa-xl text-[whitesmoke] opacity-95 hover:opacity-80 cursor-pointer"></i>
+                    </button>
+                  )}
+                </div>
+                <div className="hover:text-[#5770F4] rounded-full text-[30px] font-bold bg-[#202123] text-[whitesmoke] opacity-95 hover:opacity-80 cursor-pointer m-4">
+                  {offset >= 0 && offset < Math.trunc(services.length / 8) && (
+                    <button onClick={() => setOffset(offset + 1)}>
+                      <i className="hover:text-[#5770F4] h-auto w-12 rounded-badge fa fa-solid fa-chevron-right fa-xl text-[whitesmoke] opacity-95 hover:opacity-80 cursor-pointer"></i>
+                    </button>
+                  )}
+                </div>
               </div>
-              <div className="hover:text-[#5770F4] rounded-full text-[30px] font-bold bg-[#202123] text-[whitesmoke] opacity-95 hover:opacity-80 cursor-pointer m-4">
-                {offset >= 0 && offset < Math.trunc(services.length / 8) && (
-                  <button onClick={() => setOffset(offset + 1)}>
-                    <i className="hover:text-[#5770F4] h-auto w-12 rounded-badge fa fa-solid fa-chevron-right fa-xl text-[whitesmoke] opacity-95 hover:opacity-80 cursor-pointer"></i>
-                  </button>
-                )}
-              </div>
+              <CardContainer services={Paging()} />
             </div>
-            <CardContainer services={Paging()} />
           </div>
         </div>
       </div>

@@ -88,7 +88,7 @@ const Navbar = () => {
         location.pathname.includes("/services")) && (
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            {location.pathname !== "/services" && (
+            {!location.pathname.includes("/services") && (
               <li>
                 <a
                   onClick={() => navigate("/services/All")}
