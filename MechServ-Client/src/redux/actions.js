@@ -202,14 +202,15 @@ export const deleteService = (serviceId) => {
   };
 };
 
-//? BUSCAR POR NOMBRE DE SERVICIO
-
-export const searchByServiceName = (name) => {
+//? BUSCAR SERVICIO POR NOMBRE
+export const searchServiceByName = (name) => {
   return async function (dispatch) {
     try {
-      let nameData = await axios.get(`/services/?name=${name}`);
-      let serviceNameInfo = nameData.data;
-      dispatch({ type: SEARCH_BY_SERVICE_NAME, payload: serviceNameInfo });
+      const res = await axios.get(`/services/?search=${name}`);
+      dispatch({
+        type: SEARCH_BY_SERVICE_NAME,
+        payload: res.data,
+      });
     } catch (err) {
       console.log(err);
     }
@@ -246,7 +247,7 @@ export const getAllCategories = () => {
     }
   };
 };
-//? AGREGAR NUEVA CATEGORIA
+//? AGREGAR NUEVO SERVICIO
 export const addNewCategory = (categoryData) => {
   return async function (dispatch) {
     try {
