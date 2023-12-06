@@ -1,8 +1,20 @@
 //Funcionalidad
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { searchByServiceName } from "../../redux/actions";
 
 //Componentes
 
 const Searchbar = () => {
+  const dispatch = useDispatch();
+  const [name, setName] = useState("");
+  //const [error, setError] = useState(null); // agregamos un estado para el mensaje de error
+  const handleChange = (e) => {
+    setName(e.target.value);
+    dispatch(searchByServiceName(name));
+  };
+  console.log(name);
+
   return (
     <div className="relative pr-2 pl-1 hidden md:flex">
       <div className="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none">
@@ -28,6 +40,7 @@ const Searchbar = () => {
         id="search-navbar"
         className="block w-full md:w-auto p-2 ps-9 text-sm text-gray-900 border border-gray-300 rounded-3xl bg-gray-50 dark:bg-[#202123] dark:border-[whitesmoke] dark:placeholder-gray-400 dark:text-[#202123] dark:focus:bg-[whitesmoke]"
         placeholder="Buscar..."
+        onChange={handleChange}
       />
     </div>
   );

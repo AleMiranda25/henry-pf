@@ -13,6 +13,7 @@ import SortingOptions from "../../Components/Sorting/Sorting";
 const Services = () => {
   const dispatch = useDispatch();
   const services = useSelector((state) => state.services) || [];
+  console.log(services);
   const [offset, setOffset] = useState(0);
   const [sortOrder, setSortOrder] = useState("name");
   const [sortDirection, setSortDirection] = useState("asc");
