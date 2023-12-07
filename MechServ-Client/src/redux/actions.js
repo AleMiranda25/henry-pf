@@ -17,6 +17,7 @@ import {
   ADD_NEW_CATEGORY,
   UPDATE_CATEGORY,
   DELETE_CATEGORY,
+  SEARCH_BY_SERVICE_NAME,
 } from "./actions-types";
 
 //* USERS ACTIONS --------------------------------------------------------------------------
@@ -145,9 +146,9 @@ export const getService = (id) => {
 export const getAllServices = (order, direction, category) => {
   return async function (dispatch) {
     try {
-      let url = `/services/search?orderBy=${order}&orderType=${direction}`
-      if (category!=="All") url += `&category=${category}`
-      console.log(url,category);
+      let url = `/services/search?orderBy=${order}&orderType=${direction}`;
+      if (category !== "All") url += `&category=${category}`;
+      console.log(url, category);
       const res = await axios.get(url);
       dispatch({
         type: GET_ALL_SERVICES,
@@ -193,6 +194,21 @@ export const deleteService = (serviceId) => {
       const res = await axios.delete(`/services/${serviceId}`);
       dispatch({
         type: DELETE_SERVICE,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+//? BUSCAR SERVICIO POR NOMBRE
+export const searchServiceByName = (name) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`/services/?keyWord=${name}`);
+      dispatch({
+        type: SEARCH_BY_SERVICE_NAME,
         payload: res.data,
       });
     } catch (err) {

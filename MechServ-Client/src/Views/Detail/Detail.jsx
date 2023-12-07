@@ -25,7 +25,7 @@ const Detail = () => {
 
     console.log("turnoSeleccionado detail:", turnoSeleccionado)
 
-return (
+  return (
     <div
       className="flex flex-col justify-center align-middle items-center bg-cover bg-center bg-no-repeat h-screen max-w-full md:flex-0 shrink-0 overflow-auto"
       style={{
@@ -35,10 +35,10 @@ return (
         <Navbar/>
         <div className="flex">
             <div>
-        <div className="flex flex-col h-2/3 w-1/2 rounded-3xl p-10 justify-center items-center text-[16px] font-bold bg-[#202123] text-[whitesmoke]">
-            {services && (<h1>{services.name}</h1>)}
-            {services && (<h1>Precio: ${services.price}</h1>)}
-            {services && (<h1>{services.description}</h1>)}
+        <div className="flex flex-col h-2/3 w-1/2 rounded-3xl p-10 justify-evenly text-center text-[30px] backdrop-blur-sm font-bold bg-[#202123] bg-opacity-80 text-[whitesmoke] font-[Oswald]">
+              {services && <h1>{services.name.toUpperCase()}</h1>}
+            {services && <h1>Precio: ${services.price}</h1>}
+            {services && (<p className=" text-2xl text-justify">{services.description}</p>)}
         </div>
             </div>
             <div>
@@ -52,8 +52,9 @@ return (
                 </div>
             </div>
         </div>
+
     </div>
-)
-}
+  );
+};
 
 export default Detail;
