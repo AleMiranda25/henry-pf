@@ -15,15 +15,15 @@ import {
   ADD_NEW_CATEGORY,
   UPDATE_CATEGORY,
   DELETE_CATEGORY,
-  SET_ACCESS,
+  SEARCH_BY_SERVICE_NAME,
 } from "./actions-types";
 
 const initialState = {
+  users: [],
   services: [],
   categories: [],
   userId: null,
   serviceId: null,
-  access: false,
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -89,6 +89,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         services: state.services.filter((service) => service._id !== payload),
       };
+    case SEARCH_BY_SERVICE_NAME:
+      return {
+        ...state,
+        services: payload,
+      };
+
     //* CATEGORIES ---------------------------------------------------------
     case GET_CATEGORY:
       return {
@@ -118,12 +124,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
         categories: state.categories.filter(
           (category) => category._id !== payload
         ),
-      };
-    //* ACCESS ---------------------------------------------------------
-    case SET_ACCESS:
-      return {
-        ...state,
-        access: payload,
       };
     //* CASO DEFAULT
     default:

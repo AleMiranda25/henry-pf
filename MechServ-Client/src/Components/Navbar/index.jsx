@@ -2,22 +2,36 @@
 import { MechServIcon } from "../../assets/Icons/icons";
 import { useNavigate, useLocation } from "react-router";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 //Componentes
 import Searchbar from "../Searchbar";
 import LoginButton from "../LoginButton";
 import ProfileButton from "../ProfileButton";
+import { searchServiceByName } from "../../redux/actions";
 
 const Navbar = () => {
   //* Variables
   const navigate = useNavigate();
   const location = useLocation();
+
+  const dispatch = useDispatch();
+  const [name, setName] = useState("");
+  //const [error, setError] = useState(null); // agregamos un estado para el mensaje de error
+  const handleChange = (e) => {
+    setName(e.target.value);
+    dispatch(searchServiceByName(name));
+  };
+
   const { isAuthenticated } = useAuth0();
-  console.log(isAuthenticated);
+  // console.log(isAuthenticated);
 
   return (
     <div className="navbar bg-[#202123] text-[whitesmoke] mx-auto px-2 fixed top-[0] left-[0] w-full z-10">
       <div className="navbar-start">
-        {(location.pathname === "/" || location.pathname === "/services") && (
+        {(location.pathname === "/" ||
+          location.pathname.includes("/services") ||
+          location.pathname === "/user") && (
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -40,28 +54,31 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#202123] rounded-box w-52"
             >
-              <li>
-                <a
-                  onClick={() => navigate("/services")}
-                  className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle"
-                >
-                  <i className="fa fa-wrench" /> Servicios
-                </a>
-              </li>
-              <li>
+              {!location.pathname.includes("/services") && (
+                <li>
+                  <a
+                    onClick={() => navigate("/services/All")}
+                    className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle"
+                  >
+                    <i className="fa fa-wrench" /> Servicios
+                  </a>
+                </li>
+              )}
+              {/* <li>
                 <a className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle">
                   <i className="fa fa-plus" /> Agendar Cita
                 </a>
-              </li>
+              </li> */}
               <li>
                 {
                   //* SEARCHBAR
-                  location.pathname === "/services" && (
+                  location.pathname.includes("/services") && (
                     <div className="form-control">
                       <input
                         type="text"
                         placeholder="Search"
                         className="input input-bordered w-[95%] mx-0 rounded-3xl text-[#202123] h-10"
+                        onChange={handleChange}
                       />
                     </div>
                   )
@@ -80,32 +97,32 @@ const Navbar = () => {
           MechServ
         </a>
       </div>
-
-      {(location.pathname === "/" || location.pathname === "/services") && (
+      {(location.pathname === "/" ||
+        location.pathname.includes("/services")) && (
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            {location.pathname !== "/services" && (
+            {!location.pathname.includes("/services") && (
               <li>
                 <a
-                  onClick={() => navigate("/services")}
+                  onClick={() => navigate("/services/All")}
                   className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle"
                 >
                   <i className="fa fa-wrench" /> Servicios
                 </a>
               </li>
             )}
-            <li>
+            {/* <li>
               <a className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle">
                 <i className="fa fa-plus" /> Agendar Cita
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       )}
       <div className="navbar-end">
         {
           //* SEARCHBAR
-          location.pathname === "/services" && <Searchbar />
+          location.pathname.includes("/services") && <Searchbar />
         }
         {
           //* CARRITO DE COMPRA
@@ -150,8 +167,8 @@ const Navbar = () => {
         }
         {
           //* BOTON LOGIN
-
-          (location.pathname === "/" || location.pathname === "/services") &&
+          (location.pathname === "/" ||
+            location.pathname.includes("/services")) &&
             (isAuthenticated ? (
               //* PARA PERFIL DE USUARIO
               <ProfileButton />
