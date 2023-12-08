@@ -13,6 +13,7 @@ import {
   Detail,
   About,
   Profile,
+  Orders,
 } from "./Views";
 
 //* #####################################################
@@ -62,6 +63,8 @@ function App() {
         <Route path="/detail/:id" Component={Detail}/>
         {//* USER PROFILE
         <Route path="/profile" Component={Profile} />}
+        {//* USER ORDERS
+        <Route path="/orders" Component={Orders} />}
         {//* SHOP CART
         /* <Route path="/cart" Component={ShopCart} /> */
         //* ABOUT PF TEAM
