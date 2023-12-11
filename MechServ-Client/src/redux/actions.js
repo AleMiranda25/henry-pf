@@ -18,6 +18,9 @@ import {
   UPDATE_CATEGORY,
   DELETE_CATEGORY,
   SET_ACCESS,
+  GET_ORDERS,
+  GET_BYEMAIL
+
 } from "./actions-types";
 
 //* USERS ACTIONS --------------------------------------------------------------------------
@@ -285,6 +288,39 @@ export const setAccess = (authenticated) => {
       dispatch({
         type: SET_ACCESS,
         payload: authenticated,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+//? OBTENER por email
+export const getUserByEmail = (email) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`/users/${email}`);
+    
+      dispatch({
+        type: GET_BYEMAIL,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+
+
+
+//order
+export const getOrder = (id) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`/orders/${id}`);
+      dispatch({
+        type: GET_ORDERS,
+        payload: res.data,
       });
     } catch (err) {
       console.log(err);

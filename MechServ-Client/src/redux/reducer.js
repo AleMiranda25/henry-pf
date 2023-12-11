@@ -16,14 +16,19 @@ import {
   UPDATE_CATEGORY,
   DELETE_CATEGORY,
   SET_ACCESS,
+  GET_ORDERS,
+  GET_BYEMAIL
 } from "./actions-types";
 
 const initialState = {
-  services: [],
-  categories: [],
-  userId: null,
-  serviceId: null,
-  access: false,
+    users: [],
+    user:[],
+    services: [],
+    categories: [],
+    orders:[],
+    userId: null,
+    serviceId: null,
+    access: false,
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -125,6 +130,17 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         access: payload,
       };
+
+      case GET_BYEMAIL:
+        return {
+          ...state,
+          user: payload,
+        };
+      case GET_ORDERS:
+        return {
+          ...state,
+          orders: payload,
+        };
     //* CASO DEFAULT
     default:
       return { ...state };

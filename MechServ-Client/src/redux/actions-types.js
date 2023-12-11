@@ -35,3 +35,11 @@ export const UPDATE_CATEGORY = "UPDATE_CATEGORY";
 export const DELETE_CATEGORY = "DELETE_CATEGORY";
 //* ACCESS
 export const SET_ACCESS = "SET_ACCESS";
+
+
+
+// GET_ORDERS
+export const GET_ORDERS = "GET_ORDERS";
+//GET_BYEMAIL
+export const GET_BYEMAIL = "GET_BYEMAIL";
+
