@@ -14,6 +14,7 @@ import {
   About,
   Profile,
   Orders,
+  ServicesAdm,
 } from "./Views";
 
 //* #####################################################
@@ -45,6 +46,9 @@ function App() {
         /* <Route path="/cart" Component={ShopCart} /> */
         //* ABOUT PF TEAM
         <Route exact path="/about" Component={About} />}
+
+        {//* VIEW TO ADMIN THE SERVICES
+          <Route path="/servicesadm" Component={ServicesAdm} />}
 
       </Routes>
     </div>
