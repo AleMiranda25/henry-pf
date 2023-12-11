@@ -11,7 +11,7 @@ import VehiculeList from "../../Components/VehiculeList/VehiculeList";
 
 const Detail = () => {
     const { id } = useParams();
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const [ turnoSeleccionado, setTurnoSeleccionado ] = useState({
         idUser : "",
         idVehiculo : "",
