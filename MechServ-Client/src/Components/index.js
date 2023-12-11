@@ -5,11 +5,8 @@ import CardContainer from "./CardContainer/CardContainer";
 import CategoriesContainer from "./CategoriesContainer";
 import Pagination from "./Pagination";
 
-export {
-  Navbar,
-  Searchbar,
-  Footer,
-  CategoriesContainer,
-  Pagination,
-  CardContainer,
-};
+import TableOrders from "./TableOrders/TableOrders";
+
+export { Navbar, Searchbar, Footer, CardContainer, TableOrders, CategoriesContainer, Pagination };
+
+
