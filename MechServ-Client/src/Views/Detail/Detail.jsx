@@ -36,10 +36,10 @@ const Detail = () => {
                 alert(res.data.message);
                 navigate('/orders')
             }
-         } catch (error) {
-             console.error(error.message);
-     
-         }
+        } catch (error) {
+            console.error(error.message);
+
+        }
     }
 
     const validateOrder = (order) => {
