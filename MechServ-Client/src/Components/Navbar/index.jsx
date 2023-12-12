@@ -167,8 +167,8 @@ const Navbar = () => {
         }
         {
           //* BOTON LOGIN
-          (location.pathname === "/" ||
-            location.pathname.includes("/services")) &&
+          (location.pathname === "/" || location.pathname.includes("/services") || location.pathname.includes("/detail") || location.pathname.includes("/orders")) &&
+
             (isAuthenticated ? (
               //* PARA PERFIL DE USUARIO
               <ProfileButton />
