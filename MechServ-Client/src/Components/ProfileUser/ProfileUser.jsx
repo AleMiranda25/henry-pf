@@ -62,15 +62,15 @@ const PerfilUsuario = () => {
  
 
 
-  useEffect(() => {
-    // Eliminar elementos del almacenamiento local al desmontar el componente
-    return () => {
-      localStorage.removeItem('userId');
-      if (isNewUser) {
-        localStorage.removeItem('order');
-      }
-    };
-  }, [isNewUser]);
+  // useEffect(() => {
+  //   // Eliminar elementos del almacenamiento local al desmontar el componente
+  //   return () => {
+  //     localStorage.removeItem('userId');
+  //     if (isNewUser) {
+  //       localStorage.removeItem('order');
+  //     }
+  //   };
+  // }, [isNewUser]);
 
 
 

@@ -1,9 +1,22 @@
 //Funcionalidad
 import { useAuth0 } from "@auth0/auth0-react";
+import React, { useEffect } from 'react';
 //Componentes
 
 const LoginButton = () => {
   const { loginWithPopup, loginWithRedirect } = useAuth0();
+
+
+  useEffect(() => {
+    // Eliminar elementos del almacenamiento local al desmontar el componente
+    return () => {
+      localStorage.removeItem('userId');
+      
+        localStorage.removeItem('order');
+      
+    };
+  }, []);
+
   return (
     <>
       <button
