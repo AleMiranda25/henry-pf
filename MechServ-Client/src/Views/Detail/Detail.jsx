@@ -29,17 +29,15 @@ const Detail = () => {
     setTurnoSeleccionado({ ...turnoSeleccionado, idServicio: id });
   }, []);
 
-    const postOrder = async () => {
-        try {
-            if (validateOrder(turnoSeleccionado)){
-                const res = await axios.post(`${URL}order`, turnoSeleccionado);
-                alert(res.data.message);
-                navigate('/orders')
-            }
-        } catch (error) {
-            console.error(error.message);
-
-        }
+  const postOrder = async () => {
+    try {
+      if (validateOrder(turnoSeleccionado)) {
+        const res = await axios.post(`${URL}order`, turnoSeleccionado);
+        alert(res.data.message);
+        navigate("/orders");
+      }
+    } catch (error) {
+      console.error(error.message);
     }
   };
 

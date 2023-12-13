@@ -27,7 +27,7 @@ const TableOrders = (props) => {
       name: order.Servicio.name,
       price: order.Servicio.price,
     };
-    console.log(item);
+    // console.log(item);
     try {
       const response = await axios.post(`/Mercado_Pago`, item);
       window.location.href = response.data;

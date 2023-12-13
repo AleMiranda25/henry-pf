@@ -4,11 +4,11 @@ import { useNavigate, useLocation } from "react-router";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { searchServiceByName } from "../../redux/actions";
 //Componentes
 import Searchbar from "../Searchbar";
 import LoginButton from "../LoginButton";
 import ProfileButton from "../ProfileButton";
-import { searchServiceByName } from "../../redux/actions";
 
 const Navbar = () => {
   //* Variables
@@ -64,11 +64,6 @@ const Navbar = () => {
                   </a>
                 </li>
               )}
-              {/* <li>
-                <a className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle">
-                  <i className="fa fa-plus" /> Agendar Cita
-                </a>
-              </li> */}
               <li>
                 {
                   //* SEARCHBAR
@@ -111,11 +106,6 @@ const Navbar = () => {
                 </a>
               </li>
             )}
-            {/* <li>
-              <a className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle">
-                <i className="fa fa-plus" /> Agendar Cita
-              </a>
-            </li> */}
           </ul>
         </div>
       )}
@@ -125,50 +115,11 @@ const Navbar = () => {
           location.pathname.includes("/services") && <Searchbar />
         }
         {
-          //* CARRITO DE COMPRA
-          // (location.pathname === "/services" ||
-          //   location.pathname === "/profile") && (
-          //   <div className="dropdown dropdown-end pr-2 hidden lg:flex">
-          //     <label tabIndex={0} className="btn btn-ghost btn-circle">
-          //       <div className="indicator">
-          //         <svg
-          //           xmlns="http://www.w3.org/2000/svg"
-          //           className="h-5 w-5"
-          //           fill="none"
-          //           viewBox="0 0 24 24"
-          //           stroke="currentColor"
-          //         >
-          //           <path
-          //             strokeLinecap="round"
-          //             strokeLinejoin="round"
-          //             strokeWidth="2"
-          //             d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-          //           />
-          //         </svg>
-          //         <span className="badge badge-sm indicator-item">8</span>
-          //       </div>
-          //     </label>
-          //     <div
-          //       tabIndex={0}
-          //       className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
-          //     >
-          //       <div className="card-body">
-          //         <span className="font-bold text-lg">8 Items</span>
-          //         <span className="text-info">Subtotal: $999</span>
-          //         <div className="card-actions">
-          //           <button className="btn btn-primary btn-block">
-          //             View cart
-          //           </button>
-          //         </div>
-          //       </div>
-          //     </div>
-          //   </div>
-          // )
-        }
-        {
           //* BOTON LOGIN
-          (location.pathname === "/" || location.pathname.includes("/services") || location.pathname.includes("/detail") || location.pathname.includes("/orders")) &&
-
+          (location.pathname === "/" ||
+            location.pathname.includes("/services") ||
+            location.pathname.includes("/detail") ||
+            location.pathname.includes("/orders")) &&
             (isAuthenticated ? (
               //* PARA PERFIL DE USUARIO
               <ProfileButton />
