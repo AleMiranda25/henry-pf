@@ -1,9 +1,25 @@
 /* eslint-disable react/prop-types */
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import axios from 'axios';
 
 const TableOrders = (props) => {
     const { orders, isAdmin } = props;
     const navigate = useNavigate();
+    const [forceUpdate, setForceUpdate] = useState(false);
+
+    const setOrder = async (id_orden) => {
+        try {
+            await axios.get(`/orders/set/${id_orden}`);
+            setForceUpdate((prev) => !prev);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    useEffect(() => {
+        setForceUpdate(false);
+    }, [forceUpdate]);
 
   return (
     <div className="overflow-x-auto bg-white bg-opacity-50">
@@ -31,7 +47,7 @@ const TableOrders = (props) => {
                 <td>{order.Servicio.price}</td>
                 <td >
                     <i className={order.payment
-                                ? "fa fa-check-circle-o fa-2x text-green-700" 
+                                ? "fa fa-check-circle-o fa-2x text-green-700"
                                 : "fa fa-times-circle-o fa-2x text-red-700"}/>
                 </td>
                 <td>
@@ -52,13 +68,14 @@ const TableOrders = (props) => {
                     ?
                     <td>
                         <a className="font-[Oswald] hover:text-[#5770F4] text-black font-semibold align-middle cursor-pointer"
-                        onClick={() => navigate("/")}
+
+                        onClick={() => setOrder(order.id_orden)}
                         >
                         <i className={order.isActive
-                                    ? "fa fa-check-circle-o fa-2x text-green-700" 
+                                    ? "fa fa-check-circle-o fa-2x text-green-700"
                                     : "fa fa-times-circle-o fa-2x text-red-700"} />
                         </a>
-                    </td>  
+                    </td>
                     : null
                 }
             </tr>
