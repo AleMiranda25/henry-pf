@@ -68,7 +68,7 @@ const Navbar = () => {
                 <a className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle">
                   <i className="fa fa-plus" /> Agendar Cita
                 </a>
-              </li> */}
+              </li>
               <li>
                 {
                   //* SEARCHBAR
@@ -115,7 +115,7 @@ const Navbar = () => {
               <a className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold align-middle">
                 <i className="fa fa-plus" /> Agendar Cita
               </a>
-            </li> */}
+            </li>
           </ul>
         </div>
       )}

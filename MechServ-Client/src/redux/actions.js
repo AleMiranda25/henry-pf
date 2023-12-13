@@ -19,6 +19,10 @@ import {
   UPDATE_CATEGORY,
   DELETE_CATEGORY,
   SEARCH_BY_SERVICE_NAME,
+  SET_ACCESS,
+  GET_ORDERS,
+  GET_BYEMAIL
+
 } from "./actions-types";
 
 //* USERS ACTIONS --------------------------------------------------------------------------
@@ -159,7 +163,7 @@ export const getService = (id) => {
   };
 };
 //? OBTENER TODOS LOS SERVICIOS
-export const getAllServices = (order, direction, category) => {
+export const getAllServices = () => {
   return async function (dispatch) {
     try {
       let url = `/services/search?orderBy=${order}&orderType=${direction}`;
@@ -294,6 +298,7 @@ export const updateCategory = (categoryId, updatedCategoryInfo) => {
     }
   };
 };
+
 //? ELIMINAR CATEGORIA
 export const deleteCategory = (categoryId) => {
   return async function (dispatch) {
@@ -301,6 +306,56 @@ export const deleteCategory = (categoryId) => {
       const res = await axios.delete(`/categories/${categoryId}`);
       dispatch({
         type: DELETE_CATEGORY,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+
+//* ACCESS ACTIONS--------------------------------------------------------------------------
+
+//? ESTABLECER ACCESO
+export const setAccess = (authenticated) => {
+  return async function (dispatch) {
+    try {
+      dispatch({
+        type: SET_ACCESS,
+        payload: authenticated,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+//? OBTENER por email
+export const getUserByEmail = (email) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`/users/${email}`);
+    
+      dispatch({
+        type: GET_BYEMAIL,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+
+
+
+//order
+export const getOrder = (id) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`/orders/${id}`);
+      dispatch({
+        type: GET_ORDERS,
         payload: res.data,
       });
     } catch (err) {
