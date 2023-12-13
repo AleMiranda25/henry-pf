@@ -2,6 +2,7 @@ import axios from "axios";
 
 import {
   GET_USER,
+  GET_USER_INFO,
   GET_ALL_USERS,
   ADD_NEW_USER,
   UPDATE_USER,
@@ -43,6 +44,21 @@ export const getAllUsers = () => {
       const res = await axios.get("/users");
       dispatch({
         type: GET_ALL_USERS,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+//? OBTENER INFO DEL USUARIO A PARTIR DEL EMAIL
+export const getUserInfo = (email) => {
+  return async function (dispatch) {
+    try {
+      let url = `/users/${email}`;
+      const res = await axios.get(url);
+      dispatch({
+        type: GET_USER_INFO,
         payload: res.data,
       });
     } catch (err) {

@@ -1,11 +1,25 @@
 //Funcionalidad
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 
 const TableOrders = (props) => {
   const { orders, isAdmin } = props;
   const navigate = useNavigate();
+  const [forceUpdate, setForceUpdate] = useState(false);
+
+  const setOrder = async (id_orden) => {
+    try {
+      await axios.get(`/orders/set/${id_orden}`);
+      setForceUpdate((prev) => !prev);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    setForceUpdate(false);
+  }, [forceUpdate]);
 
   //* MERCADO PAGO INIT
   const buyFunction = async (order) => {
@@ -71,7 +85,7 @@ const TableOrders = (props) => {
                 <td>
                   <a
                     className="font-[Oswald] hover:text-[#5770F4] text-black font-semibold align-middle cursor-pointer"
-                    onClick={() => navigate("/")}
+                    onClick={() => setOrder(order.id_orden)}
                   >
                     <i
                       className={

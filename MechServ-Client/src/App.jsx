@@ -1,6 +1,9 @@
 //Funcionalidad
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { getUserInfo } from "../src/redux/actions";
+import { useEffect } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 // import '@fortawesome/fontawesome-free/css/all.css'
 
 // Components
@@ -24,6 +27,15 @@ import {
 // const password = "1Password@";
 function App() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } =  useAuth0();
+
+  useEffect(() => {
+    if(user){
+      dispatch(getUserInfo(user.email))
+    }
+  }, [user]);
+
   return (
     <div>
       <Routes>

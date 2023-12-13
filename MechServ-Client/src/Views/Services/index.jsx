@@ -18,9 +18,10 @@ const Services = () => {
   const [sortOrder, setSortOrder] = useState("name");
   const [sortDirection, setSortDirection] = useState("asc");
   const categoria = useParams().category;
-
+  
   useEffect(() => {
     dispatch(getAllServices(sortOrder, sortDirection, categoria));
+
   }, [dispatch, sortOrder, sortDirection, categoria]);
 
   const Paging = () => {

@@ -1,5 +1,6 @@
 import {
   GET_USER,
+  GET_USER_INFO,
   GET_ALL_USERS,
   ADD_NEW_USER,
   UPDATE_USER,
@@ -22,7 +23,7 @@ const initialState = {
   users: [],
   services: [],
   categories: [],
-  userId: null,
+  userInfo: {},
   serviceId: null,
 };
 
@@ -33,6 +34,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         userId: payload,
+      };
+    case GET_USER_INFO:
+      return {
+        ...state,
+        userInfo: payload,
       };
     case GET_ALL_USERS:
       return {
