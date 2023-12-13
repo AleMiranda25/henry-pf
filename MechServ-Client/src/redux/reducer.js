@@ -27,7 +27,7 @@ import {
     orders:[],
     userId: null,
     serviceId: null,
-    access: false,
+    userInfo: {},
 };
   const rootReducer = (state = initialState, { type, payload }) => {
     switch (type) {

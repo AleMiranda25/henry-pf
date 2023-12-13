@@ -59,21 +59,6 @@ const ProfileButton = () => {
         </ul>
       </div>
     </>
-          <li>
-            <a
-              onClick={() =>
-                logout({
-                  logoutParams: { returnTo: window.location.origin },
-                })
-              }
-              className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold"
-            >
-              Salir
-            </a>
-          </li>
-        </ul>
-      </div>
-    </>
   );
 };
 

@@ -19,10 +19,8 @@ import {
   UPDATE_CATEGORY,
   DELETE_CATEGORY,
   SEARCH_BY_SERVICE_NAME,
-  SET_ACCESS,
   GET_ORDERS,
-  GET_BYEMAIL
-
+GET_BYEMAIL
 } from "./actions-types";
 
 //* USERS ACTIONS --------------------------------------------------------------------------
@@ -163,7 +161,7 @@ export const getService = (id) => {
   };
 };
 //? OBTENER TODOS LOS SERVICIOS
-export const getAllServices = () => {
+export const getAllServices = (order, direction, category) => {
   return async function (dispatch) {
     try {
       let url = `/services/search?orderBy=${order}&orderType=${direction}`;
@@ -298,7 +296,6 @@ export const updateCategory = (categoryId, updatedCategoryInfo) => {
     }
   };
 };
-
 //? ELIMINAR CATEGORIA
 export const deleteCategory = (categoryId) => {
   return async function (dispatch) {
@@ -307,23 +304,6 @@ export const deleteCategory = (categoryId) => {
       dispatch({
         type: DELETE_CATEGORY,
         payload: res.data,
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-};
-
-
-//* ACCESS ACTIONS--------------------------------------------------------------------------
-
-//? ESTABLECER ACCESO
-export const setAccess = (authenticated) => {
-  return async function (dispatch) {
-    try {
-      dispatch({
-        type: SET_ACCESS,
-        payload: authenticated,
       });
     } catch (err) {
       console.log(err);
@@ -363,3 +343,4 @@ export const getOrder = (id) => {
     }
   };
 };
+
