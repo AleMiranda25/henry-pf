@@ -27,7 +27,7 @@ const TableOrders = (props) => {
       name: order.Servicio.name,
       price: order.Servicio.price,
     };
-    // console.log(item);
+    console.log(item);
     try {
       const response = await axios.post(`/Mercado_Pago`, item);
       window.location.href = response.data;
@@ -76,7 +76,13 @@ const TableOrders = (props) => {
                       ? "text-[#8d8989] cursor-default"
                       : "font-[Oswald] hover:text-[#5770F4] text-black text-[17px] font-semibold align-middle cursor-pointer"
                   }
-                  onClick={order.payment ? null : buyFunction(order)}
+                  onClick={
+                    order.payment
+                      ? null
+                      : () => {
+                          buyFunction(order);
+                        }
+                  }
                 >
                   <i className="fa fa-money" /> Pagar
                 </a>
