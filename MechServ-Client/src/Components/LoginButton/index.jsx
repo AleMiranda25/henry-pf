@@ -6,12 +6,10 @@ import { addNewUser } from "../../redux/actions";
 //Componentes
 
 const LoginButton = () => {
-  const { loginWithPopup, loginWithRedirect } = useAuth0();
+  const { loginWithPopup, loginWithRedirect, } = useAuth0();
 
  
 
-
-  
 
   return (
     <>
