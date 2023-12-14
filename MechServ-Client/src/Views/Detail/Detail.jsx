@@ -89,8 +89,6 @@ const Detail = () => {
             />
           </div>
         </div>
-      </div>
-
       <div
         key="divCrearOrden"
         className="flex gap-4 w-24 h-4 sm:w-24 md:lg:w-24 sm:h-3 md:lg:h-6"
