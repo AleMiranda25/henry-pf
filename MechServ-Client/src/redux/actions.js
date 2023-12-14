@@ -19,6 +19,8 @@ import {
   UPDATE_CATEGORY,
   DELETE_CATEGORY,
   SEARCH_BY_SERVICE_NAME,
+  GET_ORDERS,
+GET_BYEMAIL
 } from "./actions-types";
 
 //* USERS ACTIONS --------------------------------------------------------------------------
@@ -308,3 +310,37 @@ export const deleteCategory = (categoryId) => {
     }
   };
 };
+//? OBTENER por email
+export const getUserByEmail = (email) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`/users/${email}`);
+    
+      dispatch({
+        type: GET_BYEMAIL,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+
+
+
+//order
+export const getOrder = (id) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`/orders/${id}`);
+      dispatch({
+        type: GET_ORDERS,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+

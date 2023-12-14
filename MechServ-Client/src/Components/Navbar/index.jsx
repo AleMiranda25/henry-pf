@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { searchServiceByName } from "../../redux/actions";
+import { addNewUser, searchServiceByName } from "../../redux/actions";
 //Componentes
 import Searchbar from "../Searchbar";
 import LoginButton from "../LoginButton";
@@ -23,8 +23,13 @@ const Navbar = () => {
     dispatch(searchServiceByName(name));
   };
 
-  const { isAuthenticated } = useAuth0();
-  // console.log(isAuthenticated);
+  const { isAuthenticated ,isLoading,user } = useAuth0();
+
+ if (isAuthenticated && !isLoading && user) {
+
+    dispatch(addNewUser({email:user.email,name:user.name}))
+  
+ }
 
   return (
     <div className="navbar bg-[#202123] text-[whitesmoke] mx-auto px-2 fixed top-[0] left-[0] w-full z-10">

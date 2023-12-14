@@ -1,4 +1,3 @@
-//Funcionalidad
 import { useDispatch, useSelector } from "react-redux";
 import { bgHome } from "../../assets/Backgrounds/backgrounds";
 import { getAllServices } from "../../redux/actions";
