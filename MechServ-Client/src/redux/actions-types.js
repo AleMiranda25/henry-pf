@@ -43,4 +43,3 @@ export const SET_ACCESS = "SET_ACCESS";
 export const GET_ORDERS = "GET_ORDERS";
 //GET_BYEMAIL
 export const GET_BYEMAIL = "GET_BYEMAIL";
-
