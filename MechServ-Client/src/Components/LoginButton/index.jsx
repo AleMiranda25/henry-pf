@@ -11,15 +11,7 @@ const LoginButton = () => {
  
 
 
-  useEffect(() => {
-    // Eliminar elementos del almacenamiento local al desmontar el componente
-    return () => {
-      localStorage.removeItem('userId');
-      
-        localStorage.removeItem('order');
-      
-    };
-  }, []);
+  
 
   return (
     <>
