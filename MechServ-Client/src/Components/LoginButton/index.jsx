@@ -6,20 +6,11 @@ import { addNewUser } from "../../redux/actions";
 //Componentes
 
 const LoginButton = () => {
-  const { loginWithPopup, loginWithRedirect } = useAuth0();
+  const { loginWithPopup, loginWithRedirect, } = useAuth0();
 
  
 
-
-  useEffect(() => {
-    // Eliminar elementos del almacenamiento local al desmontar el componente
-    return () => {
-      localStorage.removeItem('userId');
-      
-        localStorage.removeItem('order');
-      
-    };
-  }, []);
+  
 
   return (
     <>
