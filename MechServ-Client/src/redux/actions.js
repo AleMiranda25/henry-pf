@@ -2,6 +2,7 @@ import axios from "axios";
 
 import {
   GET_USER,
+  GET_USER_INFO,
   GET_ALL_USERS,
   ADD_NEW_USER,
   UPDATE_USER,
@@ -17,10 +18,13 @@ import {
   ADD_NEW_CATEGORY,
   UPDATE_CATEGORY,
   DELETE_CATEGORY,
+  SEARCH_BY_SERVICE_NAME,
+  ADD_NEW_VEHICLE,
+  GET_ORDERS,
+GET_BYEMAIL
 } from "./actions-types";
 
 //* USERS ACTIONS --------------------------------------------------------------------------
-
 //? OBTENER USUARIO
 export const getUser = (id) => {
   return async function (dispatch) {
@@ -42,6 +46,21 @@ export const getAllUsers = () => {
       const res = await axios.get("/users");
       dispatch({
         type: GET_ALL_USERS,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+//? OBTENER INFO DEL USUARIO A PARTIR DEL EMAIL
+export const getUserInfo = (email) => {
+  return async function (dispatch) {
+    try {
+      let url = `/users/${email}`;
+      const res = await axios.get(url);
+      dispatch({
+        type: GET_USER_INFO,
         payload: res.data,
       });
     } catch (err) {
@@ -145,9 +164,9 @@ export const getService = (id) => {
 export const getAllServices = (order, direction, category) => {
   return async function (dispatch) {
     try {
-      let url = `/services/search?orderBy=${order}&orderType=${direction}`
-      if (category!=="All") url += `&category=${category}`
-      console.log(url,category);
+      let url = `/services/search?orderBy=${order}&orderType=${direction}`;
+      if (category !== "All") url += `&category=${category}`;
+      console.log(url, category);
       const res = await axios.get(url);
       dispatch({
         type: GET_ALL_SERVICES,
@@ -193,6 +212,21 @@ export const deleteService = (serviceId) => {
       const res = await axios.delete(`/services/${serviceId}`);
       dispatch({
         type: DELETE_SERVICE,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+//? BUSCAR SERVICIO POR NOMBRE
+export const searchServiceByName = (name) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`/services/search?keyWord=${name}`);
+      dispatch({
+        type: SEARCH_BY_SERVICE_NAME,
         payload: res.data,
       });
     } catch (err) {
@@ -276,3 +310,54 @@ export const deleteCategory = (categoryId) => {
     }
   };
 };
+//? OBTENER por email
+export const getUserByEmail = (email) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`/users/${email}`);
+    
+      dispatch({
+        type: GET_BYEMAIL,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+
+
+
+//order
+export const getOrder = (id) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`/orders/${id}`);
+      dispatch({
+        type: GET_ORDERS,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+//? VEHICULOS ----------------------------------------------------------------------------------
+
+export const addNewVehicle = (idUser, form) => {
+  const { brand, model, year } = form
+  return async function (dispatch) {
+    try{
+      const res = await axios.post("https://mechserv-pf.onrender.com/vehiculos/", idUser, brand, model, year)
+      dispatch({
+        type: ADD_NEW_VEHICLE,
+        payload: res.data
+      })
+      alert("Vehículo agregado exitosamente.")
+    } catch (err) {
+      console.log(err);
+    }
+  } 
+}

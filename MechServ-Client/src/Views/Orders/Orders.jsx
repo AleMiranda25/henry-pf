@@ -1,37 +1,35 @@
 //Funcionalidad
 import { bgHome } from "../../assets/Backgrounds/backgrounds";
-import axios from 'axios';
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 //Components
 import { Footer, Navbar, TableOrders } from "../../Components";
 
 const Orders = () => {
-const idUser = "34ef4450-92f6-11ee-b3a6-5fed9014fd01"
-const email = "williamalberto006dasd@hotmail.com"
+const idUser = "a01d63e0-955a-11ee-9c50-9fe9dc32aa12"
 const isAdmin = false;
 const [ orders, setOrders] = useState([]);
 
-useEffect(() => {
-  const getOrders = async () => {
+  useEffect(() => {
+    const getOrders = async () => {
       try {
-        if(isAdmin){
+        if (isAdmin) {
           const res = await axios.get(`/orders`);
-          console.log("Orders:", res.data)
+          console.log("Orders:", res.data);
           setOrders(res.data);
         } else {
           const res = await axios.get(`/orders/${idUser}`);
-          console.log("Orders:", res.data)
+          console.log("Orders:", res.data);
           setOrders(res.data);
         }
-
       } catch (err) {
-          console.log(err);
+        console.log(err);
       }
-  };
+    };
 
-  getOrders();
-}, [])
+    getOrders();
+  }, []);
 
   return (
     <div
@@ -41,8 +39,8 @@ useEffect(() => {
       }}
     >
       <Navbar />
-      <TableOrders orders={orders? orders : []} isAdmin={isAdmin}/>
-      
+      <TableOrders orders={orders ? orders : []} isAdmin={isAdmin} />
+
       <Footer />
     </div>
   );

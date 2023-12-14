@@ -1,4 +1,3 @@
-//Funcionalidad
 import { useDispatch, useSelector } from "react-redux";
 import { bgHome } from "../../assets/Backgrounds/backgrounds";
 import { getAllServices } from "../../redux/actions";
@@ -18,9 +17,10 @@ const Services = () => {
   const [sortOrder, setSortOrder] = useState("name");
   const [sortDirection, setSortDirection] = useState("asc");
   const categoria = useParams().category;
-
+  
   useEffect(() => {
     dispatch(getAllServices(sortOrder, sortDirection, categoria));
+
   }, [dispatch, sortOrder, sortDirection, categoria]);
 
   const Paging = () => {
