@@ -6,7 +6,7 @@ const CardContainer = ({ services }) => {
     <div>
       {services.length !== 0 ? (
         <div>
-          <div className="h-full flex flex-col sm:md:lg:flex-row flex-wrap justify-evenly sm:md:lg:justify-around">
+          <div className="h-full flex flex-col sm:md:lg:flex-row flex-wrap justify-evenly sm:md:lg:justify-center">
             {services?.map((servicio) => {
               return (
                 <div

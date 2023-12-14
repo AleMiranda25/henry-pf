@@ -2,6 +2,7 @@ import axios from "axios";
 
 import {
   GET_USER,
+  GET_USER_INFO,
   GET_ALL_USERS,
   ADD_NEW_USER,
   UPDATE_USER,
@@ -18,6 +19,8 @@ import {
   UPDATE_CATEGORY,
   DELETE_CATEGORY,
   SEARCH_BY_SERVICE_NAME,
+  GET_ORDERS,
+GET_BYEMAIL
 } from "./actions-types";
 
 //* USERS ACTIONS --------------------------------------------------------------------------
@@ -42,6 +45,21 @@ export const getAllUsers = () => {
       const res = await axios.get("/users");
       dispatch({
         type: GET_ALL_USERS,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+//? OBTENER INFO DEL USUARIO A PARTIR DEL EMAIL
+export const getUserInfo = (email) => {
+  return async function (dispatch) {
+    try {
+      let url = `/users/${email}`;
+      const res = await axios.get(url);
+      dispatch({
+        type: GET_USER_INFO,
         payload: res.data,
       });
     } catch (err) {
@@ -205,7 +223,7 @@ export const deleteService = (serviceId) => {
 export const searchServiceByName = (name) => {
   return async function (dispatch) {
     try {
-      const res = await axios.get(`/services/?keyWord=${name}`);
+      const res = await axios.get(`/services/search?keyWord=${name}`);
       dispatch({
         type: SEARCH_BY_SERVICE_NAME,
         payload: res.data,
@@ -291,3 +309,37 @@ export const deleteCategory = (categoryId) => {
     }
   };
 };
+//? OBTENER por email
+export const getUserByEmail = (email) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`/users/${email}`);
+    
+      dispatch({
+        type: GET_BYEMAIL,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+
+
+
+//order
+export const getOrder = (id) => {
+  return async function (dispatch) {
+    try {
+      const res = await axios.get(`/orders/${id}`);
+      dispatch({
+        type: GET_ORDERS,
+        payload: res.data,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
