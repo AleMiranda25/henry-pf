@@ -28,6 +28,15 @@ const ProfileButton = () => {
               {/* <span className="badge">New</span> */}
             </a>
           </li>
+          <li>
+            <a
+              onClick={() => navigate(`/orders`)}
+              className="justify-between font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold"
+            >
+              Ordenes
+              {/* <span className="badge">New</span> */}
+            </a>
+          </li>
           {/*
             <li>
             <a className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold">

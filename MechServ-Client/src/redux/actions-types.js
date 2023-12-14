@@ -16,6 +16,7 @@
 //* USERS
 export const GET_ALL_USERS = "GET_ALL_USERS";
 export const GET_USER = "GET_USER";
+export const GET_USER_INFO = "GET_USER_INFO";
 export const ADD_NEW_USER = "ADD_NEW_USER";
 export const UPDATE_USER = "UPDATE_USER";
 export const DELETE_USER = "DELETE_USER";
@@ -35,3 +36,10 @@ export const UPDATE_CATEGORY = "UPDATE_CATEGORY";
 export const DELETE_CATEGORY = "DELETE_CATEGORY";
 //* VEHICLES
 export const ADD_NEW_VEHICLE = "ADD_NEW_VEHICLE";
+//* ACCESS
+export const SET_ACCESS = "SET_ACCESS";
+// GET_ORDERS
+export const GET_ORDERS = "GET_ORDERS";
+//GET_BYEMAIL
+export const GET_BYEMAIL = "GET_BYEMAIL";
+

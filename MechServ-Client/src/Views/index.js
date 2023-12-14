@@ -6,6 +6,8 @@ import Services from "./Services";
 import Detail from "./Detail/Detail"
 import About from "./About";
 import Profile from "./Profile";
+import Orders from "./Orders/Orders";
+import ServicesAdm from "./ServicesAdm/ServicesAdm";
 
-export { Login, Register, ResetPassword, Home, Services, Detail, About, Profile };
+export { Login, Register, ResetPassword, Home, Services, Detail, About, Profile, Orders, ServicesAdm };
 
