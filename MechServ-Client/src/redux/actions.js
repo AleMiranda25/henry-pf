@@ -25,7 +25,6 @@ GET_BYEMAIL
 } from "./actions-types";
 
 //* USERS ACTIONS --------------------------------------------------------------------------
-
 //? OBTENER USUARIO
 export const getUser = (id) => {
   return async function (dispatch) {

@@ -2,16 +2,14 @@
 import { bgHome } from "../../assets/Backgrounds/backgrounds";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 
 //Components
 import { Footer, Navbar, TableOrders } from "../../Components";
 
 const Orders = () => {
-  const userInfo = useSelector((state) => state.userInfo);
-  const idUser = userInfo.user.uuid;
-  const isAdmin = userInfo.user.UserType.isAdmin;
-  const [orders, setOrders] = useState([]);
+const idUser = "a01d63e0-955a-11ee-9c50-9fe9dc32aa12"
+const isAdmin = false;
+const [ orders, setOrders] = useState([]);
 
   useEffect(() => {
     const getOrders = async () => {

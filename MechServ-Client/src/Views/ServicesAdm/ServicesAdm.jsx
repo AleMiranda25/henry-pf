@@ -2,6 +2,7 @@
 import { bgHome } from "../../assets/Backgrounds/backgrounds";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from "react-router";
 //import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -10,6 +11,7 @@ import { Footer, Navbar, TableServicesAdm } from "../../Components";
 
 const ServicesAdm = () => {
   const isAdmin = true;
+  const navigate = useNavigate();
   const [services, setServices] = useState([]);
   //const [fechaSeleccionada, setFechaSeleccionada] = useState(null);
   const [categories, setCategories] = useState([]);
@@ -44,14 +46,14 @@ const ServicesAdm = () => {
       }}
     >
       <Navbar />
+      <a
+        onClick={() => navigate(`/newservice`)}
+        className="mt-16 justify-between font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] cursor-pointer hover:bg-zinc-800 text-[17px] font-semibold"
+      >
+        Agregar Servicio
+        {/* <span className="badge">New</span> */}
+      </a>
       <TableServicesAdm services={services} categories={categories} />
-      <h1>Selecciona una fecha</h1>
-{/*      <DatePicker
-        selected={fechaSeleccionada}
-        onChange={handleFechaSeleccionada}
-        dateFormat="dd/MM/yyyy"
-        placeholderText="Selecciona una fecha"
-      />*/}
       <Footer />
     </div>
   );

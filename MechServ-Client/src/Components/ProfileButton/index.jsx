@@ -37,6 +37,15 @@ const ProfileButton = () => {
               {/* <span className="badge">New</span> */}
             </a>
           </li>
+          <li>
+            <a
+              onClick={() => navigate(`/servicesadm`)}
+              className="justify-between font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold"
+            >
+              Servicios
+              {/* <span className="badge">New</span> */}
+            </a>
+          </li>
           {/*
             <li>
             <a className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold">
