@@ -1,6 +1,6 @@
 //Funcionalidad
 import { bgHome } from "../../assets/Backgrounds/backgrounds";
-import axios from 'axios';
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -8,31 +8,30 @@ import { useSelector } from "react-redux";
 import { Footer, Navbar, TableOrders } from "../../Components";
 
 const Orders = () => {
-const userInfo = useSelector((state) => state.userInfo)
-const idUser = userInfo.user.uuid;
-const isAdmin = userInfo.user.UserType.isAdmin;
-const [ orders, setOrders] = useState([]);
+  const userInfo = useSelector((state) => state.userInfo);
+  const idUser = userInfo.user.uuid;
+  const isAdmin = userInfo.user.UserType.isAdmin;
+  const [orders, setOrders] = useState([]);
 
-useEffect(() => {
-  const getOrders = async () => {
+  useEffect(() => {
+    const getOrders = async () => {
       try {
-        if(isAdmin){
+        if (isAdmin) {
           const res = await axios.get(`/orders`);
-          console.log("Orders:", res.data)
+          console.log("Orders:", res.data);
           setOrders(res.data);
         } else {
           const res = await axios.get(`/orders/${idUser}`);
-          console.log("Orders:", res.data)
+          console.log("Orders:", res.data);
           setOrders(res.data);
         }
-
       } catch (err) {
-          console.log(err);
+        console.log(err);
       }
-  };
+    };
 
-  getOrders();
-}, [])
+    getOrders();
+  }, []);
 
   return (
     <div
@@ -42,8 +41,8 @@ useEffect(() => {
       }}
     >
       <Navbar />
-      <TableOrders orders={orders? orders : []} isAdmin={isAdmin}/>
-      
+      <TableOrders orders={orders ? orders : []} isAdmin={isAdmin} />
+
       <Footer />
     </div>
   );
