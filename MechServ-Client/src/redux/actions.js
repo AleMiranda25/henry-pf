@@ -18,6 +18,7 @@ import {
   UPDATE_CATEGORY,
   DELETE_CATEGORY,
   SEARCH_BY_SERVICE_NAME,
+  ADD_NEW_VEHICLE,
 } from "./actions-types";
 
 //* USERS ACTIONS --------------------------------------------------------------------------
@@ -292,3 +293,21 @@ export const deleteCategory = (categoryId) => {
     }
   };
 };
+
+//? VEHICULOS ----------------------------------------------------------------------------------
+
+export const addNewVehicle = (idUser, form) => {
+  const { brand, model, year } = form
+  return async function (dispatch) {
+    try{
+      const res = await axios.post("https://mechserv-pf.onrender.com/vehiculos/", idUser, brand, model, year)
+      dispatch({
+        type: ADD_NEW_VEHICLE,
+        payload: res.data
+      })
+      alert("Vehículo agregado exitosamente.")
+    } catch (err) {
+      console.log(err);
+    }
+  } 
+}
