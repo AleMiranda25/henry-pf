@@ -98,7 +98,7 @@ const PerfilUsuario = () => {
 
 
 
-        <div className='flex justify-center items-center h-screen flex gap-5'>
+        <div className='flex justify-center items-center h-screen gap-5'>
 
 
         <button className="btn" onClick= {()=>document.getElementById('my_modal_1').showModal()}>Mis turnos y servicos solicitados</button>
