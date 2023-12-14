@@ -15,6 +15,7 @@ import {
   Profile,
   Orders,
   ServicesAdm,
+  ServiceForm,
 } from "./Views";
 
 //* #####################################################
@@ -37,6 +38,7 @@ function App() {
         <Route path="/resetPassword" Component={ResetPassword} /> */}
         {//* SERVICES
         <Route path="/services/:category" Component={Services} />}
+        <Route path="/newservice" Component={ServiceForm} />}
         <Route path="/detail/:id" Component={Detail}/>
         {//* USER PROFILE
         <Route path="/profile" Component={Profile} />}

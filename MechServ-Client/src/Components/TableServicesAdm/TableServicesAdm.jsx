@@ -58,7 +58,7 @@ const TableServicesAdm = (props) => {
     <table className="table">
         {/* head */}
         <thead>
-        <tr>
+        <tr className="font-[Oswald] text-black text-[17px] font-semibold align-middle">
             <th>Servicio</th>
             <th>Precio</th>
             <th>Categoria</th>
@@ -67,7 +67,7 @@ const TableServicesAdm = (props) => {
         </thead>
         <tbody>
         {services?.map(service => (
-            <tr key={service.idServicio} >
+            <tr key={service.idServicio} className="font-[Oswald] text-black text-[15px] align-middle" >
                 <td>{service.idServicio == editService
                     ?<div>
                         <input

@@ -4,7 +4,7 @@ import axios from "axios";
 
 const VehiculeList = (props) => {
     const { turnoSeleccionado, setTurnoSeleccionado } = props;
-    const idUser = "34ef4450-92f6-11ee-b3a6-5fed9014fd01"
+    const idUser = "a01d63e0-955a-11ee-9c50-9fe9dc32aa12"
     //setTurnoSeleccionado({... turnoSeleccionado, userId : userId})
     const [ vehiculos, setVehiculos] = useState([]);
 

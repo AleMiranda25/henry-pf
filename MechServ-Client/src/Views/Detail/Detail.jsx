@@ -62,12 +62,10 @@ const Detail = () => {
     >
         <Navbar/>
         <div className="flex">
-            <div>
-        <div className="flex flex-col h-2/3 w-1/2 rounded-3xl p-10 justify-evenly text-center text-[30px] backdrop-blur-sm font-bold bg-[#202123] bg-opacity-80 text-[whitesmoke] font-[Oswald]">
-              {services && <h1>{services.name.toUpperCase()}</h1>}
-            {services && <h1>Precio: ${services.price}</h1>}
-            {services && (<p className=" text-2xl text-justify">{services.description}</p>)}
-        </div>
+            <div className="flex flex-col h-2/3 w-1/2 rounded-3xl p-10 justify-evenly text-center text-[30px] backdrop-blur-sm font-bold bg-[#202123] bg-opacity-80 text-[whitesmoke] font-[Oswald]">
+                {services && <h1>{services.name.toUpperCase()}</h1>}
+                {services && <h1>Precio: ${services.price}</h1>}
+                {services && (<p className=" text-2xl text-justify">{services.description}</p>)}
             </div>
             <div>
                 <div className="h-2/3 w-1/3" >

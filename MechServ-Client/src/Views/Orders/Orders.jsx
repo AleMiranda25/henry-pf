@@ -7,8 +7,7 @@ import { useEffect, useState } from "react";
 import { Footer, Navbar, TableOrders } from "../../Components";
 
 const Orders = () => {
-const idUser = "34ef4450-92f6-11ee-b3a6-5fed9014fd01"
-const email = "williamalberto006dasd@hotmail.com"
+const idUser = "a01d63e0-955a-11ee-9c50-9fe9dc32aa12"
 const isAdmin = false;
 const [ orders, setOrders] = useState([]);
 

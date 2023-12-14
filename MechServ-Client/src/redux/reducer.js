@@ -24,6 +24,7 @@ const initialState = {
   categories: [],
   userId: null,
   serviceId: null,
+  
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {

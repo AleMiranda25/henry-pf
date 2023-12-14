@@ -14,6 +14,7 @@
 // export const DELETE_ADMIN_SUCCESS = "DELETE_ADMIN_SUCCESS";
 // export const DELETE_ADMIN_FAILURE = "DELETE_ADMIN_FAILURE";
 //* USERS
+
 export const GET_ALL_USERS = "GET_ALL_USERS";
 export const GET_USER = "GET_USER";
 export const ADD_NEW_USER = "ADD_NEW_USER";
