@@ -4,8 +4,8 @@ import NewVehicle from "../NewVehicle/newVehicle";
 
 const VehiculeList = (props) => {
     const { turnoSeleccionado, setTurnoSeleccionado } = props;
-    const idUser = "34ef4450-92f6-11ee-b3a6-5fed9014fd01"
-    // const idUser = localStorage.getItem('userId');
+    // const idUser = "34ef4450-92f6-11ee-b3a6-5fed9014fd01"
+    const idUser = localStorage.getItem('userId');
     //setTurnoSeleccionado({... turnoSeleccionado, userId : userId})
     const [ vehiculos, setVehiculos] = useState([]);
 
@@ -58,7 +58,7 @@ const VehiculeList = (props) => {
             >
             Nuevo Vehiculo
             </button> */}
-            <NewVehicle idUser={idUser}/>
+            <NewVehicle/>
         </div>
     </div>
     </div>

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Modal from "./Modal"
-import { addNewVehicle } from "../../redux/actions";
+import axios from "axios";
+// import { addNewVehicle } from "../../redux/actions";
 
-const NewVehicle = (idUser) => {
+const NewVehicle = () => {
+    const idUser = localStorage.getItem('userId');
     const [dialogOpen, setDialogOpen] = useState(false);
 
     const openDialog = () => {
@@ -14,37 +16,38 @@ const NewVehicle = (idUser) => {
     };
 
     const [form, setForm] = useState({
-        brand: "",
-        model: "",
-        year: ""
+        users: idUser,
+        marca: "",
+        modelo: "",
+        date: ""
     })
 
     const [errors, setErrors] = useState({
-        brand: "",
-        model: "",
-        year: ""
+        marca: "",
+        modelo: "",
+        date: ""
     })
 
     const validate = (form) => {
         let newErrors = {}
         const genRegex = /^[A-Za-z0-9\s]+$/
         const yearRegex = /^\d+$/
-        if(genRegex.test(form.brand) || form.brand === ""){
-            setErrors({...errors, brand:""})
+        if(genRegex.test(form.marca) || form.marca === ""){
+            setErrors({...errors, marca:""})
         } else {
-            newErrors["brand"] = "Sólo puede contener letras, números o espacios"
+            newErrors["marca"] = "Sólo puede contener letras, números o espacios"
         }
 
-        if(genRegex.test(form.model) || form.model === ""){
-            setErrors({...errors, model:""})
+        if(genRegex.test(form.modelo) || form.modelo === ""){
+            setErrors({...errors, modelo:""})
         } else {
-            newErrors["model"] = "Sólo puede contener letras, números o espacios"
+            newErrors["modelo"] = "Sólo puede contener letras, números o espacios"
         }
 
-        if(yearRegex.test(form.year) || form.year === ""){
-            setErrors({...errors, year:""})
+        if(yearRegex.test(form.date) || form.date === ""){
+            setErrors({...errors, date:""})
         } else {
-            newErrors["year"] = "Sólo puede contener números"
+            newErrors["date"] = "Sólo puede contener números"
         }
         setErrors(newErrors)
     }
@@ -58,21 +61,28 @@ const NewVehicle = (idUser) => {
     }
     
     const submitHandler = async (event) => {
+
         event.preventDefault()
         if (Object.values(errors).every((error)=> error === "")){
-            addNewVehicle(idUser, form)
-            setForm({
-                brand: "",
-                model: "",
-                year: ""
-            })
-            setErrors({
-                brand: "",
-                model: "",
-                year: ""
-            })
+            console.log(form);
+                try{
+                    await axios.post("https://mechserv-pf.onrender.com/vehiculos/", form)
+                    alert("Vehículo agregado exitosamente.")
+                    setForm({
+                        marca: "",
+                        modelo: "",
+                        date: ""
+                    })
+                    setErrors({
+                        marca: "",
+                        modelo: "",
+                        date: ""
+                    })
+                } catch (err) {
+                console.log(err);
+                } 
+            }
         }
-    }
 
     return (
         <div>         
@@ -92,18 +102,18 @@ const NewVehicle = (idUser) => {
                         <div className="flex flex-col m-2">
                             <div className="flex justify-between p-2 my-4 relative">
                                 <label>Marca: </label>
-                                <input className="bg-[rgb(52,53,55)] rounded-xl px-2 w-48" type="text" value={form.brand} onChange={changeHandler} name="brand"/>
-                                {errors.brand && <span className="text-[red] absolute font-bold text-[11px] m-0 z-10 bottom-[-10px] right-2">{errors.brand}</span>}
+                                <input className="bg-[rgb(52,53,55)] rounded-xl px-2 w-48" type="text" value={form.marca} onChange={changeHandler} name="marca"/>
+                                {errors.marca && <span className="text-[red] absolute font-bold text-[11px] m-0 z-10 bottom-[-10px] right-2">{errors.marca}</span>}
                             </div>
                             <div className="flex justify-between p-2 my-4 relative">
                                 <label>Modelo: </label>
-                                <input className="bg-[rgb(52,53,55)] rounded-xl px-2 w-48" type="text" value={form.model} onChange={changeHandler} name="model"/>
-                                {errors.model && <span className="text-[red] absolute font-bold text-[11px] m-0 z-10 bottom-[-10px] right-2">{errors.model}</span>}
+                                <input className="bg-[rgb(52,53,55)] rounded-xl px-2 w-48" type="text" value={form.modelo} onChange={changeHandler} name="modelo"/>
+                                {errors.modelo && <span className="text-[red] absolute font-bold text-[11px] m-0 z-10 bottom-[-10px] right-2">{errors.modelo}</span>}
                             </div>
                             <div className="flex justify-between p-2 my-4 relative">
                                 <label>Año: </label>
-                                <input className="bg-[rgb(52,53,55)] rounded-xl px-2 w-48" type="text" value={form.year} onChange={changeHandler} name="year"/>
-                                {errors.year && <span className="text-[red] absolute font-bold text-[11px] m-0 z-10 bottom-[-10px] right-11">{errors.year}</span>}
+                                <input className="bg-[rgb(52,53,55)] rounded-xl px-2 w-48" type="text" value={form.date} onChange={changeHandler} name="date"/>
+                                {errors.date && <span className="text-[red] absolute font-bold text-[11px] m-0 z-10 bottom-[-10px] right-11">{errors.date}</span>}
                             </div>
                             <button className="hover:text-[#5770F4] hover:opacity-80 bg-[rgb(32,33,35)] text-[whitesmoke] rounded-btn font-[Oswald] font-bold opacity-95 hover:cursor-pointer" type="submit">Cargar vehículo</button>
                         </div>
