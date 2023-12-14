@@ -30,6 +30,8 @@ function App() {
   const dispatch = useDispatch();
   const { user } =  useAuth0();
 
+  
+
   useEffect(() => {
     if(user){
       dispatch(getUserInfo(user.email))
