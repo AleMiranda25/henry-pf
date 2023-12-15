@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const TableServicesAdm = (props) => {
-    const { services, setServices, categories } = props;
+    const { services, categories, refresh, setRefresh } = props;
     const [editService, setEditService] = useState("");
     const [serviceToUpdate, setServiceToUpdate] = useState({});
     const [category, setCategory] = useState('');
+
+    services.sort((a, b) => a.name.localeCompare(b.name))
 
     useEffect(() =>{
         console.log("serviceToUpdate:", serviceToUpdate);
@@ -42,7 +44,7 @@ const TableServicesAdm = (props) => {
             const res = await axios.post(`/services/${serviceToUpdate.idService}`, serviceToUpdate);
             setServiceToUpdate({});
             setEditService("");
-            //setServices([...services]);
+            setRefresh(!refresh );
             alert(res.data.message)
 
         } catch (err) {
