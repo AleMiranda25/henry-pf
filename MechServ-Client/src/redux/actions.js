@@ -348,7 +348,7 @@ export const addNewVehicle = (idUser, form) => {
   return async function (dispatch) {
     try {
       const res = await axios.post(
-        /vehiculos/",
+        `/vehiculos`,
         idUser,
         brand,
         model,
