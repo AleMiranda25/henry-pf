@@ -14,8 +14,9 @@ import {
   Profile,
   Orders,
   ServicesAdm,
+  Review,
   ServiceForm,
-  UserAdm,
+  UserAdm
 } from "./Views";
 
 //* #####################################################
@@ -49,6 +50,10 @@ function App() {
         }
         <Route path="/profile" Component={Profile} />
         {
+          //* USER REVIEWS
+        }
+        <Route path="/reviews" Component={Review} />
+        {
           //* USER ORDERS
         }
         <Route path="/orders" Component={Orders} />
@@ -56,7 +61,6 @@ function App() {
           //* ABOUT PF TEAM
         }
         <Route exact path="/about" Component={About} />
-
         {
           //* VIEW TO ADMIN THE SERVICES
         }

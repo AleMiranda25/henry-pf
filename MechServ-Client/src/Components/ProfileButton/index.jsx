@@ -9,6 +9,16 @@ const ProfileButton = () => {
   const isAdmin = localStorage.getItem('isAdmin');
   //const isAdmin = true;
 
+  const handleLogout = () => {
+    // Limpiar localStorage
+    localStorage.clear();
+
+    // Realizar el logout
+    logout({
+      logoutParams: { returnTo: window.location.origin },
+    });
+  };
+
   return (
     <>
       <div className="dropdown dropdown-end">
@@ -74,11 +84,7 @@ const ProfileButton = () => {
          */}
           <li>
             <a
-              onClick={() =>
-                logout({
-                  logoutParams: { returnTo: window.location.origin },
-                })
-              }
+              onClick={handleLogout}
               className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold"
             >
               Salir

@@ -81,6 +81,14 @@ const Detail = () => {
                 </div>
             </div>
         </div>
+        {/* <div>
+          <div className="h-2/3 w-1/3">
+            <VehiculeList
+              turnoSeleccionado={turnoSeleccionado}
+              setTurnoSeleccionado={setTurnoSeleccionado}
+            />
+          </div>
+        </div> */}
       <div
         key="divCrearOrden"
         className="flex gap-4 w-24 h-4 sm:w-24 md:lg:w-24 sm:h-3 md:lg:h-6"
