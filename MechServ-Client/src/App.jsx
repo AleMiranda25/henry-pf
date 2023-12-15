@@ -18,6 +18,7 @@ import {
   Profile,
   Orders,
   ServicesAdm,
+  Review,
 } from "./Views";
 
 //* #####################################################
@@ -54,6 +55,8 @@ function App() {
         <Route path="/detail/:id" Component={Detail}/>
         {//* USER PROFILE
         <Route path="/profile" Component={Profile} />}
+        {//* USER ORDERS
+        <Route path="/review" Component={Review} />}
         {//* USER ORDERS
         <Route path="/orders" Component={Orders} />}
         {//* SHOP CART
