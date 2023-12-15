@@ -50,7 +50,7 @@ function App() {
         {
           //* USER REVIEWS
         }
-        <Route path="/review" Component={Review} />
+        <Route path="/reviews" Component={Review} />
         {
           //* USER ORDERS
         }
