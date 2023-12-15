@@ -7,11 +7,11 @@ import { useEffect, useState } from "react";
 import { Footer, Navbar, TableOrders } from "../../Components";
 
 const Orders = () => {
-const idUser = localStorage.getItem('userId');
-//const idUser = "da368930-9a37-11ee-a17d-c557fe83a6d3"
-const isAdmin = localStorage.getItem('isAdmin');
-//const isAdmin = false;
-const [ orders, setOrders] = useState([]);
+  const idUser = localStorage.getItem("userId");
+  //const idUser = "da368930-9a37-11ee-a17d-c557fe83a6d3"
+  const isAdmin = localStorage.getItem("isAdmin");
+  //const isAdmin = false;
+  const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     const getOrders = async () => {
@@ -29,7 +29,7 @@ const [ orders, setOrders] = useState([]);
     };
 
     getOrders();
-  }, [orders]);
+  }, []);
 
   return (
     <div
@@ -39,7 +39,11 @@ const [ orders, setOrders] = useState([]);
       }}
     >
       <Navbar />
-      <TableOrders orders={orders ? orders : []} setOrders={setOrders} isAdmin={isAdmin} />
+      <TableOrders
+        orders={orders ? orders : []}
+        setOrders={setOrders}
+        isAdmin={isAdmin}
+      />
 
       <Footer />
     </div>

@@ -12,8 +12,8 @@ import { domain, clientId } from "../auth0Config.json";
 import "./index.css";
 
 //* URL POR DEFECTO
-axios.defaults.baseURL = "https://mechserv-pf.onrender.com";
-// http://localhost:3001
+// axios.defaults.baseURL = "https://mechserv-pf.onrender.com";
+axios.defaults.baseURL = "http://localhost:3001";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <BrowserRouter>
@@ -27,8 +27,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         onRedirectCallback={(appState) => {
           // Limpiar el localStorage al desloguearse
           if (!appState?.returnTo) {
-            localStorage.removeItem('userId');
-            localStorage.removeItem('order');
+            localStorage.removeItem("userId");
+            localStorage.removeItem("order");
+            localStorage.removeItem("isAdmin");
           }
         }}
       >
