@@ -14,6 +14,7 @@
 // export const DELETE_ADMIN_SUCCESS = "DELETE_ADMIN_SUCCESS";
 // export const DELETE_ADMIN_FAILURE = "DELETE_ADMIN_FAILURE";
 //* USERS
+
 export const GET_ALL_USERS = "GET_ALL_USERS";
 export const GET_USER = "GET_USER";
 export const GET_USER_INFO = "GET_USER_INFO";
@@ -42,4 +43,3 @@ export const SET_ACCESS = "SET_ACCESS";
 export const GET_ORDERS = "GET_ORDERS";
 //GET_BYEMAIL
 export const GET_BYEMAIL = "GET_BYEMAIL";
-

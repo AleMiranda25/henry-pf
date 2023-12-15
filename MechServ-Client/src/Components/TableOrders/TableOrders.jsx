@@ -1,25 +1,20 @@
+/* eslint-disable react/prop-types */
 //Funcionalidad
 import axios from "axios";
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+  import { useNavigate } from "react-router";
 
 const TableOrders = (props) => {
-  const { orders, isAdmin } = props;
+  const { orders, setOrders, isAdmin } = props;
   const navigate = useNavigate();
-  const [forceUpdate, setForceUpdate] = useState(false);
 
   const setOrder = async (id_orden) => {
     try {
       await axios.get(`/orders/set/${id_orden}`);
-      setForceUpdate((prev) => !prev);
+      //setOrders([...orders])
     } catch (err) {
       console.log(err);
     }
   };
-
-  useEffect(() => {
-    setForceUpdate(false);
-  }, [forceUpdate]);
 
   //* MERCADO PAGO INIT
   const buyFunction = async (order) => {
@@ -27,7 +22,7 @@ const TableOrders = (props) => {
       name: order.Servicio.name,
       price: order.Servicio.price,
     };
-    // console.log(item);
+    console.log(item);
     try {
       const response = await axios.post(`/Mercado_Pago`, item);
       window.location.href = response.data;
@@ -39,11 +34,11 @@ const TableOrders = (props) => {
   //* MERCADO PAGO END
 
   return (
-    <div className="overflow-x-auto bg-white bg-opacity-50">
+    <div className="mt-16 overflow-x-auto bg-white bg-opacity-50">
       <table className="table">
         {/* head */}
         <thead>
-          <tr>
+          <tr className="font-[Oswald] text-black text-[17px] font-semibold align-middle">
             <th>Servicio</th>
             <th>Vehiculo</th>
             <th>Turno</th>
@@ -76,7 +71,13 @@ const TableOrders = (props) => {
                       ? "text-[#8d8989] cursor-default"
                       : "font-[Oswald] hover:text-[#5770F4] text-black text-[17px] font-semibold align-middle cursor-pointer"
                   }
-                  onClick={order.payment ? null : buyFunction(order)}
+                  onClick={
+                    order.payment
+                      ? null
+                      : () => {
+                          buyFunction(order);
+                        }
+                  }
                 >
                   <i className="fa fa-money" /> Pagar
                 </a>
