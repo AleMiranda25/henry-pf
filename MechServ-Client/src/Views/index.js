@@ -11,6 +11,6 @@ import ServiceForm from "./ServiceForm/ServiceForm";
 import UserAdm from "./UserAdm/UserAdm";
 import Review from "./Review";
 
-export { Login, Register, ResetPassword, Home, Services, Detail, About, Profile, Orders, ServicesAdm, Review };
+export { Login, Register, ResetPassword, Home, Services, Detail, About, Profile, Orders, ServicesAdm,UserAdm, Review };
 
 
