@@ -16,7 +16,7 @@ import {
   ServicesAdm,
   Review,
   ServiceForm,
-  UserAdm
+  UserAdm,
 } from "./Views";
 
 //* #####################################################
