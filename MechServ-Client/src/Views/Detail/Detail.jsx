@@ -21,9 +21,6 @@ const Detail = () => {
   const services = useSelector((state) => state.serviceId);
   const navigate = useNavigate();
 
-  //const URL = 'http://localhost:3001/'
-  const URL = "https://mechserv-pf.onrender.com/";
-
   useEffect(() => {
     dispatch(getService(id));
     setTurnoSeleccionado({ ...turnoSeleccionado, idServicio: id });
@@ -32,7 +29,7 @@ const Detail = () => {
   const postOrder = async () => {
     try {
       if (validateOrder(turnoSeleccionado)) {
-        const res = await axios.post(`${URL}order`, turnoSeleccionado);
+        const res = await axios.post(`/order`, turnoSeleccionado);
         alert(res.data.message);
         navigate("/orders");
       }
@@ -63,39 +60,42 @@ const Detail = () => {
         backgroundImage: `url(${bgHome})`,
       }}
     >
-        <Navbar/>
-        <div className="flex">
-            <div className="flex flex-col h-2/3 w-1/2 rounded-3xl p-10 justify-evenly text-center text-[30px] backdrop-blur-sm font-bold bg-[#202123] bg-opacity-80 text-[whitesmoke] font-[Oswald]">
-                {services && <h1>{services.name.toUpperCase()}</h1>}
-                {services && <h1>Precio: ${services.price}</h1>}
-                {services && (<p className=" text-2xl text-justify">{services.description}</p>)}
-            </div>
-            <div>
-                <div className="h-2/3 w-1/3" >
-                <CalendarCarousel turnos={services ? services.turnos : undefined} turnoSeleccionado={turnoSeleccionado} setTurnoSeleccionado={setTurnoSeleccionado}/>
-                </div>
-            </div>
-            <div>
-                <div className="h-2/3 w-1/3" >
-                <VehiculeList turnoSeleccionado={turnoSeleccionado} setTurnoSeleccionado={setTurnoSeleccionado}/>
-                </div>
-            </div>
+      <Navbar />
+      <div className="flex">
+        <div className="flex flex-col h-2/3 w-1/2 rounded-3xl p-10 justify-evenly text-center text-[30px] backdrop-blur-sm font-bold bg-[#202123] bg-opacity-80 text-[whitesmoke] font-[Oswald]">
+          {services && <h1>{services.name.toUpperCase()}</h1>}
+          {services && <h1>Precio: ${services.price}</h1>}
+          {services && (
+            <p className=" text-2xl text-justify">{services.description}</p>
+          )}
         </div>
-        {/* <div>
+        <div>
+          <div className="h-2/3 w-1/3">
+            <CalendarCarousel
+              turnos={services ? services.turnos : undefined}
+              turnoSeleccionado={turnoSeleccionado}
+              setTurnoSeleccionado={setTurnoSeleccionado}
+            />
+          </div>
+        </div>
+
+        <div>
           <div className="h-2/3 w-1/3">
             <VehiculeList
               turnoSeleccionado={turnoSeleccionado}
               setTurnoSeleccionado={setTurnoSeleccionado}
             />
           </div>
-        </div> */}
+        </div>
+      </div>
+
       <div
         key="divCrearOrden"
         className="flex gap-4 w-24 h-4 sm:w-24 md:lg:w-24 sm:h-3 md:lg:h-6"
       >
         <button
           key="crearOrden"
-          className="hover:text-[#5770F4] hover:opacity-80 bg-[rgb(32,33,35)] text-[whitesmoke] grid place-items-center rounded-btn w-24 h-4 sm:w-24 md:lg:w-24 sm:h-3 md:lg:h-6 font-[Oswald] text-[10px] sm:md:lg:text-[10px] font-bold opacity-95"
+          className="hover:text-[#5770F4] hover:opacity-80 bg-[rgb(32,33,35)] text-[whitesmoke] grid place-items-center rounded-btn w-24 h-4 sm:w-24 md:lg:w-24 sm:h-3 md:lg:h-6 font-[Oswald] text-[10px] sm:md:lg:text-[10px] font-bold opacity-95 z-auto"
           onClick={postOrder}
         >
           Confirma tu Cita
