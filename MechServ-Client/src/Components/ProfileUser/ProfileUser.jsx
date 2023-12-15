@@ -25,9 +25,11 @@ const PerfilUsuario = () => {
   useEffect(() => {
     
     if (usuario.user && usuario.user.uuid) {
+      console.log("Usuario :", usuario.user.UserType.isAdmin)
       if (idUser !== usuario.user.uuid) {
         setIsNewUser(true); // Establece el indicador de nuevo usuario
         localStorage.setItem('userId', usuario.user.uuid);
+        localStorage.setItem('isAdmin', usuario.user.UserType.isAdmin);
       }
     }
   }, [usuario.user, idUser]);
@@ -50,7 +52,6 @@ const PerfilUsuario = () => {
       try {
         const ordersString = JSON.stringify(orders);
         localStorage.setItem('order', ordersString);
-        console.log("Orders guardadas en localStorage:", ordersString);
       } catch (error) {
         console.error('Error al convertir a cadena JSON:', error);
       }

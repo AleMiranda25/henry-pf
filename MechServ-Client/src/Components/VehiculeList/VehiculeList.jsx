@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import axios from "axios";
 import NewVehicle from "../NewVehicle/newVehicle";
@@ -15,14 +16,13 @@ const VehiculeList = (props) => {
         const getVehiculos = async () => {
             try {
                 const res = await axios.get(`/vehiculos/${idUser}`);
-                console.log(res.data.vehiculos);
                 setVehiculos(res.data.vehiculos);
             } catch (err) {
                 console.log(err);
             }
         };
         getVehiculos();
-        }    
+        }
     }, [])
 
 
@@ -48,7 +48,7 @@ const VehiculeList = (props) => {
             " grid place-items-center rounded-btn w-24 h-4 sm:w-24 md:lg:w-24 sm:h-3 md:lg:h-6 font-[Oswald] text-[10px] sm:md:lg:text-[10px] font-bold opacity-95"`}
             onClick={changeVehiculoSeleccionado}
             >
-            {`${vehiculo.marca} - ${vehiculo.modelo}`}
+            {`${vehiculo.marca} - ${vehiculo.modelo} - ${vehiculo.date}`}
             </button>
         </div>
         ))}

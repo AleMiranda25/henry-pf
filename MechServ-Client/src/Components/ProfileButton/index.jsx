@@ -6,6 +6,18 @@ import { useNavigate } from "react-router";
 const ProfileButton = () => {
   const { user, logout } = useAuth0();
   const navigate = useNavigate();
+  const isAdmin = localStorage.getItem('isAdmin');
+  //const isAdmin = true;
+
+  const handleLogout = () => {
+    // Limpiar localStorage
+    localStorage.clear();
+
+    // Realizar el logout
+    logout({
+      logoutParams: { returnTo: window.location.origin },
+    });
+  };
 
   return (
     <>
@@ -37,7 +49,9 @@ const ProfileButton = () => {
               {/* <span className="badge">New</span> */}
             </a>
           </li>
-          <li>
+          {isAdmin
+          ?
+            <li>
             <a
               onClick={() => navigate(`/servicesadm`)}
               className="justify-between font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold"
@@ -46,6 +60,21 @@ const ProfileButton = () => {
               {/* <span className="badge">New</span> */}
             </a>
           </li>
+          : <></>
+          }
+          {isAdmin
+          ?
+            <li>
+            <a
+              onClick={() => navigate(`/usersadm`)}
+              className="justify-between font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold"
+            >
+              Usuarios
+              {/* <span className="badge">New</span> */}
+            </a>
+          </li>
+          : <></>
+          }
           {/*
             <li>
             <a className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold">
@@ -55,11 +84,7 @@ const ProfileButton = () => {
          */}
           <li>
             <a
-              onClick={() =>
-                logout({
-                  logoutParams: { returnTo: window.location.origin },
-                })
-              }
+              onClick={handleLogout}
               className="font-[Oswald] hover:text-[#5770F4] text-[whitesmoke] hover:bg-zinc-800 text-[17px] font-semibold"
             >
               Salir

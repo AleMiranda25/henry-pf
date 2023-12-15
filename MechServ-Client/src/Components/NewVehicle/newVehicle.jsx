@@ -19,7 +19,8 @@ const NewVehicle = () => {
         users: idUser,
         marca: "",
         modelo: "",
-        date: ""
+        date: "",
+        image: ""
     })
 
     const [errors, setErrors] = useState({
@@ -61,17 +62,17 @@ const NewVehicle = () => {
     }
     
     const submitHandler = async (event) => {
-
+        
         event.preventDefault()
         if (Object.values(errors).every((error)=> error === "")){
-            console.log(form);
-                try{
-                    await axios.post("https://mechserv-pf.onrender.com/vehiculos/", form)
-                    alert("Vehículo agregado exitosamente.")
+            try{
+                await axios.post("https://mechserv-pf.onrender.com/vehiculos/", form)
+                alert("Vehículo agregado exitosamente.")
                     setForm({
                         marca: "",
                         modelo: "",
-                        date: ""
+                        date: "",
+                        image: ""
                     })
                     setErrors({
                         marca: "",
@@ -94,28 +95,55 @@ const NewVehicle = () => {
             {
             dialogOpen && <Modal dialogOpen={dialogOpen} closeDialog={closeDialog}>
                 <form onSubmit={submitHandler}>                    
-                    <div className="flex flex-col backdrop-blur-sm bg-[#202123] bg-opacity-90 text-[whitesmoke] justify-between p-3 rounded-2xl w-80 h-80 font-[Oswald] font-bold">
+                    <div className="flex flex-col backdrop-blur-sm bg-[#202123] bg-opacity-90 text-[whitesmoke] justify-between p-3 rounded-2xl w-80 h-96 font-[Oswald] font-bold">
                         <div className="flex flex-row justify-between px-3 text-[25px]">
                             <p>Nuevo vehículo</p>
                             <button onClick={closeDialog}>x</button>
                         </div>
                         <div className="flex flex-col m-2">
-                            <div className="flex justify-between p-2 my-4 relative">
+                            <div className="flex justify-between p-1 my-4 relative">
                                 <label>Marca: </label>
-                                <input className="bg-[rgb(52,53,55)] rounded-xl px-2 w-48" type="text" value={form.marca} onChange={changeHandler} name="marca"/>
+                                <input 
+                                    className="bg-[rgb(52,53,55)] rounded-xl px-2 w-48" 
+                                    required
+                                    type="text" 
+                                    value={form.marca} 
+                                    onChange={changeHandler} 
+                                    name="marca"/>
                                 {errors.marca && <span className="text-[red] absolute font-bold text-[11px] m-0 z-10 bottom-[-10px] right-2">{errors.marca}</span>}
                             </div>
                             <div className="flex justify-between p-2 my-4 relative">
                                 <label>Modelo: </label>
-                                <input className="bg-[rgb(52,53,55)] rounded-xl px-2 w-48" type="text" value={form.modelo} onChange={changeHandler} name="modelo"/>
+                                <input 
+                                    className="bg-[rgb(52,53,55)] rounded-xl px-2 w-48" 
+                                    required
+                                    type="text" 
+                                    value={form.modelo} 
+                                    onChange={changeHandler} 
+                                    name="modelo"/>
                                 {errors.modelo && <span className="text-[red] absolute font-bold text-[11px] m-0 z-10 bottom-[-10px] right-2">{errors.modelo}</span>}
                             </div>
                             <div className="flex justify-between p-2 my-4 relative">
                                 <label>Año: </label>
-                                <input className="bg-[rgb(52,53,55)] rounded-xl px-2 w-48" type="text" value={form.date} onChange={changeHandler} name="date"/>
+                                <input 
+                                    className="bg-[rgb(52,53,55)] rounded-xl px-2 w-48" 
+                                    required
+                                    type="text" 
+                                    value={form.date} 
+                                    onChange={changeHandler} 
+                                    name="date"/>
                                 {errors.date && <span className="text-[red] absolute font-bold text-[11px] m-0 z-10 bottom-[-10px] right-11">{errors.date}</span>}
                             </div>
-                            <button className="hover:text-[#5770F4] hover:opacity-80 bg-[rgb(32,33,35)] text-[whitesmoke] rounded-btn font-[Oswald] font-bold opacity-95 hover:cursor-pointer" type="submit">Cargar vehículo</button>
+                            <div className="flex justify-between p-2 my-4 relative">
+                                <label></label>
+                                <input className="file:bg-[rgb(52,53,55)] file:text-[whitesmoke] hover:file:cursor-pointer hover:file:hover:opacity-80 flex-col hover:file:text-[#5770F4] file:rounded-btn file:border-0 file:opacity-90" 
+                                type="file" 
+                                value={form.image} 
+                                onChange={changeHandler} 
+                                name="image"/>
+                                {/* {errors.date && <span className="text-[red] absolute font-bold text-[11px] m-0 z-10 bottom-[-10px] right-11">{errors.date}</span>} */}
+                            </div>
+                            <button className="hover:text-[#5770F4] hover:opacity-80 bg-[rgb(32,33,35)] text-[whitesmoke] rounded-btn font-bold opacity-95 hover:cursor-pointer" type="submit">Cargar vehículo</button>
                         </div>
                     </div>
                 </form>

@@ -53,7 +53,7 @@ const ServicesAdm = () => {
         Agregar Servicio
         {/* <span className="badge">New</span> */}
       </a>
-      <TableServicesAdm services={services} categories={categories} />
+      <TableServicesAdm services={services} setServices={setServices} categories={categories} />
       <Footer />
     </div>
   );
