@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const TableServicesAdm = (props) => {
-    const { services, categories } = props;
+    const { services, setServices, categories } = props;
     const [editService, setEditService] = useState("");
     const [serviceToUpdate, setServiceToUpdate] = useState({});
     const [category, setCategory] = useState('');
@@ -42,6 +42,7 @@ const TableServicesAdm = (props) => {
             const res = await axios.post(`/services/${serviceToUpdate.idService}`, serviceToUpdate);
             setServiceToUpdate({});
             setEditService("");
+            //setServices([...services]);
             alert(res.data.message)
 
         } catch (err) {
@@ -58,7 +59,7 @@ const TableServicesAdm = (props) => {
     <table className="table">
         {/* head */}
         <thead>
-        <tr>
+        <tr className="font-[Oswald] text-black text-[17px] font-semibold align-middle">
             <th>Servicio</th>
             <th>Precio</th>
             <th>Categoria</th>
@@ -67,7 +68,7 @@ const TableServicesAdm = (props) => {
         </thead>
         <tbody>
         {services?.map(service => (
-            <tr key={service.idServicio} >
+            <tr key={service.idServicio} className="font-[Oswald] text-black text-[15px] align-middle" >
                 <td>{service.idServicio == editService
                     ?<div>
                         <input

@@ -7,7 +7,8 @@ import Pagination from "./Pagination";
 
 import TableOrders from "./TableOrders/TableOrders";
 import TableServicesAdm from "./TableServicesAdm/TableServicesAdm";
+import TableUserAdm from "./TableUserAdm/TableUserAdm";
 
-export { Navbar, Searchbar, Footer, CardContainer, TableOrders, CategoriesContainer, Pagination, TableServicesAdm };
+export { Navbar, Searchbar, Footer, CardContainer, TableOrders, CategoriesContainer, Pagination, TableServicesAdm, TableUserAdm };
 
 
