@@ -19,7 +19,7 @@ import {
   UPDATE_CATEGORY,
   DELETE_CATEGORY,
   SEARCH_BY_SERVICE_NAME,
-  ADD_NEW_VEHICLE,
+  // ADD_NEW_VEHICLE,
   GET_ORDERS,
   GET_BYEMAIL,
 } from "./actions-types";
@@ -348,7 +348,7 @@ export const addNewVehicle = (idUser, form) => {
   return async function (dispatch) {
     try {
       const res = await axios.post(
-        "https://mechserv-pf.onrender.com/vehiculos/",
+        /vehiculos/",
         idUser,
         brand,
         model,

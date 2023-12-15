@@ -5,7 +5,7 @@ import NewVehicle from "../NewVehicle/newVehicle";
 
 const VehiculeList = (props) => {
     const { turnoSeleccionado, setTurnoSeleccionado } = props;
-    //const idUser = "da368930-9a37-11ee-a17d-c557fe83a6d3"
+    // const idUser = "34ef4450-92f6-11ee-b3a6-5fed9014fd01"
     const idUser = localStorage.getItem('userId');
     //setTurnoSeleccionado({... turnoSeleccionado, userId : userId})
     const [ vehiculos, setVehiculos] = useState([]);
@@ -16,7 +16,6 @@ const VehiculeList = (props) => {
         const getVehiculos = async () => {
             try {
                 const res = await axios.get(`/vehiculos/${idUser}`);
-                console.log(res.data.vehiculos);
                 setVehiculos(res.data.vehiculos);
             } catch (err) {
                 console.log(err);
@@ -59,7 +58,7 @@ const VehiculeList = (props) => {
             >
             Nuevo Vehiculo
             </button> */}
-            <NewVehicle idUser={idUser}/>
+            <NewVehicle/>
         </div>
     </div>
     </div>
