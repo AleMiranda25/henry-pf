@@ -9,7 +9,22 @@ import axios from 'axios';
 const ReviewUsuario = () => {
   const [tituloReseñas, setTituloReseñas] = useState('Escriba su reseña aquí');
   const [puntuacion, setPuntuacion] = useState(0);
-  const  id_orden  = "8ddcbf80-9a11-11ee-a9f0-bf2f8a5d38a7";   //"8ddcbf80-9a11-11ee-a9f0-bf2f8a5d38a7"
+  const storedOrders = localStorage.getItem("order");
+
+  if (storedOrders) {
+      const ordersArray = JSON.parse(storedOrders);
+  
+      ordersArray.forEach((order, index) => {
+          const orderId = order.id_orden;
+          console.log(`ID de la orden ${index + 1}: ${orderId}`);
+      });
+  } else {
+      console.log("No hay órdenes almacenadas en el localStorage");
+  }   //"8ddcbf80-9a11-11ee-a9f0-bf2f8a5d38a7"
+
+
+
+
 
   const handleChange = (event) => {
     setTituloReseñas(event.target.value);
