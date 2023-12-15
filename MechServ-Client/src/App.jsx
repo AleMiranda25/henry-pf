@@ -14,7 +14,7 @@ import {
   Profile,
   Orders,
   ServicesAdm,
-Reviews
+  Reviews
   Review,
 =======
    main
@@ -38,30 +38,30 @@ function App() {
       <Routes>
         {
           //* HOME
- Reviews
-          <Route exact path="/" Component={Home} />
-          //* LOGIN
-          /* <Route path="/login" element={<Login login={login} />} />
-        <Route path="/register" Component={Register} />
-
-        <Route path="/resetPassword" Component={ResetPassword} /> */}
-        {//* SERVICES
-        <Route path="/services/:category" Component={Services} />}
-        <Route path="/detail/:id" Component={Detail}/>
-        {//* USER PROFILE
-        <Route path="/profile" Component={Profile} />}
-        {//* USER ORDERS
-        <Route path="/review" Component={Review} />}
-        {//* USER ORDERS
-        <Route path="/orders" Component={Orders} />}
-        {//* SHOP CART
-        /* <Route path="/cart" Component={ShopCart} /> */
-        //* ABOUT PF TEAM
-        <Route exact path="/about" Component={About} />}
-=======
-        
- main
-
+        }
+        <Route exact path="/" Component={Home} />
+        {
+          //* SERVICES
+        }
+        <Route path="/services/:category" Component={Services} />
+        <Route path="/newservice" Component={ServiceForm} />
+        <Route path="/detail/:id" Component={Detail} />
+        {
+          //* USER PROFILE
+        }
+        <Route path="/profile" Component={Profile} />
+        {
+          //* USER REVIEWS
+        }
+        <Route path="/review" Component={Review} />
+        {
+          //* USER ORDERS
+        }
+        <Route path="/orders" Component={Orders} />
+        {
+          //* ABOUT PF TEAM
+        }
+        <Route exact path="/about" Component={About} />
         {
           //* VIEW TO ADMIN THE SERVICES
         }
