@@ -10,6 +10,9 @@ import ReviewUser  from '../../Components/ReviewUser/ReviewUser'
 const Review = () => {
   const { user, logout } = useAuth0();
   // const navigate = useNavigate();
+  const idOrder =  localStorage.getItem('orderToReview')
+
+  console.log("review order:", idOrder)
 
   return (
     <div

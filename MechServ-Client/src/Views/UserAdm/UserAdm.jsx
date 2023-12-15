@@ -7,24 +7,21 @@ import axios from 'axios';
 import { Footer, Navbar, TableUserAdm } from "../../Components";
 
 const UserAdm = () => {
-  const isAdmin = true;
   const [users, setUsers] = useState([]);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     const getUsers = async () => {
       try {
-        if(isAdmin){
           const res = await axios.get(`/users`);
           setUsers(res.data.users);
-        }
-
       } catch (err) {
           console.log(err);
       }
     }
 
     getUsers();
-  }, [users])
+  }, [refresh])
 
   return (
     <div
@@ -34,7 +31,7 @@ const UserAdm = () => {
       }}
     >
       <Navbar />
-      <TableUserAdm users={users? users : []} setUsers={setUsers} />
+      <TableUserAdm users={users? users : []} setUsers={setUsers} refresh={refresh} setRefresh={setRefresh}/>
       <Footer />
     </div>
   );

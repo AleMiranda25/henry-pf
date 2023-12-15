@@ -3,11 +3,13 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const TableUserAdm = (props) => {
-    const { users, setUsers } = props;
+    const { users, refresh, setRefresh } = props;
     const [editUser, setEditUser] = useState("");
     const [userToUpdate, setUserToUpdate] = useState({});
     const [isAdminChecked, setIsAdminChecked] = useState(false);
     const [isActiveChecked, setIsActiveChecked] = useState(false);
+
+    users.sort((a, b) => a.name.localeCompare(b.name))
 
     useEffect(() =>{
         console.log("userToUpdate:", userToUpdate);
@@ -62,7 +64,7 @@ const TableUserAdm = (props) => {
             setUserToUpdate({});
             setEditUser("");
             alert(res.data.message)
-            setUsers([...users]);
+            setRefresh(!refresh);
 
         } catch (err) {
             console.log(err);
@@ -71,7 +73,7 @@ const TableUserAdm = (props) => {
     }
 
     return (
-    <div className="mt-16 overflow-x-auto bg-white bg-opacity-50">
+    <div className="mt-16 mb-16 overflow-x-auto bg-white bg-opacity-50">
     <table className="table">
         {/* head */}
         <thead>
