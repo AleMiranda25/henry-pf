@@ -58,11 +58,11 @@ const TableUserAdm = (props) => {
 
     const saveUser = async () => {
         try {
-            const res = await axios.post(`/uses/${userToUpdate.id}`, userToUpdate);
+            const res = await axios.post(`/users/${userToUpdate.id}`, userToUpdate);
             setUserToUpdate({});
             setEditUser("");
-            setUsers([...users]);
             alert(res.data.message)
+            setUsers([...users]);
 
         } catch (err) {
             console.log(err);

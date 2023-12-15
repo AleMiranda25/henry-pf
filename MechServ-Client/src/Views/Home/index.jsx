@@ -71,7 +71,7 @@ const Home = () => {
           //* TITULO
         }
         <h1 className="font-[Oswald] text-[whitesmoke] text-center font-bold text-[40px] sm:md:lg:text-5xl mt-10">
-          ¡Tu auto lo necesita!
+          ¡Nuestra experiencia marca la diferencia!
         </h1>
         <div className="grid place-items-center">
           {

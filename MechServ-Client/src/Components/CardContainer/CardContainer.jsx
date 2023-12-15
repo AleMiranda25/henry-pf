@@ -13,7 +13,11 @@ const CardContainer = ({ services }) => {
                   key={servicio.idServicio}
                   className="grid place-items-center w-auto p-4"
                 >
-                  <Card id={servicio.idServicio} name={servicio.name} />
+                  <Card
+                    id={servicio.idServicio}
+                    name={servicio.name}
+                    price={servicio.price}
+                  />
                 </div>
               );
             })}
