@@ -60,13 +60,12 @@ const ServiceForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("handle:", errors)
     try {
       if(validationForm(serviceData).length == 0){
         const response = await axios.post(`/services/`, serviceData);
         setErrors([]);
         setServiceData(initialService);
-        alert(response.data);
+        alert(response.data.message);
       }else{
         setErrors(validationForm(serviceData));
         alert('Por favor revise los errores');
@@ -98,8 +97,6 @@ const ServiceForm = () => {
     }
   }
 
-  console.log("serviceData:", serviceData)
-
   return (
     <div
       className="flex flex-col justify-around gap-20 bg-cover bg-center bg-no-repeat h-screen max-w-full md:flex-0 shrink-0"
@@ -130,6 +127,7 @@ const ServiceForm = () => {
                 Categoría:
                 <div>
                   <select name="category" value={serviceData.category} onChange={handleInputChange}>
+                      <option value="Seleccionar">... seleccionar</option>
                       {categories?.map((category, index) => (
                       <option key={index} value={category}>
                           {category}

@@ -1,16 +1,15 @@
 /* eslint-disable react/prop-types */
 //Funcionalidad
 import axios from "axios";
-  import { useNavigate } from "react-router";
 
 const TableOrders = (props) => {
   const { orders, setOrders, isAdmin } = props;
-  const navigate = useNavigate();
 
   const setOrder = async (id_orden) => {
     try {
-      await axios.get(`/orders/set/${id_orden}`);
-      //setOrders([...orders])
+      const res =   await axios.get(`/orders/set/${id_orden}`);
+      alert(res.data.message)
+      setOrders([...orders])
     } catch (err) {
       console.log(err);
     }
@@ -50,7 +49,7 @@ const TableOrders = (props) => {
         </thead>
         <tbody>
           {orders?.map((order) => (
-            <tr key={order.id_orden}>
+            <tr key={order.id_orden} className="font-[Oswald] text-black text-[15px] align-middle">
               <td>{order.Servicio.name}</td>
               <td>{`${order.Vehiculo.marca} - ${order.Vehiculo.modelo}`}</td>
               <td>{`${order.Turno.dia} - ${order.Turno.hora}`}</td>
@@ -67,7 +66,7 @@ const TableOrders = (props) => {
               <td>
                 <a
                   className={
-                    order.payment
+                    order.payment || !order.isActive
                       ? "text-[#8d8989] cursor-default"
                       : "font-[Oswald] hover:text-[#5770F4] text-black text-[17px] font-semibold align-middle cursor-pointer"
                   }

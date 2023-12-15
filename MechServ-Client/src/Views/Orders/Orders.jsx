@@ -29,7 +29,7 @@ const [ orders, setOrders] = useState([]);
     };
 
     getOrders();
-  }, []);
+  }, [orders]);
 
   return (
     <div
