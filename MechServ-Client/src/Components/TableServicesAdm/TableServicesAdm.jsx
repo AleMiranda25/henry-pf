@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const TableServicesAdm = (props) => {
-    const { services, categories } = props;
+    const { services, setServices, categories } = props;
     const [editService, setEditService] = useState("");
     const [serviceToUpdate, setServiceToUpdate] = useState({});
     const [category, setCategory] = useState('');
@@ -42,6 +42,7 @@ const TableServicesAdm = (props) => {
             const res = await axios.post(`/services/${serviceToUpdate.idService}`, serviceToUpdate);
             setServiceToUpdate({});
             setEditService("");
+            //setServices([...services]);
             alert(res.data.message)
 
         } catch (err) {

@@ -39,7 +39,7 @@ const [ orders, setOrders] = useState([]);
       }}
     >
       <Navbar />
-      <TableOrders orders={orders ? orders : []} isAdmin={isAdmin} />
+      <TableOrders orders={orders ? orders : []} setOrders={setOrders} isAdmin={isAdmin} />
 
       <Footer />
     </div>
