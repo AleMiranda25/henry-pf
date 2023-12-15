@@ -16,7 +16,7 @@ import {
   ServicesAdm,
   Review,
   ServiceForm,
-  UserAdm
+  UserAdm,
 } from "./Views";
 
 //* #####################################################
@@ -52,7 +52,7 @@ function App() {
         {
           //* USER REVIEWS
         }
-        <Route path="/review" Component={Review} />
+        <Route path="/reviews" Component={Review} />
         {
           //* USER ORDERS
         }
