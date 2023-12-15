@@ -7,8 +7,10 @@ import { useEffect, useState } from "react";
 import { Footer, Navbar, TableOrders } from "../../Components";
 
 const Orders = () => {
-const idUser = "a01d63e0-955a-11ee-9c50-9fe9dc32aa12"
-const isAdmin = false;
+const idUser = localStorage.getItem('userId');
+//const idUser = "da368930-9a37-11ee-a17d-c557fe83a6d3"
+const isAdmin = localStorage.getItem('isAdmin');
+//const isAdmin = false;
 const [ orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -16,11 +18,9 @@ const [ orders, setOrders] = useState([]);
       try {
         if (isAdmin) {
           const res = await axios.get(`/orders`);
-          console.log("Orders:", res.data);
           setOrders(res.data);
         } else {
           const res = await axios.get(`/orders/${idUser}`);
-          console.log("Orders:", res.data);
           setOrders(res.data);
         }
       } catch (err) {
@@ -39,7 +39,7 @@ const [ orders, setOrders] = useState([]);
       }}
     >
       <Navbar />
-      <TableOrders orders={orders ? orders : []} isAdmin={isAdmin} />
+      <TableOrders orders={orders ? orders : []} setOrders={setOrders} isAdmin={isAdmin} />
 
       <Footer />
     </div>

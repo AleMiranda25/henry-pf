@@ -15,6 +15,7 @@ import {
   Orders,
   ServicesAdm,
   ServiceForm,
+  UserAdm,
 } from "./Views";
 
 //* #####################################################
@@ -60,6 +61,11 @@ function App() {
           //* VIEW TO ADMIN THE SERVICES
         }
         <Route path="/servicesadm" Component={ServicesAdm} />
+
+        {
+          //* VIEW TO ADMIN THE USERS
+        }
+        <Route path="/usersadm" Component={UserAdm} />
       </Routes>
     </div>
   );
