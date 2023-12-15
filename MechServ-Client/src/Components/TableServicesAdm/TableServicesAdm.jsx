@@ -57,7 +57,7 @@ const TableServicesAdm = (props) => {
     };
 
     return (
-    <div className="overflow-x-auto bg-white bg-opacity-50">
+    <div className="mb-16 overflow-x-auto bg-white bg-opacity-50">
     <table className="table">
         {/* head */}
         <thead>

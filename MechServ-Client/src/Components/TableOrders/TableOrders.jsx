@@ -1,15 +1,17 @@
 /* eslint-disable react/prop-types */
 //Funcionalidad
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 const TableOrders = (props) => {
-  const { orders, setOrders, isAdmin } = props;
+  const { orders, isAdmin, refresh, setRefresh } = props;
+  const navigate = useNavigate();
 
   const setOrder = async (id_orden) => {
     try {
-      const res = await axios.get(`/orders/set/${id_orden}`);
-      alert(res.data.message);
-      setOrders([...orders]);
+      const res =   await axios.get(`/orders/set/${id_orden}`);
+      alert(res.data.message)
+      setRefresh(!refresh)
     } catch (err) {
       console.log(err);
     }
@@ -31,10 +33,18 @@ const TableOrders = (props) => {
     }
   };
 
+  const handleReview = (event) => {
+    const idOrden = event.target.dataset.key;
+    localStorage.setItem("orderToReview", idOrden);
+    navigate(`/reviews`);
+  }
+
+
+
   //* MERCADO PAGO END
 
   return (
-    <div className="mt-16 overflow-x-auto bg-white bg-opacity-50">
+    <div className="mb-16 overflow-x-auto bg-white bg-opacity-50">
       <table className="table">
         {/* head */}
         <thead>
@@ -46,6 +56,7 @@ const TableOrders = (props) => {
             <th>Pago</th>
             <th></th>
             {isAdmin ? <th> Is Active</th> : null}
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -103,6 +114,15 @@ const TableOrders = (props) => {
                   </a>
                 </td>
               ) : null}
+              <td>
+                <a
+                  className="font-[Oswald] hover:text-[#5770F4] text-black text-[17px] font-semibold align-middle cursor-pointer"
+                  data-key={order.id_orden}
+                  onClick={handleReview}
+                >
+                  <i className="fa fa-star-o  " /> Califica
+                </a>
+              </td>
             </tr>
           ))}
         </tbody>
