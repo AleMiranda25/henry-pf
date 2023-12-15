@@ -14,10 +14,7 @@ import {
   Profile,
   Orders,
   ServicesAdm,
-  Reviews
   Review,
-=======
-   main
 } from "./Views";
 
 //* #####################################################
