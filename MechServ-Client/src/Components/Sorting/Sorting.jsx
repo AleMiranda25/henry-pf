@@ -6,14 +6,20 @@ const SortingOptions = ({ sortOrder, sortDirection, onSortChange }) => {
       <div>
         <label>Ordenar de forma: </label>
         <select
-          className="font-bold bg-[#202123] bg-opacity-90 p-2 rounded-lg"
+          className="font-bold bg-[#202123] bg-opacity-90 p-2 rounded-lg font-[Oswald] "
           value={sortOrder}
           onChange={(e) => onSortChange("order", e.target.value)}
         >
-          <option className="font-bold bg-[#202123]" value="name">
+          <option
+            className="font-bold bg-[#202123] font-[Oswald] "
+            value="name"
+          >
             Alfabética
           </option>
-          <option className="font-bold bg-[#202123]" value="price">
+          <option
+            className="font-bold bg-[#202123] font-[Oswald] "
+            value="price"
+          >
             Por precio
           </option>
         </select>
@@ -22,14 +28,17 @@ const SortingOptions = ({ sortOrder, sortDirection, onSortChange }) => {
       <div>
         <label>Dirección: </label>
         <select
-          className="font-bold bg-[#202123] bg-opacity-90 p-2 rounded-lg"
+          className="font-bold bg-[#202123] bg-opacity-90 p-2 rounded-lg font-[Oswald] "
           value={sortDirection}
           onChange={(e) => onSortChange("direction", e.target.value)}
         >
-          <option className="font-bold bg-[#202123]" value="asc">
+          <option className="font-bold bg-[#202123] font-[Oswald] " value="asc">
             Ascendente
           </option>
-          <option className="font-bold bg-[#202123]" value="desc">
+          <option
+            className="font-bold bg-[#202123] font-[Oswald] "
+            value="desc"
+          >
             Descendente
           </option>
         </select>

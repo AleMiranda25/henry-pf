@@ -18,15 +18,16 @@ const TableOrders = (props) => {
   };
 
   //* MERCADO PAGO INIT
-  const buyFunction = async (order) => {
+  const buyFunction = async (orden) => {
     let item = {
-      name: order.Servicio.name,
-      price: order.Servicio.price,
+      name: orden.Servicio.name,
+      price: Number(orden.Servicio.price),
     };
     console.log(item);
     try {
       const response = await axios.post(`/Mercado_Pago`, item);
-      window.location.href = response.data;
+      console.log(response.data);
+      response.data ? (window.location.href = response.data) : null;
     } catch (error) {
       console.log(error);
     }
@@ -60,7 +61,10 @@ const TableOrders = (props) => {
         </thead>
         <tbody>
           {orders?.map((order) => (
-            <tr key={order.id_orden} className="font-[Oswald] text-black text-[15px] align-middle">
+            <tr
+              key={order.id_orden}
+              className="font-[Oswald] text-black text-[15px] align-middle"
+            >
               <td>{order.Servicio.name}</td>
               <td>{`${order.Vehiculo.marca} - ${order.Vehiculo.modelo}`}</td>
               <td>{`${order.Turno.dia} - ${order.Turno.hora}`}</td>
@@ -77,18 +81,20 @@ const TableOrders = (props) => {
               <td>
                 <a
                   className={
-                    order.payment || !order.isActive
+                    order.payment || order.isActive
                       ? "text-[#8d8989] cursor-default"
                       : "font-[Oswald] hover:text-[#5770F4] text-black text-[17px] font-semibold align-middle cursor-pointer"
                   }
                   onClick={
-                    order.payment
+                    order.payment || order.isActive
                       ? null
                       : () => {
                           buyFunction(order);
                         }
                   }
                 >
+                  {console.log(order.payment || !order.isActive)}
+                  {console.log(order.Servicio)}
                   <i className="fa fa-money" /> Pagar
                 </a>
               </td>

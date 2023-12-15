@@ -8,7 +8,6 @@ import Pagination from "../Pagination";
 const CategoriesContainer = () => {
   const categories = useSelector((state) => state.categories);
   categories.includes("All") ? null : categories.unshift("All");
-  console.log(categories);
   const [currentPage, setCurrentPage] = useState(1);
   const categoriesPerPage = 5;
 
@@ -31,7 +30,6 @@ const CategoriesContainer = () => {
         <div>
           <div className="flex flex-row justify-evenly text-[10px] sm:md:lg:text-[30px] gap-3 m-2 sm:md:lg:m-5">
             {currentCategories.map((category, index) => {
-              console.log(category);
               return (
                 <div key={index}>
                   <a
