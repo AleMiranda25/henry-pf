@@ -7,7 +7,8 @@ import Detail from "./Detail/Detail"
 import About from "./About";
 import Profile from "./Profile";
 import Orders from "./Orders/Orders";
-import ServicesAdm from "./ServicesAdm/ServicesAdm";
+import ServiceForm from "./ServiceForm/ServiceForm";
+import UserAdm from "./UserAdm/UserAdm";
 import Review from "./Review";
 
 export { Login, Register, ResetPassword, Home, Services, Detail, About, Profile, Orders, ServicesAdm, Review };
