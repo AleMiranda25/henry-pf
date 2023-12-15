@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import Modal from "./Modal"
 import axios from "axios";
+import {Cloudinary} from "@cloudinary/url-gen";
+
+
 // import { addNewVehicle } from "../../redux/actions";
 
 const NewVehicle = () => {
     const idUser = localStorage.getItem('userId');
     const [dialogOpen, setDialogOpen] = useState(false);
+    const [file, setFile] = useState();
 
     const openDialog = () => {
         setDialogOpen(true);
@@ -53,10 +57,15 @@ const NewVehicle = () => {
         setErrors(newErrors)
     }
 
-    const changeHandler = (event) => {
+    const  changeHandler = async (event) => {
         const property = event.target.name;
         let value;
-        value = event.target.value;      
+        if (property=='image') {
+            
+            setFile(event.target.files[0])
+        }
+        value = event.target.value; 
+       
         validate({...form, [property]:value});  
         setForm({...form, [property]:value})
     }
@@ -66,13 +75,25 @@ const NewVehicle = () => {
         event.preventDefault()
         if (Object.values(errors).every((error)=> error === "")){
             try{
-                await axios.post("https://mechserv-pf.onrender.com/vehiculos/", form)
+                let  formData = new FormData()
+                formData.append('file',file)
+                formData.append('upload_preset','gkmhyvdp')
+                
+                const response=  await axios.post("https://api.cloudinary.com/v1_1/doxadkm4r/image/upload",formData)
+               form.image= response.data.secure_url
+
+
+                
+
+                await axios.post("/vehiculos/", form)
                 alert("Vehículo agregado exitosamente.")
                     setForm({
                         marca: "",
                         modelo: "",
                         date: "",
-                        image: ""
+                        image: "",
+                        
+
                     })
                     setErrors({
                         marca: "",

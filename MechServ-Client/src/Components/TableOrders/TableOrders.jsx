@@ -93,8 +93,6 @@ const TableOrders = (props) => {
                         }
                   }
                 >
-                  {console.log(order.payment || !order.isActive)}
-                  {console.log(order.Servicio)}
                   <i className="fa fa-money" /> Pagar
                 </a>
               </td>
@@ -116,9 +114,18 @@ const TableOrders = (props) => {
               ) : null}
               <td>
                 <a
-                  className="font-[Oswald] hover:text-[#5770F4] text-black text-[17px] font-semibold align-middle cursor-pointer"
+                  className={!order.payment || order.isActive
+                      ? "text-[#8d8989] cursor-default"
+                      : "font-[Oswald] hover:text-[#5770F4] text-black text-[17px] font-semibold align-middle cursor-pointer"
+                  }
+                  onClick={
+                    !order.payment && order.isActive
+                      ? {handleReview}
+                      : null
+                  }
+
                   data-key={order.id_orden}
-                  onClick={handleReview}
+
                 >
                   <i className="fa fa-star-o  " /> Califica
                 </a>

@@ -14,7 +14,11 @@ const PerfilUsuario = () => {
   const parsedOrders = JSON.parse(storedOrders); // aca hago un parseo para que la orden aparezca como un json en el local storage
   const [localOrders, setLocalOrders] = useState([]); //creo un stado para guardar la orden en mi componente
   const [isNewUser, setIsNewUser] = useState(false);
+  
 
+ 
+
+ 
   useEffect(() => {
     setIsNewUser(false); // Reinicia el indicador de nuevo usuario
     if (email) {
