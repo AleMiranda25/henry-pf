@@ -81,12 +81,12 @@ const TableOrders = (props) => {
               <td>
                 <a
                   className={
-                    order.payment || order.isActive
+                    order.payment || !order.isActive
                       ? "text-[#8d8989] cursor-default"
                       : "font-[Oswald] hover:text-[#5770F4] text-black text-[17px] font-semibold align-middle cursor-pointer"
                   }
                   onClick={
-                    order.payment || order.isActive
+                    order.payment || !order.isActive
                       ? null
                       : () => {
                           buyFunction(order);
@@ -114,12 +114,12 @@ const TableOrders = (props) => {
               ) : null}
               <td>
                 <a
-                  className={!order.payment || order.isActive
+                  className={!order.payment || !order.isActive
                       ? "text-[#8d8989] cursor-default"
                       : "font-[Oswald] hover:text-[#5770F4] text-black text-[17px] font-semibold align-middle cursor-pointer"
                   }
                   onClick={
-                    !order.payment && order.isActive
+                    !order.payment || !order.isActive
                       ? {handleReview}
                       : null
                   }
