@@ -9,9 +9,9 @@ const TableOrders = (props) => {
 
   const setOrder = async (id_orden) => {
     try {
-      const res =   await axios.get(`/orders/set/${id_orden}`);
-      alert(res.data.message)
-      setRefresh(!refresh)
+      const res = await axios.get(`/orders/set/${id_orden}`);
+      alert(res.data.message);
+      setRefresh(!refresh);
     } catch (err) {
       console.log(err);
     }
@@ -37,9 +37,7 @@ const TableOrders = (props) => {
     const idOrden = event.target.dataset.key;
     localStorage.setItem("orderToReview", idOrden);
     navigate(`/reviews`);
-  }
-
-
+  };
 
   //* MERCADO PAGO END
 
@@ -86,7 +84,7 @@ const TableOrders = (props) => {
                       : "font-[Oswald] hover:text-[#5770F4] text-black text-[17px] font-semibold align-middle cursor-pointer"
                   }
                   onClick={
-                    order.payment || order.isActive
+                    order.payment || !order.isActive
                       ? null
                       : () => {
                           buyFunction(order);
